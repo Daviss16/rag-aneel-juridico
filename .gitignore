@@ -1,9 +1,77 @@
+# =========================
+# Python
+# =========================
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribuição / build
+build/
+dist/
+*.egg-info/
+
+# Ambientes virtuais
 .venv/
-.env
+venv/
+env/
+
+# =========================
+# Jupyter / Notebook
+# =========================
 .ipynb_checkpoints/
 
-data/raw/pdfs/
-data/processed/
-outputs/
+# =========================
+# VS Code / IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Sistema operacional
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+data/logs/
+
+# =========================
+# Arquivos temporários
+# =========================
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# =========================
+# Saídas intermediárias e processadas
+# =========================
+data/interim/parsed/
+data/processed/chunks/
+
+# Se futuramente gerar artefatos de resolved automaticamente e não quiser versionar:
+# data/interim/resolved/
+
+# =========================
+# Arquivos pesados baixados
+# =========================
+# Se os 150 PDFs fizerem parte do experimento reproduzível e você QUISER versionar, deixe fora do ignore.
+# Se NÃO quiser subir os PDFs para o Git, descomente a linha abaixo:
+# data/raw/documents/downloads/
+
+# =========================
+# Modelos / embeddings / bases vetoriais futuras
+# =========================
+*.faiss
+*.index
+*.parquet
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.sqlite
+*.db
