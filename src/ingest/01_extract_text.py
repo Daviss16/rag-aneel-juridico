@@ -79,8 +79,23 @@ class PDFExtractor(BaseExtractor):
                             page_text += "\n\n" + "\n".join(md_table) + "\n\n"
                         pages.append(page_text)
                     else:
-                        text = page_fitz.get_text()
-                        if text: pages.append(text)
+                        text_dict = page_fitz.get_text("dict")
+                        clean_text_blocks = []
+                        
+                        for block in text_dict.get("blocks", []):
+                            if block.get("type") == 0:  
+                                for line in block.get("lines", []):
+                                    line_text = ""
+                                    for span in line.get("spans", []):
+                                        if not (span.get("flags", 0) & 16):
+                                            line_text += span.get("text", "")
+                                            
+                                    if line_text.strip():
+                                        clean_text_blocks.append(line_text)
+                                        
+                        text = "\n".join(clean_text_blocks)
+                        if text: 
+                            pages.append(text)
 
             doc_fitz.close()
             return normalize_text("\n\n".join(pages))

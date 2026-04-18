@@ -31,9 +31,12 @@ def build_enriched_document(metadata: Dict[str, Any], raw_text: str) -> str:
     ano = metadata.get("ano", "")
     assunto = metadata.get("assunto_normalizado", "")
     
+    revogada = metadata.get("revogada_flag", 0)
+    alerta = "\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]" if revogada == 1 else ""
+    
     header = (
         f"DOCUMENTO: {tipo_ato} {sigla}\n"
-        f"ANO: {ano}\n"
+        f"ANO: {ano}{alerta}\n"
         f"ASSUNTO: {assunto}\n"
         f"---\n"
     )

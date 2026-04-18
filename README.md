@@ -1,94 +1,72 @@
 # RAG Jurídico ANEEL
 
-Projeto de desenvolvimento de uma pipeline de RAG para perguntas e respostas sobre documentos jurídicos da ANEEL, com foco em benchmark, rastreabilidade e reprodutibilidade.
+Projeto de desenvolvimento de uma pipeline de RAG para perguntas e respostas sobre documentos jurídicos da ANEEL, com foco em benchmark, rastreabilidade, reprodutibilidade e escala de dados em arquitetura ETL.
 
 ## Objetivo
 
-Construir uma base técnica reproduzível para:
+Construir uma base técnica reproduzível e resiliente para:
 
-- análise exploratória dos metadados
-- seleção de amostra representativa
-- aquisição dos documentos
-- extração de texto
-- chunking para futura indexação vetorial
-- avaliação posterior em benchmark de Q/A
+- análise exploratória dos metadados governamentais
+- seleção e pontuação de amostras representativas (Priorização)
+- aquisição automatizada dos documentos (bypassing de restrições de rede/Cloudflare)
+- extração limpa de texto
+- chunking enriquecido com metadados para futura indexação vetorial
+- avaliação posterior em benchmark de Q/A cego
 
 ## Estratégia do projeto
 
-Em vez de começar diretamente com todo o volume de dados, o projeto adota uma abordagem incremental:
+Em vez de começar diretamente com todo o volume de dados, o projeto adota uma abordagem iterativa e modular:
 
 1. entender os metadados e padrões do acervo
-2. selecionar uma amostra controlada de documentos
+2. selecionar uma amostra controlada de documentos (Prova de Conceito - PoC)
 3. validar a pipeline ponta a ponta nessa amostra
 4. só depois escalar para o conjunto completo
+5. implementar padrão de Fila de Tarefas com Estado (Stateful Queue) para download resiliente em lotes massivos, lidando com os ~27 mil documentos.
 
-A amostra atual foi pensada como ambiente de teste para maximizar aprendizado sobre:
-
-- qualidade dos documentos
-- limitações de aquisição
-- robustez da ingestão
-- impacto futuro nas métricas de Q/A
+A amostra inicial (150 PDFs) foi pensada como ambiente de teste para maximizar o aprendizado sobre a qualidade dos documentos, limitações de aquisição e robustez da ingestão.
 
 ## Contexto dos dados
 
-A base original contém aproximadamente **27 mil documentos** descritos em arquivos JSON com metadados e links para PDFs.
+A base original contém aproximadamente 27 mil documentos descritos em arquivos JSON com metadados e links para PDFs (Resoluções, Despachos, Portarias, etc).
 
-Até o momento, o projeto trabalha sobre uma **amostra de 150 documentos**, selecionada a partir dos metadados e organizada para permitir desenvolvimento iterativo da pipeline.
+Iniciamos com o processamento local de uma amostra de ouro (150 documentos) e evoluímos a arquitetura para lidar com o acervo total. O sistema agora é alimentado por uma **Fila Mestre (`fila_downloads_mestre.csv`) que pontua, classifica e gerencia o estado de download de cada documento do acervo original.
 
 ## Nota sobre os dados
 
-A amostra de 150 documentos foi incluída diretamente no repositório para garantir reprodutibilidade do experimento.
+A amostra inicial de 150 documentos foi incluída diretamente no repositório para garantir reprodutibilidade do experimento. O conjunto completo (~27 mil documentos) não será versionado em Git; em vez disso, o sistema faz a ingestão em lotes (`worker_gui_lotes.py`) e migra os artefatos baixados temporariamente para um Data Lake/Drive, esvaziando o armazenamento local do nó de execução.
 
-O conjunto completo (~27 mil documentos) não será versionado devido ao volume, sendo tratado separadamente na etapa de escalabilidade.
+## Estrutura Atual do Pipeline de Ingestão
 
-## Princípio arquitetural central
-
-O **manifesto CSV é a fonte da verdade**.
-
-Isso significa que:
-
-- nomes de arquivos locais não são usados como fonte de metadado
-- toda associação entre documento e registro deve partir do manifesto
-- os arquivos locais são tratados apenas como blobs de conteúdo
-
-## Arquitetura atual da ingestão
-
-A antiga abordagem monolítica foi substituída por uma pipeline em dois estágios:
-
-### 1. Extração pesada (`01_extract_text.py`)
+### 1. Planejamento de Prioridades (`gerar_fila_prioridade.py`)
 Responsável por:
+- Ler os JSONs aninhados originais.
+- "Desempacotar" anexos (criando IDs únicos `registro_uid_pdfN`).
+- Aplicar score de prioridade baseado em tipo, sigla, ano e um bônus de diversidade.
+- Gerar o CSV Mestre que atua como banco de dados de estado (`pendente`, `baixado_local`, `erro`).
 
-- ler o manifesto CSV
-- localizar os documentos baixados
-- abrir os PDFs
-- extrair texto com PyMuPDF (`fitz`)
-- usar `pdfplumber` como apoio/fallback quando necessário
-- converter tabelas detectadas para Markdown
-- salvar o texto integral em um arquivo intermediário
-
-Saída:
-
-- `data/interim/parsed/parsed_documents.jsonl`
-
-### 2. Chunking leve (`02_create_chunks.py`)
+### 2. O Worker de Aquisição (`worker_gui_lotes.py`)
 Responsável por:
+- Consumir o CSV Mestre pegando apenas lotes (ex: 100) não processados.
+- Executar automação de GUI orientada por metadados para baixar sem acionar proteções anti-bot.
+- Identificar e renomear o arquivo localmente com o seu `registro_uid` para evitar sobreescritas.
+- Atualizar dinamicamente o status no CSV de controle.
 
-- ler o JSONL intermediário
-- injetar cabeçalho enriquecido com metadados
-- aplicar chunking com overlap
-- gerar o JSONL final pronto para etapa futura de embeddings/indexação
+### 3. Extração Limpa (`01_parse_documents.py` - Em progresso)
+Responsável por converter os PDFs padronizados em dados legíveis por máquina, extraindo texto limpo para o arquivo `data/interim/parsed/parsed_documents.jsonl`.
 
-Saída:
-
-- `data/processed/chunks/chunks.jsonl`
+### 4. Chunking e Enriquecimento (`02_create_chunks.py` - Em progresso)
+Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido com metadados no início de cada documento, garantindo o Data Lineage para o LLM.
 
 ## Decisões de engenharia já adotadas
 
-- separação entre extração e chunking
-- uso de arquivo intermediário JSONL para desacoplamento
-- uso de `pathlib.Path(__file__)` para tornar os scripts reproduzíveis em qualquer ambiente
-- tratamento do CSV como fonte da verdade
-- preparação da arquitetura para futura escala (~27k documentos)
+- separação estrita entre extração, chunking e armazenamento vetorial.
+- uso de arquivo intermediário JSONL para desacoplamento.
+- uso de `pathlib.Path(__file__)` para tornar os scripts reproduzíveis em qualquer ambiente.
+- tratamento do CSV como fonte da verdade estática e gerenciador de estado da fila.
+- preparação da arquitetura para escala (~27k documentos) rodando de forma assíncrona ao desenvolvimento do modelo.
+- desacoplamento entre o controle de estado dos downloads (Fila Mestre) e o armazenamento físico local.
+- renomeação inteligente injetada via sufixo `_pdfN` para evitar sobreescrita de anexos processuais.
+- adoção de automação GUI em vez de requests puras para bypass de restrições de infraestrutura do alvo (ex: Cloudflare).
 
 ## Estrutura do projeto
 
@@ -100,8 +78,11 @@ rag-aneel/
 │   │   ├── metadata/
 │   │   ├── selected/
 │   │   │   └── amostra_pdfs_150.csv
+│   │   ├── fila_downloads_mestre.csv      
 │   │   └── documents/
-│   │       └── downloads/
+│   │       ├── temp/
+│   │       │   └── lotes_baixados/       
+│   │       └── downloads/                
 │   │           ├── 2016/
 │   │           ├── 2021/
 │   │           └── 2022/
@@ -115,18 +96,15 @@ rag-aneel/
 │   └── logs/
 ├── src/
 │   ├── sampling/
-│   │   └── selecionar_amostra_pdfs.py
-│   ├── resolver/
-│   │   └── resolver_fontes_alternativas.py
+│   │   ├── selecionar_amostra_pdfs.py
+│   │   └── gerar_fila_prioridade.py       
 │   ├── downloads/
-│   │   └── baixar_pdfs_GUI.py
-│   ├── ingest/
-│   │   ├── 01_extract_text.py
-│   │   └── 02_create_chunks.py
-│   └── retrieval/
-├── docs/
-├── notebooks/
-├── archive/
-│   └── deprecated/
-├── README.md
-└── .gitignore
+│   │   ├── baixar_pdfs_script_mouse_teclado.py
+│   │   └── worker_gui_lotes.py            
+│   ├── parsing/
+│   │   └── 01_parse_documents.py
+│   └── chunking/
+│       └── 02_create_chunks.py
+├── .gitignore
+├── requirements.txt
+└── README.md

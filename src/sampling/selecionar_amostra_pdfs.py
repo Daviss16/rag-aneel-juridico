@@ -199,7 +199,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
     selected_ids = set()
     selected_rows = []
 
-    # 1) Garantir tipos de PDF prioritários
     for pdf_tipo in PDF_TYPE_PRIORITY:
         candidates = df_year[
             (df_year["pdf_tipo"] == pdf_tipo)
@@ -210,7 +209,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
             selected_rows.append(row)
             selected_ids.add(row["pdf_uid"])
 
-    # 2) Garantir siglas prioritárias
     for sigla in SIGLA_PRIORITY:
         candidates = df_year[
             (df_year["sigla_titulo"] == sigla)
@@ -221,7 +219,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
             selected_rows.append(row)
             selected_ids.add(row["pdf_uid"])
 
-    # 3) Garantir assuntos prioritários
     for assunto in ASSUNTO_PRIORITY:
         candidates = df_year[
             (df_year["assunto_normalizado"] == assunto)
@@ -232,7 +229,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
             selected_rows.append(row)
             selected_ids.add(row["pdf_uid"])
 
-    # 4) Edge cases
     for edge_filter in [
         (df_year["revogada_flag"] == 1),
         (df_year["ementa_status"] == "NULL"),
@@ -245,7 +241,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
             selected_rows.append(row)
             selected_ids.add(row["pdf_uid"])
 
-    # 5) Completar parte estruturada com diversidade por sigla+pdf_tipo
     structured_df = df_year[
         ~df_year["pdf_uid"].isin(selected_ids)
     ].copy()
@@ -261,7 +256,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
         if len(selected_rows) >= target_structured:
             break
 
-    # 6) Se ainda faltar para os 30 estruturados, completar com registros diversos
     if len(selected_rows) < target_structured:
         remaining = df_year[~df_year["pdf_uid"].isin(selected_ids)]
         extra = remaining.sample(
@@ -272,11 +266,9 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
             selected_rows.append(row)
             selected_ids.add(row["pdf_uid"])
 
-    # 7) Parte diversificada: 20 restantes com controle leve
     remaining = df_year[~df_year["pdf_uid"].isin(selected_ids)].copy()
 
     if len(remaining) > 0:
-        # favorece assuntos menos frequentes e siglas menos dominantes
         sigla_freq = remaining["sigla_titulo"].value_counts().to_dict()
         assunto_freq = remaining["assunto_normalizado"].value_counts().to_dict()
 
@@ -304,7 +296,6 @@ def build_sample_for_year(df_year: pd.DataFrame, target_total=50, target_structu
 
     sample_df = pd.DataFrame(selected_rows).drop_duplicates(subset=["pdf_uid"])
 
-    # Se passou por algum motivo, corta
     if len(sample_df) > target_total:
         sample_df = sample_df.head(target_total)
 

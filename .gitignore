@@ -53,15 +53,8 @@ data/logs/
 data/interim/parsed/
 data/processed/chunks/
 
-# Se futuramente gerar artefatos de resolved automaticamente e não quiser versionar:
-# data/interim/resolved/
 
-# =========================
-# Arquivos pesados baixados
-# =========================
-# Se os 150 PDFs fizerem parte do experimento reproduzível e você QUISER versionar, deixe fora do ignore.
-# Se NÃO quiser subir os PDFs para o Git, descomente a linha abaixo:
-# data/raw/documents/downloads/
+data/raw/documents/temp/
 
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
