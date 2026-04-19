@@ -1,4 +1,4 @@
-#rode no terminal: python3 src/sampling/gerar_fila_prioridade.py data/raw/json data/raw/selected
+#rode no terminal: python3 -m src.sampling.gerar_fila_prioridade data/raw/json data/raw/selected
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -186,7 +186,7 @@ def calcular_prioridade(row):
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python3 src/sampling/gerar_fila_prioridade.py data/raw/json data/interim/download")
+        print("Uso: python3 -m src.sampling.gerar_fila_prioridade data/raw/json data/raw/selected")
         sys.exit(1)
 
     json_dir = Path(sys.argv[1])
@@ -206,7 +206,7 @@ def main():
         if not year:
             continue
             
-        print(f"\n🔍 Lendo {json_path.name}...")
+        print(f"\nLendo {json_path.name}...")
         df_year = extract_records_from_json(json_path, year)
         linhas = len(df_year)
         total_linhas_extraidas += linhas
@@ -219,17 +219,13 @@ def main():
         print("Nenhum registro extraído dos JSONs.")
         sys.exit(1)
 
-    print("\n📦 Juntando todos os anos...")
     df_todos = pd.concat(all_dfs, ignore_index=True)
-    print(f"   -> Tamanho após concatenação bruta: {len(df_todos)} linhas.")
 
     df_todos['cat_key'] = df_todos['sigla_titulo'] + df_todos['pdf_tipo'] + df_todos['assunto_normalizado']
     df_todos['is_first_of_kind'] = ~df_todos.duplicated(subset=['cat_key'])
 
-    print("\n📊 Calculando prioridade e ordenando...")
     df_todos['score_prioridade'] = df_todos.apply(calcular_prioridade, axis=1)
     df_todos = df_todos.sort_values(by=['score_prioridade', 'ano'], ascending=[False, False])
-    print(f"   -> Tamanho após priorização: {len(df_todos)} linhas.")
 
     df_todos['status_processamento'] = 'pendente'
     df_todos['tentativas'] = 0
@@ -238,12 +234,11 @@ def main():
     caminho_fila = output_dir / "fila_downloads_mestre_v2.csv"
     df_todos.to_csv(caminho_fila, index=False, encoding="utf-8")
     
-    print("\n✅ Resumo Final:")
-    print(f"   Total somado individualmente: {total_linhas_extraidas}")
+    print("\nResumo Final:")
     print(f"   Total na Fila Mestre Final:   {len(df_todos)}")
     
     if total_linhas_extraidas != len(df_todos):
-        print("   ⚠️ ATENÇÃO: Houve perda de dados durante a junção!")
+        print("    ATENÇÃO: Houve perda de dados durante a junção!")
 
 if __name__ == "__main__":
     main()

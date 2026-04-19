@@ -100,8 +100,34 @@ Resultados no benchmark atual:
 
 O baseline já consegue recuperar todos os documentos esperados dentro do top-3, indicando boa qualidade do corpus e da pipeline.
 
+### 7. Retrieval Semântico (Embeddings)
+
+Foi implementado um segundo baseline de retrieval utilizando embeddings.
+
+Características:
+
+- modelo: `sentence-transformers/all-MiniLM-L6-v2`
+- geração de embeddings para todos os chunks
+- similaridade por cosine
+- busca no nível de chunk e avaliação no nível de documento (`registro_uid`)
+
+Resultados no benchmark atual:
+
+- Top-1 accuracy: **32,14%**
+- Top-3 recall: **60,71%**
+
+Comparado ao BM25, o método semântico apresentou queda significativa de desempenho, principalmente em perguntas com:
+
+- números (tabelas, percentuais)
+- entidades específicas
+- linguagem regulatória repetitiva
+
+Isso indica que embeddings genéricos não são suficientes para esse domínio e reforça a necessidade de uma abordagem híbrida.
+
+
 ## Decisões de engenharia já adotadas
 
+- adoção de automação GUI em vez de requests puras para bypass de restrições de infraestrutura do alvo (ex: Cloudflare).
 - separação estrita entre extração, chunking e armazenamento vetorial.
 - uso de arquivo intermediário JSONL para desacoplamento.
 - uso de `pathlib.Path(__file__)` para tornar os scripts reproduzíveis em qualquer ambiente.
@@ -109,7 +135,6 @@ O baseline já consegue recuperar todos os documentos esperados dentro do top-3,
 - preparação da arquitetura para escala (~27k documentos) rodando de forma assíncrona ao desenvolvimento do modelo.
 - desacoplamento entre o controle de estado dos downloads (Fila Mestre) e o armazenamento físico local.
 - renomeação inteligente injetada via sufixo `_pdfN` para evitar sobreescrita de anexos processuais.
-- adoção de automação GUI em vez de requests puras para bypass de restrições de infraestrutura do alvo (ex: Cloudflare).
 - separação explícita entre ingestão e retrieval, permitindo experimentação controlada sobre o corpus.
 - avaliação baseada em benchmark estruturado com métricas de recuperação (top-1 e top-3).
 
@@ -163,6 +188,8 @@ rag-aneel/
 │   │   ├── data_loader.py
 │   │   ├── text_normalization.py
 │   │   └── schemas.py
+│   |   ├── semantic_retriever.py
+│   |   └── evaluate_semantic.py
 │   └── utils/
 │       └── find_missing_pdfs.py
 ├── .gitignore

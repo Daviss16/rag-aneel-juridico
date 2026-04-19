@@ -1,4 +1,4 @@
-#rode no terminal: python3 -m src.retrieval.bm25_retriever <"query"> --top-k 5
+#rode no terminal: python3 -m src.retrieval.bm25_retriever <"query"> --top-k N
 
 from __future__ import annotations
 
