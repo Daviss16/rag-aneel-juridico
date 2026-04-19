@@ -10,7 +10,7 @@ import pandas as pd
 import pyautogui
 import pyperclip
 
-TAMANHO_LOTE = 10
+TAMANHO_LOTE = 200
 
 PASTA_DOWNLOADS_NAVEGADOR = Path.home() / "Downloads"
 
@@ -52,6 +52,8 @@ def main():
 
     PASTA_DESTINO.mkdir(parents=True, exist_ok=True)
 
+    contador_cloudflare = 0
+
     try:
         for index, row in lote_atual.iterrows():
             url = str(row['url']).strip()
@@ -72,14 +74,20 @@ def main():
 
             pyautogui.hotkey('ctrl', 'v')
             pyautogui.press('enter')
-            time.sleep(8.0) 
+            time.sleep(10.0) 
 
             pyautogui.hotkey('ctrl', 's')
             time.sleep(2.0) 
             pyautogui.press('enter') 
+
+            time.sleep(1.0)
+            pyautogui.press('left') 
+            time.sleep(0.3)
+            pyautogui.press('enter')
             
             time.sleep(4.0) 
 
+            pyautogui.press('esc', presses=3, interval=0.2)
             pyautogui.hotkey('ctrl', 'w')
             time.sleep(1.0)
 
@@ -88,21 +96,54 @@ def main():
             novos_arquivos = arquivos_depois - arquivos_antes
 
             if novos_arquivos:
-                arquivo_baixado = list(novos_arquivos)[0]
+                arquivo_principal = None
                 
-                nome_seguro = f"{registro_uid}.pdf"
-                caminho_final = PASTA_DESTINO / nome_seguro
+                for arq in novos_arquivos:
+                    if arq.is_file():
+                        arquivo_principal = arq
+                    elif arq.is_dir():
+                        try: shutil.rmtree(arq)
+                        except: pass
                 
-                try:
-                    shutil.move(str(arquivo_baixado), str(caminho_final))
-                    df.at[index, 'status_processamento'] = 'baixado_local'
-                    print(f" -> Sucesso! Salvo como {nome_seguro}")
-                except Exception as e:
-                    df.at[index, 'status_processamento'] = 'erro_mover_arquivo'
-                    print(f" -> Erro ao mover arquivo: {e}")
+                if arquivo_principal:
+                    nome_original = arquivo_principal.name.lower()
+                    extensao = arquivo_principal.suffix.lower()
+
+                    if "cloudflare" in nome_original or "attention" in nome_original:
+                        arquivo_principal.unlink()
+                        df.at[index, 'status_processamento'] = 'erro_cloudflare'
+                        print(" -> [BLOQUEIO] Cloudflare detectado. Lixo apagado.")
+
+                        contador_cloudflare += 1
+                        if contador_cloudflare >= 3:
+                            print("\n[ALERTA TÁTICO] 3 bloqueios seguidos! O Cloudflare está desconfiado.")
+                            print("Pausando o robô por 30 segundos para resetar a reputação do IP...")
+                            time.sleep(30)
+                            contador_cloudflare = 0 
+                            print("Retomando as operações...\n")
+                    
+                    elif extensao not in ['.pdf', '.html', '.htm']:
+                        arquivo_principal.unlink()
+                        df.at[index, 'status_processamento'] = f'erro_extensao_{extensao}'
+                        print(f" -> [ERRO] Extensão inválida ({extensao}). Lixo apagado.")
+                    
+                    else:
+                        nome_seguro = f"{registro_uid}{extensao}"
+                        caminho_final = PASTA_DESTINO / nome_seguro
+                        try:
+                            shutil.move(str(arquivo_principal), str(caminho_final))
+                            df.at[index, 'status_processamento'] = 'baixado_local'
+                            contador_cloudflare = 0
+                            print(f" -> Sucesso! Salvo como {nome_seguro}")
+                        except Exception as e:
+                            df.at[index, 'status_processamento'] = 'erro_mover_arquivo'
+                            print(f" -> [ERRO] Falha ao mover arquivo: {e}")
+                else:
+                    df.at[index, 'status_processamento'] = 'erro_download_vazio'
+                    print(" -> [FALHA] Nenhum arquivo válido salvo.")
             else:
                 df.at[index, 'status_processamento'] = 'erro_download_gui'
-                print(" -> Falha: Nenhum arquivo novo detectado na pasta de Downloads.")
+                print(" -> [FALHA] Navegador não gerou nenhum download.")
 
             df.to_csv(caminho_csv, index=False)
 

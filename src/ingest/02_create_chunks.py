@@ -98,7 +98,7 @@ def process_chunks():
                     "chunk_id": f"{uid}_{i}",
                     "registro_uid": uid,
                     "text": chunk_text,
-                    "metadata": metadata # Repassa todos os metadados do CSV original
+                    "metadata": metadata 
                 }
                 fout.write(json.dumps(chunk_record, ensure_ascii=False) + "\n")
             

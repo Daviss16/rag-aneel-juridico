@@ -1,0 +1,35 @@
+{
+    "id": 36,
+    "question": "Qual foi o efeito tarifário médio da EDEVP em 2018?",
+    "type": "fake",
+    "difficulty": "medium"
+  },
+  {
+    "id": 37,
+    "question": "Qual despacho aprovou a construção da UHE Belo Monte?",
+    "type": "fake",
+    "difficulty": "easy"
+  },
+  {
+      "id": 38,
+    "question": "Qual foi o valor total investido pela ANEEL no projeto Cerquinha II?",
+    "type": "fake",
+    "difficulty": "medium"
+  },
+  {
+    "id": 39,
+    "question": "Qual resolução revogou integralmente o Despacho nº 741/2016?",
+    "type": "fake",
+    "difficulty": "hard"
+  }
+   {
+    "id": 15,
+    "question": "Segundo a análise da Nota Técnica, o recurso interposto possui efeito suspensivo automático? Em que fundamento normativo isso foi apoiado?",
+    "question_variation": "O recurso administrativo da Omega tinha efeito suspensivo automático? Qual norma foi citada para isso?",
+    "type": "juridica",
+    "difficulty": "medium",
+    "expected_doc": "2021_05837",
+    "expected_answer": "Sim, possui efeito suspensivo automático",
+    "trecho_base": "Analisar o Recurso Administrativo interposto pela Omega Desenvolvimento de Energia 1 S.A. (...) em face do Despacho nº 2.706, de 18 de setembro de 2020",
+    "evidence": "trecho_base"
+  },

@@ -35,6 +35,15 @@ Iniciamos com o processamento local de uma amostra de ouro (150 documentos) e ev
 
 A amostra inicial de 150 documentos foi incluída diretamente no repositório para garantir reprodutibilidade do experimento. O conjunto completo (~27 mil documentos) não será versionado em Git; em vez disso, o sistema faz a ingestão em lotes (`worker_gui_lotes.py`) e migra os artefatos baixados temporariamente para um Data Lake/Drive, esvaziando o armazenamento local do nó de execução.
 
+- `amostra_pdfs_150.csv` → versão original  
+- `amostra_pdfs_150_v2.csv` → versão com `registro_uid` único por PDF (`_pdfN`)
+
+A v2 resolve casos onde um mesmo registro possui múltiplos PDFs.
+
+## Validação de dados
+
+Foi adicionado um util simples para comparar coleções de PDFs a partir dos arquivos .csv
+
 ## Estrutura Atual do Pipeline de Ingestão
 
 ### 1. Planejamento de Prioridades (`gerar_fila_prioridade.py`)
@@ -77,8 +86,8 @@ rag-aneel/
 │   │   ├── json/
 │   │   ├── metadata/
 │   │   ├── selected/
-│   │   │   └── amostra_pdfs_150.csv
-│   │   ├── fila_downloads_mestre.csv      
+│   │   │   |── amostra_pdfs_150.csv
+│   │   |   └── fila_downloads_mestre.csv      
 │   │   └── documents/
 │   │       ├── temp/
 │   │       │   └── lotes_baixados/       
@@ -88,8 +97,10 @@ rag-aneel/
 │   │           └── 2022/
 │   ├── interim/
 │   │   ├── resolved/
-│   │   └── parsed/
-│   │       └── parsed_documents.jsonl
+│   │   |── parsed/
+│   │   |   └── parsed_documents.jsonl
+|   |   └── download/
+│   │       └── missing_pdfs.csv
 │   ├── processed/
 │   │   └── chunks/
 │   │       └── chunks.jsonl
@@ -103,8 +114,10 @@ rag-aneel/
 │   │   └── worker_gui_lotes.py            
 │   ├── parsing/
 │   │   └── 01_parse_documents.py
-│   └── chunking/
-│       └── 02_create_chunks.py
+│   |── chunking/
+│   |   └── 02_create_chunks.py
+│   └── utils/
+│       └── find_missing_pdfs.py
 ├── .gitignore
 ├── requirements.txt
 └── README.md

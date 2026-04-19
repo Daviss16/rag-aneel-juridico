@@ -15,6 +15,8 @@ from typing import Optional, List, Dict, Any
 # ============================================================
 
 @dataclass(frozen=True)
+
+
 class ExtractConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
     
@@ -181,7 +183,6 @@ def process_extraction():
             
             if file_path.exists() and not file_path.is_dir():
                 
-                # Instancia dinamicamente o extrator correto
                 extractor = ExtractorFactory.get_extractor(file_path)
                 if not extractor:
                     logging.warning(f"[{registro_uid}] Extensão não suportada: {file_path.suffix}")

@@ -130,7 +130,7 @@ def extract_records_from_json(json_path: Path, year: str) -> pd.DataFrame:
 
             sigla, tipo_ato, numero = parse_title(titulo)
 
-            registro_uid = f"{year}_{record_idx:05d}"
+            registro_base = f"{year}_{record_idx:05d}"
 
             pdfs = reg.get("pdfs", [])
             if not isinstance(pdfs, list):
@@ -147,7 +147,7 @@ def extract_records_from_json(json_path: Path, year: str) -> pd.DataFrame:
 
                 rows.append(
                     {
-                        "registro_uid": registro_uid,
+                        "registro_uid": f"{registro_base}_pdf{pdf_idx}",
                         "ano": year,
                         "data_chave": data_chave,
                         "titulo": titulo or "NULL",
@@ -309,7 +309,7 @@ def infer_year_from_name(name: str) -> str | None:
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python3 src/sampling/selecionar_amostra_pdfs.py <json_dir> <output_dir>")
+        print("Uso: python3 src/sampling/selecionar_amostra_pdfs.py data/raw/json data/raw/selected")
         sys.exit(1)
 
     json_dir = Path(sys.argv[1])
@@ -339,11 +339,11 @@ def main():
         sample_df = build_sample_for_year(df, target_total=50, target_structured=30)
         sample_df = sample_df.sort_values(["ano", "sigla_titulo", "pdf_tipo", "assunto_normalizado"])
 
-        year_csv = output_dir / f"amostra_{year}_50_pdfs.csv"
-        sample_df.to_csv(year_csv, index=False, encoding="utf-8")
+        #year_csv = output_dir / f"amostra_{year}_50_pdfs.csv"
+        #sample_df.to_csv(year_csv, index=False, encoding="utf-8")
 
         print(f"  -> {len(sample_df)} PDFs selecionados")
-        print(f"  -> salvo em {year_csv}")
+        #print(f"  -> salvo em {year_csv}")
 
         all_samples.append(sample_df)
 
@@ -352,7 +352,7 @@ def main():
         sys.exit(1)
 
     final_df = pd.concat(all_samples, ignore_index=True)
-    final_csv = output_dir / "amostra_pdfs_150.csv"
+    final_csv = output_dir / "amostra_pdfs_150_v2.csv"
     final_df.to_csv(final_csv, index=False, encoding="utf-8")
 
     print(f"\nArquivo consolidado salvo em: {final_csv}")

@@ -50,12 +50,12 @@ data/logs/
 # =========================
 # Saídas intermediárias e processadas
 # =========================
-data/interim/parsed/
-data/processed/chunks/
+data/interim/
+data/processed/
 
-
+data/retrieval/
 data/raw/documents/temp/
-
+src/retrieval/
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
 # =========================
