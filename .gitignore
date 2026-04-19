@@ -55,6 +55,10 @@ data/processed/
 
 data/retrieval/
 data/raw/documents/temp/
+
+data/raw/selected/amostra_2016_50_pdfs.csv
+data/raw/selected/amostra_2021_50_pdfs.csv
+data/raw/selected/amostra_2022_50_pdfs.csv
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
 # =========================
