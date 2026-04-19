@@ -1,3 +1,5 @@
+#rode no terminal: python3 -m src.ingest.01_extract_text
+
 import os
 import re
 import json
@@ -20,7 +22,7 @@ from typing import Optional, List, Dict, Any
 class ExtractConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
     
-    manifest_csv: Path = base_dir / "data/raw/selected/amostra_pdfs_150.csv"
+    manifest_csv: Path = base_dir / "data/raw/selected/amostra_pdfs_150_v2.csv"
     downloads_dir: Path = base_dir / "data/raw/documents/downloads"
     output_jsonl: Path = base_dir / "data/interim/parsed/parsed_documents.jsonl"
     log_file: Path = base_dir / "data/logs/extract.log"

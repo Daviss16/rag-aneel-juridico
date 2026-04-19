@@ -1,3 +1,5 @@
+#rode no terminal: python3 -m src.ingest.02_create_chunks.py
+
 import json
 import logging
 from pathlib import Path

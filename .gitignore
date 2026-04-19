@@ -55,7 +55,6 @@ data/processed/
 
 data/retrieval/
 data/raw/documents/temp/
-src/retrieval/
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
 # =========================

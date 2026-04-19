@@ -66,6 +66,23 @@ Responsável por converter os PDFs padronizados em dados legíveis por máquina,
 ### 4. Chunking e Enriquecimento (`02_create_chunks.py` - Em progresso)
 Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido com metadados no início de cada documento, garantindo o Data Lineage para o LLM.
 
+### 5. Preparação do Corpus de Retrieval (`prepare_retrieval_corpus.py`)
+
+Responsável por:
+
+- transformar os chunks em um corpus otimizado para retrieval
+- aplicar normalização de texto para melhorar busca lexical e semântica
+- gerar estruturas auxiliares para indexação e avaliação
+
+Outputs gerados:
+
+- `data/retrieval/prepared/prepared_chunks.jsonl`
+- `data/retrieval/indexes/chunk_id_to_row.json`
+- `data/retrieval/indexes/doc_to_chunk_ids.json`
+- `data/retrieval/indexes/corpus_stats.json`
+
+Essa etapa desacopla completamente a ingestão da fase de retrieval, permitindo experimentação independente com diferentes estratégias (lexical, semântica e híbrida).
+
 ## Decisões de engenharia já adotadas
 
 - separação estrita entre extração, chunking e armazenamento vetorial.
@@ -76,6 +93,7 @@ Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido
 - desacoplamento entre o controle de estado dos downloads (Fila Mestre) e o armazenamento físico local.
 - renomeação inteligente injetada via sufixo `_pdfN` para evitar sobreescrita de anexos processuais.
 - adoção de automação GUI em vez de requests puras para bypass de restrições de infraestrutura do alvo (ex: Cloudflare).
+- separação explícita entre ingestão e retrieval, permitindo experimentação controlada sobre o corpus.
 
 ## Estrutura do projeto
 
@@ -104,6 +122,13 @@ rag-aneel/
 │   ├── processed/
 │   │   └── chunks/
 │   │       └── chunks.jsonl
+│   ├── retrieval/
+│   │   ├── prepared/
+│   │   │   └── prepared_chunks.jsonl
+│   │   └── indexes/
+│   │       ├── chunk_id_to_row.json
+│   │       ├── doc_to_chunk_ids.json
+│   │       └── corpus_stats.json
 │   └── logs/
 ├── src/
 │   ├── sampling/
@@ -116,6 +141,11 @@ rag-aneel/
 │   │   └── 01_parse_documents.py
 │   |── chunking/
 │   |   └── 02_create_chunks.py
+│   ├── retrieval/
+│   │   ├── prepare_retrieval_corpus.py
+│   │   ├── data_loader.py
+│   │   ├── text_normalization.py
+│   │   └── schemas.py
 │   └── utils/
 │       └── find_missing_pdfs.py
 ├── .gitignore

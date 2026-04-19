@@ -6,7 +6,7 @@
     "question_variation": "Quando a unidade geradora UG1 da PCH Santa Cecília passou a operar comercialmente?",
     "type": "deterministica",
     "difficulty": "easy",
-    "expected_doc": "2016_01901",
+    "expected_doc": "2016_01901_pdf1",
     "expected_answer": "27 de julho de 2016",
     "trecho_base": "resolve liberar a unidade geradora UG1 (...) para início da operação comercial a partir do dia 27 de julho de 2016",
     "evidence": "trecho_base"
@@ -17,7 +17,7 @@
     "question_variation": "Qual a potência da unidade geradora autorizada no Despacho nº 1.978/2016?",
     "type": "numerica",
     "difficulty": "easy",
-    "expected_doc": "2016_01901",
+    "expected_doc": "2016_01901_pdf1",
     "expected_answer": "1.750 kW",
     "trecho_base": "resolve liberar a unidade geradora UG1, de 1.750 kW de capacidade instalada",
     "evidence": "trecho_base"
@@ -28,7 +28,7 @@
     "question_variation": "Qual foi o percentual médio de reajuste tarifário percebido pelos consumidores da EDEVP em 2016?",
     "type": "numerica",
     "difficulty": "easy",
-    "expected_doc": "2016_02735",
+    "expected_doc": "2016_02735_pdf2",
     "expected_answer": "1,69%",
     "trecho_base": "A revisão tarifária periódica conduz a um efeito médio a ser percebido pelos consumidores da EDEVP de 1,69%, sendo de 6,20% em média, para os consumidores conectados na Alta Tensão e de -0,33% em média, para os consumidores conectados na Baixa Tensão.",
     "evidence": "trecho_base"
@@ -39,7 +39,7 @@
     "question_variation": "Por que a ANEEL não aceitou o pedido da EDEVP relacionado aos custos de inventário de redes particulares?",
     "type": "juridica",
     "difficulty": "medium",
-    "expected_doc": "2016_02735",
+    "expected_doc": "2016_02735_pdf2",
     "expected_answer": "Porque os custos de inventário são considerados custos operacionais e já são tratados no custo global de O&M conforme a regulamentação da ANEEL.",
     "trecho_base": "O mesmo, porém, não foi acolhido. O artigo 10 da Resolução Normativa 229/2006, em seu § 1°, indica que os custos decorrentes de incorporação de redes particulares serão considerados de acordo com metodologia e critérios adotados pela ANEEL (...) como os custos de inventários de redes particulares tem características de custos operacionais, sua consideração ocorre no âmbito do custo global de O&M",
     "evidence": "trecho_base"
@@ -50,7 +50,7 @@
     "question_variation": "Qual item financeiro teve maior impacto no processo tarifário da EDEVP e qual foi esse impacto percentual?",
     "type": "tecnica",
     "difficulty": "easy",
-    "expected_doc": "2016_02735",
+    "expected_doc": "2016_02735_pdf2",
     "expected_answer": "CVAENERGIA (9,28%)",
     "trecho_base": "O componente financeiro mais expressivo foi a CVAENERGIA, com impacto de 9,28%.",
     "evidence": "trecho_base"
@@ -61,7 +61,7 @@
     "question_variation": "Quanto tempo deve durar o mandato dos membros da Comissão Permanente de Procedimentos Administrativos Disciplinares pela Portaria nº 4.040/2016?",
     "type": "deterministica",
     "difficulty": "easy",
-    "expected_doc": "2016_02259",
+    "expected_doc": "2016_02259_pdf1",
     "expected_answer": "2 anos",
     "trecho_base": "Art. 3º Os servidores relacionados nos arts. 1º e 2º desta Portaria terão mandatos 2 (dois) anos contados a partir da data de publicação desta Portaria.",
     "evidence": "trecho_base"
@@ -72,7 +72,7 @@
     "question_variation": "Qual servidor foi designado como presidente substituto da CPPA na Portaria nº 4.040/2016?",
     "type": "deterministica",
     "difficulty": "easy",
-    "expected_doc": "2016_02259",
+    "expected_doc": "2016_02259_pdf1",
     "expected_answer": "Gabriel de Jesus Azevedo Barja",
     "trecho_base": "Art. 4º Designar o servidor Gabriel de Jesus Azevedo Barja como Presidente substituto da Comissão Permanente de Procedimentos Administrativos Disciplinares;",
     "evidence": "trecho_base"
@@ -86,7 +86,7 @@
     "question_variation": "Quais contratos devem ser celebrados com os consumidores responsáveis por unidades consumidoras do Grupo A, segundo a redação dada ao art. 61?",
     "type": "tecnica",
     "difficulty": "easy",
-    "expected_doc": "2016_02553",
+    "expected_doc": "2016_02553_pdf1",
     "expected_answer": "CUSD e CCER",
     "trecho_base": "Art. 61. A distribuidora deve celebrar com os consumidores responsáveis por unidades consumidoras do Grupo A os seguintes contratos: I – Contrato de Uso do Sistema de Distribuição – CUSD (...) e II – Contrato de Compra de Energia Regulada – CCER, quando cabível.",
     "evidence": "trecho_base"
@@ -97,7 +97,7 @@
     "question_variation": "Qual dispositivo que trata do prazo para devolução ao consumidor de uma via assinada do CUSD e do CCER?",
     "type": "localizacao",
     "difficulty": "easy",
-    "expected_doc": "2016_02553",
+    "expected_doc": "2016_02553_pdf1",
     "expected_answer": "Art. 64-B.",
     "trecho_base": "Art. 64-B. Uma via do CUSD e do CCER (...) deve ser devolvida ao consumidor, com as respectivas assinaturas e rubricas, em até 30 dias do seu recebimento.",
     "evidence": "trecho_base"
@@ -110,7 +110,7 @@
     "question_variation": "Qual medida o Despacho nº 3.194/2016 adotou em relação aos aproveitamentos Invernadinha e Barra?",
     "type": "deterministica",
     "difficulty": "easy",
-    "expected_doc": "2016_00326",
+    "expected_doc": "2016_00326_pdf1",
     "expected_answer": "Excluiu os aproveitamentos Invernadinha e Barra da partição de quedas ótima aprovada pelo Despacho ANEEL nº 2.033, de 1º de julho de 2013.",
     "trecho_base": "resolve: (i) excluir os aproveitamentos Invernadinha e Barra da partição de quedas ótima aprovada por meio do Despacho ANEEL nº 2.033, de 1º de julho de 2013.",
     "evidence": "trecho_base"
@@ -121,7 +121,7 @@
     "question_variation": "Qual despacho anterior servia de base para a partição de quedas da qual Invernadinha e Barra foram excluídos?",
     "type": "localizacao",
     "difficulty": "easy",
-    "expected_doc": "2016_00326",
+    "expected_doc": "2016_00326_pdf1",
     "expected_answer": "Despacho ANEEL nº 2.033, de 1º de julho de 2013.",
     "trecho_base": "excluir os aproveitamentos Invernadinha e Barra da partição de quedas ótima aprovada por meio do Despacho ANEEL nº 2.033, de 1º de julho de 2013.",
     "evidence": "trecho_base"
@@ -134,7 +134,7 @@
     "question_variation": "Qual tema a ANEEL buscava aperfeiçoar por meio da Audiência Pública nº 047/2016?",
     "type": "juridica",
     "difficulty": "easy",
-    "expected_doc": "2016_01751",
+    "expected_doc": "2016_01751_pdf1",
     "expected_answer": "Aprimoramento da revisão dos limites de DEC e FEC da Ceris",
     "trecho_base": "OBJETO: obter subsídios para o aprimoramento da proposta de revisão extraordinária dos limites de Duração Equivalente de Interrupção por Unidade Consumidora – DEC e Frequência Equivalente de Interrupção por Unidade Consumidora – FEC da Cooperativa de Eletrificação da Região de Itapecerica da Serra – Ceris.",
     "evidence": "trecho_base"
@@ -148,7 +148,7 @@
     "question_variation": "Quais fatores a Auditoria Interna levou em conta na formulação do PAINT/2021?",
     "type": "tecnica",
     "difficulty": "medium",
-    "expected_doc": "2021_06547",
+    "expected_doc": "2021_06547_pdf2",
     "expected_answer": "Foram considerados, entre outros pontos, a força de trabalho da AIN em homem-hora, os resultados dos órgãos de controle, os resultados da própria Auditoria Interna, o grau de risco dos processos, as expectativas da Diretoria Colegiada, a consulta interna e as orientações do Diretor Relator.",
     "trecho_base": "O PAINT/2021 considera: (i) a força de trabalho da AIN, expressa em homem-hora; (ii) resultados dos trabalhos realizados pelos órgãos de controle (...) (iv) grau de risco dos processos (...) (viii) expectativas da Diretoria Colegiada da ANEEL (...) (xii) consulta interna; e (xiii) orientações do Diretor Relator.",
     "evidence": "trecho_base"
@@ -159,7 +159,7 @@
     "question_variation": "Qual foi o total de homem-hora previsto na distribuição da carga de trabalho do PAINT/2021?",
     "type": "numerica",
     "difficulty": "easy",
-    "expected_doc": "2021_06547",
+    "expected_doc": "2021_06547_pdf2",
     "expected_answer": "20.080 homem-hora",
     "trecho_base": "Tabela 1: Distribuição da carga de trabalho por atividade proposta pela AIN (...) Total 20.080",
     "evidence": "trecho_base"
@@ -174,7 +174,7 @@
     "question_variation": "O que a recorrente pretendia obter em relação ao DRS-PCH da PCH Bonito A?",
     "type": "juridica",
     "difficulty": "medium",
-    "expected_doc": "2021_05837",
+    "expected_doc": "2021_05837_pdf2",
     "expected_answer": "A recorrente pretendia a revogação do DRS-PCH da PCH Bonito A por inviabilidade ambiental, com a consequente devolução da garantia de registro.",
     "trecho_base": "A Recorrente argumenta que há as razões de fato e de direito no sentido de deferir o pedido de revogação do DRS-PCH da PCH Bonito A, por inviabilidade ambiental, e consequente devolução da de garantia de registro.",
     "evidence": "trecho_base"
@@ -189,7 +189,7 @@
     "question_variation": "Qual abatimento tarifário nas tarifas de uso foi concedido à UFV Dunamis III?",
     "type": "tecnica",
     "difficulty": "easy",
-    "expected_doc": "2021_01712",
+    "expected_doc": "2021_01712_pdf1",
     "expected_answer": "50% de redução",
     "trecho_base": "Art. 5º Estabelecer em 50% (cinquenta por cento) o percentual de redução a ser aplicado às Tarifas de Uso dos Sistemas Elétricos de Transmissão e de Distribuição – TUST e TUSD",
     "evidence": "trecho_base"
@@ -203,7 +203,7 @@
     "question_variation": "Qual foi o reajuste médio homologado para os consumidores da Ceres no processo tarifário de 2021?",
     "type": "numerica",
     "difficulty": "easy",
-    "expected_doc": "2021_05064",
+    "expected_doc": "2021_05064_pdf1",
     "expected_answer": "6,44%",
     "trecho_base": "Art. 2º As tarifas de aplicação da Ceres (...) ficam em média reajustadas em 6,44% (...) correspondendo ao efeito tarifário médio a ser percebido pelos consumidores",
     "evidence": "trecho_base"
@@ -214,7 +214,7 @@
     "question_variation": "Em que parte do ato normativo estão fixados os benefícios tarifários incidentes sobre as tarifas de aplicação da Ceres?",
     "type": "localizacao",
     "difficulty": "easy",
-    "expected_doc": "2021_05064",
+    "expected_doc": "2021_05064_pdf1",
     "expected_answer": "Na Tabela 3 do Anexo.",
     "trecho_base": "Art. 5º Definir, na Tabela 3 do Anexo, os percentuais de descontos relativos aos benefícios tarifários incidentes sobre as tarifas de aplicação.",
     "evidence": "trecho_base"
@@ -227,7 +227,7 @@
     "question_variation": "Quem foi contemplado com o registro para revisar os estudos de inventário hidrelétrico do rio Piranga no Despacho nº 105/2022?",
     "type": "deterministica",
     "difficulty": "easy",
-    "expected_doc": "2022_07279",
+    "expected_doc": "2022_07279_pdf1",
     "expected_answer": "Vilson Marcos Testa; Getop Empreendimentos e Gestão Ltda.",
     "trecho_base": "decide: (i) conferir ao Senhor Vilson Marcos Testa (...) e à Getop Empreendimentos e Gestão Ltda. (...) o Registro para a elaboração da Revisão dos Estudos de Inventário Hidrelétrico do rio Piranga",
     "evidence": "trecho_base"
@@ -238,7 +238,7 @@
     "question_variation": "Qual restrição foi comunicada pela ANEEL em relação à UHE Brecha no Despacho nº 105/2022?",
     "type": "juridica",
     "difficulty": "easy",
-    "expected_doc": "2022_07279",
+    "expected_doc": "2022_07279_pdf1",
     "expected_answer": "Foi comunicado que a UHE Brecha não poderá ser objeto do exercício do direito de preferência.",
     "trecho_base": "(iv) comunicar que a UHE Brecha não poderá ser objeto do exercício do direito de preferência.",
     "evidence": "trecho_base"
@@ -252,7 +252,7 @@
     "question_variation": "Para que finalidade foi firmado o Primeiro Termo Aditivo ao Contrato de Concessão nº 13/2022-ANEEL?",
     "type": "juridica",
     "difficulty": "easy",
-    "expected_doc": "2022_01720",
+    "expected_doc": "2022_01720_pdf1",
     "expected_answer": "Transferência da concessão para a SPE Nova Era Caladinho S.A.",
     "trecho_base": "Objeto: formalizar a transferência da concessão de serviço público de transmissão de energia elétrica regida pelo CONTRATO DE CONCESSÃO nº 13/2022-ANEEL à SPE Nova Era Caladinho S.A.",
     "evidence": "trecho_base"
@@ -266,7 +266,7 @@
     "question_variation": "Qual percentual médio de reajuste foi homologado para a Certaja no reajuste tarifário anual de 2022?",
     "type": "numerica",
     "difficulty": "easy",
-    "expected_doc": "2022_03374",
+    "expected_doc": "2022_03374_pdf1",
     "expected_answer": "8,10%",
     "trecho_base": "Art. 2º As tarifas de aplicação da Certaja (...) ficam, em média, reajustadas em 8,10% (...) correspondendo ao efeito tarifário médio a ser percebido pelos consumidores",
     "evidence": "trecho_base"
@@ -277,7 +277,7 @@
     "question_variation": "Em qual tabela do anexo consta a receita anual da instalação de conexão da CEEE-GT de uso exclusivo da Certaja?",
     "type": "localizacao",
     "difficulty": "easy",
-    "expected_doc": "2022_03374",
+    "expected_doc": "2022_03374_pdf1",
     "expected_answer": "Na Tabela 6 do Anexo",
     "trecho_base":  "Art. 7º Estabelecer, na Tabela 6 do Anexo, a receita anual referente à instalação de conexão da Companhia Estadual de Transmissão e Geração de Energia Elétrica – CEEE-GT, relativas às Demais Instalações de Transmissão – DIT de uso exclusivo pela Certaja",
     "evidence": "trecho_base"
@@ -286,24 +286,12 @@
 
 
   {
-    "id": 25,
-    "question": "Quais competências a SEL propôs retirar da portaria de constituição da CEL para serem expressamente atribuídas à própria Secretaria Executiva de Leilões?",
-    "question_variation": "Quais atribuições a SEL propôs assumir diretamente, retirando-as da portaria de constituição da CEL?",
-    "type": "tecnica",
-    "difficulty": "medium",
-    "expected_doc": "2022_02116",
-    "expected_answer": "Elaboração de editais, análise de contribuições, gestão de garantias e aplicação de penalidades",
-    "trecho_base": "a) elaborar os respectivos editais e encaminhá-los para deliberação da Diretoria da ANEEL; b) analisar as contribuições ao edital recebidos no âmbito de Consulta Pública; c) gerir e executar as garantias de proposta oferecidas nos leilões setoriais realizados pela ANEEL; e d) aplicar (...) as penalidades de que tratam os incisos I, II e III do art. 87 da Lei nº 8.666, de 1993.",
-    "evidence": "trecho_base"
-  },
-
-  {
     "id": 26,
     "question": "Segundo o voto da revisão tarifária da EDEVP, por que o efeito tarifário foi mais elevado para consumidores conectados em Alta Tensão do que para consumidores em Baixa Tensão?",
     "question_variation": "Qual justificativa regulatória foi apresentada para a diferença entre os efeitos tarifários de AT e BT na revisão da EDEVP?",
     "type": "juridica",
     "difficulty": "medium",
-    "expected_doc": "2016_02735",
+    "expected_doc": "2016_02735_pdf2",
     "expected_answer": "Porque a nova estrutura tarifária impactou mais os consumidores em alta tensão devido ao maior aumento do custo de expansão nesse nível",
     "trecho_base": "A diferença entre os efeitos na Alta Tensão - AT e na Baixa Tensão - BT decorre da nova estrutura tarifária que é redefinida no momento da revisão tarifária, que impactou mais intensamente os consumidores na alta tensão, pelo fato do custo de expansão ter aumentado mais neste nível de tensão.",
     "evidence": "trecho_base"
@@ -314,7 +302,7 @@
     "question_variation": "Na revisão da EDEVP, quais foram os percentuais regulatórios definidos para perdas não técnicas e perdas técnicas e qual foi a base de cálculo de cada um?",
     "type": "tecnica",
     "difficulty": "hard",
-    "expected_doc": "2016_02735",
+    "expected_doc": "2016_02735_pdf2",
     "expected_answer": "Para perdas não técnicas, adotou-se como ponto de partida a média histórica de 1,95% sobre o mercado de baixa tensão medido, correspondente a 0,97% sobre o mercado de baixa tensão faturado, mantida até o final do ciclo. Para perdas técnicas, foi adotado o percentual de 6,47% sobre a energia injetada.",
     "trecho_base": "No caso da EDEVP, propõe-se que seja adotado, como ponto de partida, o valor de sua média histórica, de 1,95% sobre o mercado de baixa tensão medido, que corresponde a 0,97% sobre o mercado de baixa tensão faturado, mantendo-se este patamar até o final do ciclo (2020). (...) O valor de perdas técnicas (...) foi informado (...) no percentual de 6,47% sobre a energia injetada.",
     "evidence": "trecho_base"
@@ -325,7 +313,7 @@
     "question_variation": "Na análise do caso Bonito A, qual diferença a ANEEL apontou entre o requisito para revogar o DRS sem executar a garantia e o requisito para devolver a garantia de fiel cumprimento?",
     "type": "juridica",
     "difficulty": "hard",
-    "expected_doc": "2021_05837",
+    "expected_doc": "2021_05837_pdf2",
     "expected_answer": "A Nota Técnica apontou que, para a revogação do DRS sem execução da garantia, basta a constatação de inviabilidade ambiental nos termos da legislação vigente, enquanto para a devolução da garantia de fiel cumprimento a norma exige declaração de inviabilidade ambiental pelo órgão competente.",
     "trecho_base": "a referida Resolução prevê para a revogação do DRS sem execução de garantia a constatação, nos termos da legislação vigente, de inviabilidade ambiental do aproveitamento. De outra parte, a mesma norma, no item 24.2 do Anexo V, exige como requisito para devolução da garantia de fiel cumprimento, a declaração da inviabilidade ambiental pelo órgão competente.",
     "evidence": "trecho_base"
@@ -336,77 +324,26 @@
     "question_variation": "Qual agregado temático ligado a outorgas foi incluído no PAINT/2021 e por qual critério ele entrou na seleção?",
     "type": "localizacao",
     "difficulty": "medium",
-    "expected_doc": "2021_06547",
+    "expected_doc": "2021_06547_pdf2",
     "expected_answer": "Prorrogação das outorgas; critério: solicitação da alta gestão",
     "trecho_base": "Outorgas e Gestão do potencial hidráulico | SCT/SCG | Prorrogação das outorgas | Solicitação da alta gestão",
     "evidence": "trecho_base"
   },
-  {
-    "id": 30,
-    "question": "Como o voto do reajuste tarifário da CEEE-D de 2022 decompôs o efeito médio de 5,68% entre parcelas de custo e componentes financeiros?",
-    "question_variation": "Quais foram as três parcelas principais usadas para explicar o efeito médio de 5,68% no reajuste tarifário da CEEE-D em 2022?",
-    "type": "numerica",
-    "difficulty": "hard",
-    "expected_doc": "2022_04896",
-    "expected_answer": "13,12%; -2,41%; -5,03%",
-    "trecho_base": "O efeito médio de 5,68% decorre: (i) do reajuste dos itens de custos de Parcela A e B, contribuindo para o efeito médio em 13,12%; (ii) da inclusão dos componentes financeiros apurados no atual reajuste, levando a uma variação de -2,41%; e (iii) da retirada dos componentes financeiros estabelecidos no último processo tarifário, que contribuíram para uma variação de -5,03%",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 31,
-    "question": "Qual item financeiro teve o maior impacto positivo no reajuste tarifário da CEEE-D em 2022 e qual foi a justificativa técnica apresentada?",
-    "question_variation": "No processo tarifário da CEEE-D em 2022, qual componente financeiro mais elevou o reajuste e por qual razão isso ocorreu?",
-    "type": "tecnica",
-    "difficulty": "medium",
-    "expected_doc": "2022_04896",
-    "expected_answer": "CVA – Encargos Setoriais (8,18%)",
-    "trecho_base": "O financeiro que mais impactou o processo com valor positivo foi a CVA – Encargos Setoriais, com 8,18%, decorrente da defasagem entre a cobertura mensal concedida no RTA de 2021 e o novo patamar de custos mensais incorridos pela concessionária a partir de janeiro de 2022.",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 32,
-    "question": "Qual item teve a maior contribuição negativa entre os componentes financeiros do reajuste tarifário da CEEE-D em 2022 e qual foi seu impacto percentual?",
-    "question_variation": "Entre os componentes financeiros do reajuste da CEEE-D em 2022, qual foi o fator que mais reduziu o índice e em quanto?",
-    "type": "numerica",
-    "difficulty": "medium",
-    "expected_doc": "2022_04896",
-    "expected_answer": "O Crédito de PIS/COFINS, com impacto de -8,44%.",
-    "trecho_base": "Crédito de PIS/COFINS (336.642.809) -8,44%",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 33,
-    "question": "Segundo o voto que propôs a constituição da CEL em 2022, quais limitações legais do art. 51 da Lei nº 8.666/1993 foram destacadas quanto à composição e à investidura da comissão?",
-    "question_variation": "Quais regras do art. 51 da Lei nº 8.666/1993 foram lembradas pela ANEEL ao tratar da composição e duração da CEL em 2022?",
-    "type": "juridica",
-    "difficulty": "hard",
-    "expected_doc": "2022_02116",
-    "expected_answer": "Mínimo 3 membros, ao menos 2 servidores permanentes, mandato máximo de 1 ano e vedação de recondução total",
-    "trecho_base": "Nos termos do art. 51 da Lei nº 8.666 (...) comissão permanente ou especial constituída por, no mínimo, 3 (três) membros, sendo pelo menos dois deles servidores qualificados pertencentes aos quadros permanentes (...) A Lei dispõe ainda que a investidura dos membros das comissões permanentes não excederá a 1 (um) ano, vedada a recondução da totalidade de seus membros para a mesma comissão no período subsequente.",
-    "evidence": "trecho_base"
-  },
+
+
+  
   {
     "id": 34,
     "question": "Quais percentuais de desconto tarifário foram definidos para as classes Rural - Grupo A e Água, Esgoto e Saneamento - Grupo A na Tabela 3 da Certaja?",
     "question_variation": "Na Tabela 3 da Resolução Homologatória da Certaja, quais foram os descontos previstos para Rural Grupo A e para Água, Esgoto e Saneamento Grupo A?",
     "type": "numerica",
     "difficulty": "medium",
-    "expected_doc": "2022_03374",
+    "expected_doc": "2022_03374_pdf1",
     "expected_answer": "Rural Grupo A: 2%; Água/Esgoto/Saneamento Grupo A: 3%",
     "trecho_base": "RURAL - GRUPO A 2% 2% 2% (...) ÁGUA, ESGOTO E SANEAMENTO - GRUPO A 3% 3% 3%",
     "evidence": "trecho_base"
-  },
-  {
-    "id": 35,
-    "question": "No Comunicado nº 20/2022, quais efeitos foram suspensos, a que empreendimento a suspensão se referia e até qual marco processual ela deveria perdurar?",
-    "question_variation": "O Comunicado nº 20/2022 suspendeu qual despacho, para qual PCH, e até quando essa suspensão deveria valer?",
-    "type": "tecnica",
-    "difficulty": "medium",
-    "expected_doc": "2022_02020",
-    "expected_answer": "Suspensão do Despacho nº 3.008/2022 para a PCH Vacaria até julgamento do recurso",
-    "trecho_base": "comunica que estão suspensos os efeitos do Despacho nº 3.008, de 18 de outubro de 2022, para a PCH Vacaria, cadastrada sob o Código Único de Empreendimentos de Geração – CEG PCH.PH.RS.040542-6.01 (...) até que seja julgado o mérito do recurso interposto por Energética Quebra Dentes S.A.",
-    "evidence": "trecho_base"
   }
+  
 ]
 
  
