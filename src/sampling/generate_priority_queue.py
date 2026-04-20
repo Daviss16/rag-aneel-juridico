@@ -1,4 +1,4 @@
-#rode no terminal: python3 -m src.sampling.gerar_fila_prioridade data/raw/json data/raw/selected
+#rode no terminal: python3 -m src.sampling.generate_priority_queue data/raw/json data/raw/selected
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -186,7 +186,7 @@ def calcular_prioridade(row):
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python3 -m src.sampling.gerar_fila_prioridade data/raw/json data/raw/selected")
+        print("Uso: python3 -m src.sampling.generate_priority_queue data/raw/json data/raw/selected")
         sys.exit(1)
 
     json_dir = Path(sys.argv[1])

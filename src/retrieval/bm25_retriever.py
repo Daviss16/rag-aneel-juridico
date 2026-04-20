@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from rank_bm25 import BM25Okapi
-
+from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
 
 @dataclass(frozen=True)
 class BM25Config:
@@ -17,60 +17,20 @@ class BM25Config:
     prepared_chunks_path: Path = base_dir / "data" / "retrieval" / "prepared" / "prepared_chunks.jsonl"
 
 
-@dataclass(frozen=True)
-class RetrievalChunk:
-    chunk_id: str
-    registro_uid: str
-    text: str
-    metadata: dict
-
 TOKEN_PATTERN = re.compile(r"[a-zà-ÿ0-9]+")
 
 
 def tokenize(text: str) -> list[str]:
     return TOKEN_PATTERN.findall((text or "").lower())
 
-def load_prepared_chunks(path: Path) -> list[RetrievalChunk]:
-    chunks: list[RetrievalChunk] = []
-
-    with path.open("r", encoding="utf-8") as f:
-        for line_num, line in enumerate(f, start=1):
-            line = line.strip()
-            if not line:
-                continue
-
-            obj = json.loads(line)
-
-            chunk_id = obj.get("chunk_id")
-            registro_uid = obj.get("registro_uid")
-            text = obj.get("text_retrieval") or obj.get("text") or ""
-            metadata = obj.get("metadata") or {}
-
-            if not chunk_id:
-                raise ValueError(f"Linha {line_num}: chunk_id ausente.")
-            if not registro_uid:
-                raise ValueError(f"Linha {line_num}: registro_uid ausente.")
-            if not text:
-                raise ValueError(f"Linha {line_num}: texto ausente.")
-
-            chunks.append(
-                RetrievalChunk(
-                    chunk_id=chunk_id,
-                    registro_uid=registro_uid,
-                    text=text,
-                    metadata=metadata,
-                )
-            )
-
-    return chunks
 
 class BM25Retriever:
-    def __init__(self, chunks: list[RetrievalChunk]) -> None:
+    def __init__(self, chunks: list[PreparedChunk]) -> None:
         if not chunks:
             raise ValueError("O corpus de chunks está vazio.")
 
         self.chunks = chunks
-        self.tokenized_corpus = [tokenize(chunk.text) for chunk in chunks]
+        self.tokenized_corpus = [tokenize(chunk.text_retrieval) for chunk in chunks]
         self.index = BM25Okapi(self.tokenized_corpus)
 
     def search(self, query: str, top_k: int = 5) -> list[dict]:
@@ -96,16 +56,23 @@ class BM25Retriever:
                     "chunk_id": chunk.chunk_id,
                     "registro_uid": chunk.registro_uid,
                     "score": float(scores[idx]),
-                    "text_preview": chunk.text[:300],
+                    "text_preview": chunk.text_original[:300],
                 }
             )
 
         return results
     
 
-def build_bm25_retriever(config: BM25Config | None = None) -> BM25Retriever:
-    config = config or BM25Config()
-    chunks = load_prepared_chunks(config.prepared_chunks_path)
+def build_bm25_retriever(
+    config: BM25Config | None = None,
+    chunks: list[PreparedChunk] | None = None 
+) -> BM25Retriever:
+    
+    config = config or BM25Config() 
+    
+    if chunks is None:
+        chunks = load_prepared_chunks(config.prepared_chunks_path)
+        
     return BM25Retriever(chunks)
 
 def parse_args() -> argparse.Namespace:

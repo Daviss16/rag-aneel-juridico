@@ -1,4 +1,4 @@
-#rode no terminal: python3 -m src.sampling.selecionar_amostra_pdfs data/raw/json data/raw/selected
+#rode no terminal: python3 -m src.sampling.select_pdf_sample data/raw/json data/raw/selected
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -311,7 +311,7 @@ def infer_year_from_name(name: str) -> str | None:
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python3 -m src.sampling.selecionar_amostra_pdfs data/raw/json data/raw/selected")
+        print("Uso: python3 -m src.sampling.select_pdf_sample data/raw/json data/raw/selected")
         sys.exit(1)
 
     json_dir = Path(sys.argv[1])

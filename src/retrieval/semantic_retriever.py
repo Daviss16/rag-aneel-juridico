@@ -9,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
 
 
 @dataclass(frozen=True)
@@ -25,30 +26,12 @@ class RetrievalChunk:
     metadata: dict
 
 
-def load_chunks(path: Path) -> list[RetrievalChunk]:
-    chunks = []
-
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            obj = json.loads(line)
-
-            chunks.append(
-                RetrievalChunk(
-                    chunk_id=obj["chunk_id"],
-                    registro_uid=obj["registro_uid"],
-                    text=obj.get("text_retrieval") or obj.get("text"),
-                    metadata=obj.get("metadata", {}),
-                )
-            )
-
-    return chunks
-
 class SemanticRetriever:
-    def __init__(self, chunks: list[RetrievalChunk], model_name: str):
+    def __init__(self, chunks: list[PreparedChunk], model_name: str):
         self.chunks = chunks
         self.model = SentenceTransformer(model_name)
 
-        texts = [c.text for c in chunks]
+        texts = [c.text_retrieval for c in chunks]
         self.embeddings = self.model.encode(texts, show_progress_bar=True, convert_to_numpy=True)
 
         self.embeddings = self._normalize(self.embeddings)
@@ -75,14 +58,22 @@ class SemanticRetriever:
                 "chunk_id": chunk.chunk_id,
                 "registro_uid": chunk.registro_uid,
                 "score": float(scores[idx]),
+                "text_preview": chunk.text_original[:300],
             })
 
         return results
     
 
-def build_semantic_retriever(config: SemanticConfig | None = None) -> SemanticRetriever:
+def build_semantic_retriever(
+    config: SemanticConfig | None = None, 
+    chunks: list[PreparedChunk] | None = None 
+) -> SemanticRetriever:
+    
     config = config or SemanticConfig()
-    chunks = load_chunks(config.prepared_chunks_path)
+    
+    if chunks is None:
+        chunks = load_prepared_chunks(config.prepared_chunks_path)
+        
     return SemanticRetriever(chunks, config.model_name)
 
 def parse_args():

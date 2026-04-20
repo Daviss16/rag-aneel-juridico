@@ -1,4 +1,5 @@
 #codigo para extração dos pdfs por meio de GUI, apenas para os 150 pdfspip
+#rode no terminal: python3 -m src.downloads.download_gui_150pdf data/raw/selected/amostra_pdfs_150.csv
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -13,7 +14,7 @@ import pyperclip
 
 def main():
     if len(sys.argv) != 2:
-        print("Uso: python3 src/downloads/baixar_150pdfs_gui data/raw/selected/amostra_pdfs_150.csv")
+        print("Uso: python3 -m src.downloads.download_gui_150pdf data/raw/selected/amostra_pdfs_150.csv")
         sys.exit(1)
 
     caminho_csv = Path(sys.argv[1])

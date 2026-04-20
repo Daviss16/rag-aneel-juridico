@@ -1,4 +1,4 @@
-#rode no terminal: python3 src/downloads/baixar_gui_lotes.py data/raw/selected/fila_downloads_mestre.csv
+#rode no terminal: python3 src/downloads/download_gui_batches.py data/raw/selected/fila_downloads_mestre.csv
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -27,7 +27,7 @@ def obter_arquivos_na_pasta(pasta: Path) -> set:
 
 def main():
     if len(sys.argv) != 2:
-        print("Uso: python3 src/downloads/baixar_gui_lotes.py data/raw/selected/fila_downloads_mestre.csv")
+        print("Uso: python3 src/downloads/download_gui_batches.py data/raw/selected/fila_downloads_mestre.csv")
         sys.exit(1)
 
     caminho_csv = Path(sys.argv[1])

@@ -33,7 +33,7 @@ Iniciamos com o processamento local de uma amostra de ouro (150 documentos) e ev
 
 ## Nota sobre os dados
 
-A amostra inicial de 150 documentos foi incluída diretamente no repositório para garantir reprodutibilidade do experimento. O conjunto completo (~27 mil documentos) não será versionado em Git; em vez disso, o sistema faz a ingestão em lotes (`worker_gui_lotes.py`) e migra os artefatos baixados temporariamente para um Data Lake/Drive, esvaziando o armazenamento local do nó de execução.
+A amostra inicial de 150 documentos foi incluída diretamente no repositório para garantir reprodutibilidade do experimento. O conjunto completo (~27 mil documentos) não será versionado em Git; em vez disso, o sistema faz a ingestão em lotes (`download_gui_batches.py`) e migra os artefatos baixados temporariamente para um Data Lake/Drive, esvaziando o armazenamento local do nó de execução.
 
 - `amostra_pdfs_150.csv` → versão original  
 - `amostra_pdfs_150_v2.csv` → versão com `registro_uid` único por PDF (`_pdfN`)
@@ -46,24 +46,28 @@ Foi adicionado um util simples para comparar coleções de PDFs a partir dos arq
 
 ## Estrutura Atual do Pipeline de Ingestão
 
-### 1. Planejamento de Prioridades (`gerar_fila_prioridade.py`)
+### 1. Planejamento de Prioridades (`generate_priority_queue.py`)
+
 Responsável por:
 - Ler os JSONs aninhados originais.
 - "Desempacotar" anexos (criando IDs únicos `registro_uid_pdfN`).
 - Aplicar score de prioridade baseado em tipo, sigla, ano e um bônus de diversidade.
 - Gerar o CSV Mestre que atua como banco de dados de estado (`pendente`, `baixado_local`, `erro`).
 
-### 2. O Worker de Aquisição (`worker_gui_lotes.py`)
+### 2. O Worker de Aquisição (`download_gui_batches.py`)
+
 Responsável por:
 - Consumir o CSV Mestre pegando apenas lotes (ex: 100) não processados.
 - Executar automação de GUI orientada por metadados para baixar sem acionar proteções anti-bot.
 - Identificar e renomear o arquivo localmente com o seu `registro_uid` para evitar sobreescritas.
 - Atualizar dinamicamente o status no CSV de controle.
 
-### 3. Extração Limpa (`01_parse_documents.py` - Em progresso)
+### 3. Extração Limpa (`01_parse_documents.py`)
+
 Responsável por converter os PDFs padronizados em dados legíveis por máquina, extraindo texto limpo para o arquivo `data/interim/parsed/parsed_documents.jsonl`.
 
-### 4. Chunking e Enriquecimento (`02_create_chunks.py` - Em progresso)
+### 4. Chunking e Enriquecimento (`02_create_chunks.py`)
+
 Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido com metadados no início de cada documento, garantindo o Data Lineage para o LLM.
 
 ### 5. Preparação do Corpus de Retrieval (`prepare_retrieval_corpus.py`)
@@ -83,7 +87,7 @@ Outputs gerados:
 
 Essa etapa desacopla completamente a ingestão da fase de retrieval, permitindo experimentação independente com diferentes estratégias (lexical, semântica e híbrida).
 
-### 6. Baseline de Retrieval (BM25)
+### 6. Baseline de Retrieval (`bm25_retriever.py`)
 
 Foi implementado um baseline lexical utilizando BM25 sobre os chunks preparados.
 
@@ -100,7 +104,7 @@ Resultados no benchmark atual:
 
 O baseline já consegue recuperar todos os documentos esperados dentro do top-3, indicando boa qualidade do corpus e da pipeline.
 
-### 7. Retrieval Semântico (Embeddings)
+### 7. Retrieval Semântico (`semantic_retriever.py`)
 
 Foi implementado um segundo baseline de retrieval utilizando embeddings.
 
@@ -124,6 +128,29 @@ Comparado ao BM25, o método semântico apresentou queda significativa de desemp
 
 Isso indica que embeddings genéricos não são suficientes para esse domínio e reforça a necessidade de uma abordagem híbrida.
 
+### 8. Retrieval Híbrido (`hybrid_retriever.py`)
+
+Foi implementado um terceiro baseline combinando BM25 e embeddings.
+
+Estratégia:
+
+- BM25 utilizado para recuperação de candidatos
+- embeddings usados apenas para reordenar (reranking)
+- combinação de scores normalizados (bm25 + semântico)
+
+Características:
+
+- preserva o alto recall do BM25
+- melhora o ranking em alguns casos específicos
+- evita perda de desempenho observada no semântico puro
+
+A implementação também expõe os seguintes scores para análise:
+
+- score_bm25
+- score_semantic
+- score_final
+
+Essa abordagem equilibra precisão lexical com similaridade semântica.
 
 ## Decisões de engenharia já adotadas
 
@@ -138,6 +165,18 @@ Isso indica que embeddings genéricos não são suficientes para esse domínio e
 - separação explícita entre ingestão e retrieval, permitindo experimentação controlada sobre o corpus.
 - avaliação baseada em benchmark estruturado com métricas de recuperação (top-1 e top-3).
 
+### Refatorações na Camada de Retrieval
+
+Foram realizadas melhorias estruturais para suportar escalabilidade e reutilização:
+
+- centralização do schema e loader de chunks em `schemas.py`
+- remoção de lógica duplicada de leitura de dados nos retrievers
+- compartilhamento de dados em memória entre BM25, semântico e híbrido
+- criação de `evaluation_utils.py` para unificar a lógica de avaliação
+- padronização dos evaluators como camadas finas de orquestração
+
+Essas mudanças reduziram duplicação, melhoraram a eficiência de memória e facilitaram a evolução do sistema.
+
 ## Estrutura do projeto
 
 ```text
@@ -147,7 +186,6 @@ rag-aneel/
 │   │   ├── json/
 │   │   ├── metadata/
 │   │   ├── selected/
-│   │   │   |── amostra_pdfs_150.csv
 │   │   │   |── amostra_pdfs_150_v2.csv
 │   │   |   └── fila_downloads_mestre.csv      
 │   │   └── documents/
@@ -172,25 +210,29 @@ rag-aneel/
 │   └── logs/
 ├── src/
 │   ├── sampling/
-│   │   ├── selecionar_amostra_pdfs.py
-│   │   └── gerar_fila_prioridade.py       
+│   │   ├── select_pdf_sample.py
+│   │   └── generate_priority_queue.py       
 │   ├── downloads/
-│   │   ├── baixar_pdfs_script_mouse_teclado.py
-│   │   └── worker_gui_lotes.py            
-│   ├── parsing/
+│   │   ├── download_gui_150pdf.py
+│   │   └── download_gui_batches.py            
+│   ├── ingest/
 │   │   └── 01_parse_documents.py
-│   |── chunking/
 │   |   └── 02_create_chunks.py
 │   ├── retrieval/
+│   │   ├── evaluations/
+│   │   |   |── evaluate_bm25.py
+│   │   │   |── evaluate_hybrid.py
+│   │   │   |── evaluate_semantic.py
+│   │   |   └── evaluate_utils.py   
 │   │   ├── prepare_retrieval_corpus.py
-│   │   ├── bm25_retriever.py
-│   │   ├── evaluate_bm25.py
-│   │   ├── data_loader.py
 │   │   ├── text_normalization.py
-│   │   └── schemas.py
-│   |   ├── semantic_retriever.py
-│   |   └── evaluate_semantic.py
+│   │   ├── data_loader.py
+│   │   ├── schemas.py
+│   |   ├── hybrid_retriever.py
+│   │   ├── bm25_retriever.py
+│   |   └── semantic_retriever.py
 │   └── utils/
+│       ├── split_manifest.py
 │       └── find_missing_pdfs.py
 ├── .gitignore
 ├── requirements.txt

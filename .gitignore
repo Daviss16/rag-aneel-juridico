@@ -55,6 +55,7 @@ data/processed/
 
 data/retrieval/
 data/raw/documents/temp/
+data/raw/documents/golden_dataset/
 
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
