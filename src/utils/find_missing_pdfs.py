@@ -1,17 +1,13 @@
+#rode no terminal: python3 -m src.utils.find_missing_pdfs <csv_base> <csv_comparacao>
+
 import csv
-import re
 import sys
 from pathlib import Path
 
 
-PDF_SUFFIX_RE = re.compile(r"^(?P<base>.+)_pdf(?P<num>\d+)$", re.IGNORECASE)
-
 
 def get_base_uid(registro_uid: str) -> str:
     registro_uid = (registro_uid or "").strip()
-    match = PDF_SUFFIX_RE.match(registro_uid)
-    if match:
-        return match.group("base")
     return registro_uid
 
 
@@ -35,7 +31,7 @@ def load_keys(csv_path: Path) -> set[tuple[str, str]]:
 
 def main():
     if len(sys.argv) != 3:
-        print("Uso: python3 src/utils/find_missing_pdfs.py <csv_base> <csv_comparacao>")
+        print("Uso: python3 -m src.utils.find_missing_pdfs <csv_base> <csv_comparacao>")
         sys.exit(1)
 
     csv_base = Path(sys.argv[1])
@@ -51,7 +47,7 @@ def main():
 
     with output_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["base_uid", "pdf_ordem"])
+        writer.writerow(["registro_uid", "pdf_ordem"])
         writer.writerows(sorted(missing))
 
 

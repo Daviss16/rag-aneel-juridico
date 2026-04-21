@@ -40,9 +40,55 @@ A amostra inicial de 150 documentos foi incluída diretamente no repositório pa
 
 A v2 resolve casos onde um mesmo registro possui múltiplos PDFs.
 
+### Manifesto de Escala Unificado
+
+Durante a transição da amostra inicial (150 documentos) para um corpus ampliado (>1000 documentos), foi introduzido um artefato adicional:
+
+- `manifesto_3_unified_pdfs.csv`
+
+Este arquivo representa a **base oficial da fase de escala**, sendo construído a partir de:
+
+- um manifesto base de escala (~1000 PDFs)
+- uma lista de documentos obrigatórios ausentes (`missing_pdfs.csv`)
+- reconstrução completa das linhas a partir da `fila_downloads_mestre.csv`
+
+O objetivo desse processo é garantir que:
+
+- a amostra histórica de benchmark (150 PDFs) esteja totalmente contida no corpus ampliado
+- o manifesto final seja consistente, limpo e baseado em uma única fonte da verdade
+
+Esse arquivo passa a ser o ponto de entrada para as próximas etapas da pipeline em larga escala.
+
 ## Validação de dados
 
-Foi adicionado um util simples para comparar coleções de PDFs a partir dos arquivos .csv
+O projeto utiliza utilitários para garantir consistência entre os manifests e o estado real dos dados.
+
+### Detecção de PDFs faltantes
+
+- `find_missing_pdfs.py`
+- Compara um manifesto com outro manifesto
+- Gera:
+  - `data/interim/download/missing_pdfs.csv`
+
+### Consolidação de manifesto de escala
+
+- `merge_required_pdfs_into_manifest.py`
+- Responsável por gerar um manifesto unificado contendo:
+  - o conjunto base de escala
+  - os PDFs obrigatórios ausentes (ex: benchmark)
+
+A lógica aplicada é:
+
+1. unir os `registro_uid` do manifesto base e dos faltantes
+2. reconstruir os registros completos a partir da `fila_downloads_mestre.csv`
+3. remover colunas operacionais (seguindo padrão do `split_manifest.py`)
+4. gerar um CSV final consistente e pronto para uso
+
+Saída:
+
+- `data/raw/selected/manifesto_3_unified_pdfs.csv`
+
+Esse processo garante reprodutibilidade e consistência na fase de expansão do corpus.
 
 ## Estrutura Atual do Pipeline de Ingestão
 
@@ -61,6 +107,28 @@ Responsável por:
 - Executar automação de GUI orientada por metadados para baixar sem acionar proteções anti-bot.
 - Identificar e renomear o arquivo localmente com o seu `registro_uid` para evitar sobreescritas.
 - Atualizar dinamicamente o status no CSV de controle.
+
+### 2.5 Consolidação do Manifesto de Escala (`merge_required_pdfs_into_manifest.py`)
+
+Responsável por:
+
+- garantir que o corpus ampliado contenha integralmente a amostra de benchmark
+- unificar:
+  - manifesto base (~1000 PDFs)
+  - lista de PDFs obrigatórios ausentes (`missing_pdfs.csv`)
+- reconstruir os registros a partir da `fila_downloads_mestre.csv`
+
+Características:
+
+- usa `registro_uid_pdfN` como identificador único
+- evita inconsistências entre diferentes manifests
+- gera um artefato final limpo e padronizado
+
+Saída:
+
+- `manifesto_3_unified_pdfs.csv`
+
+Esse arquivo passa a ser a base oficial para a fase de ingestão em larga escala.
 
 ### 3. Extração Limpa (`01_parse_documents.py`)
 
@@ -164,6 +232,7 @@ Essa abordagem equilibra precisão lexical com similaridade semântica.
 - renomeação inteligente injetada via sufixo `_pdfN` para evitar sobreescrita de anexos processuais.
 - separação explícita entre ingestão e retrieval, permitindo experimentação controlada sobre o corpus.
 - avaliação baseada em benchmark estruturado com métricas de recuperação (top-1 e top-3).
+- todo manifesto utilizado em experimentos de escala deve conter integralmente a amostra histórica de benchmark.
 
 ### Refatorações na Camada de Retrieval
 
@@ -189,7 +258,7 @@ rag-aneel/
 │   │   ├── json/
 │   │   ├── metadata/
 │   │   ├── selected/
-│   │   │   |── amostra_pdfs_150_v2.csv
+│   │   │   |── manifesto_3_unified_pdfs.csv
 │   │   |   └── fila_downloads_mestre.csv      
 │   │   └── documents/
 │   │       ├── temp/
@@ -236,6 +305,7 @@ rag-aneel/
 │   |   └── semantic_retriever.py
 │   └── utils/
 │       ├── split_manifest.py
+│       ├── merge_required_pdfs_into_manifest.py
 │       └── find_missing_pdfs.py
 ├── .gitignore
 ├── requirements.txt
