@@ -182,6 +182,9 @@ Essas mudanças reduziram duplicação, melhoraram a eficiência de memória e f
 ```text
 rag-aneel/
 ├── data/
+│   ├── benchmark/
+│   │   |── benchmark_questions.json
+│   │   └── benchmark_questions_v2.json  
 │   ├── raw/
 │   │   ├── json/
 │   │   ├── metadata/

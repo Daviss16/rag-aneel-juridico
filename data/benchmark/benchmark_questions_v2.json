@@ -1,0 +1,186 @@
+[
+  
+  {
+    "id": 1,
+    "question": "Qual despacho liberou a unidade geradora UG1 da PCH Santa Cecília para iniciar a sua operação comercial a partir de 27 de julho de 2016?",
+    "expected_doc": "2016_01901_pdf1",
+    "type": "deterministica"
+  },
+  {
+    "id": 2,
+    "question": "Qual é a capacidade instalada da unidade geradora UG1 localizada em Santo Antônio do Leverger, Mato Grosso, que obteve liberação para operação comercial de acordo com a Superintendência de Fiscalização em 2016?",
+    "expected_doc": "2016_01901_pdf1",
+    "type": "parafraseada_numerica"
+  },
+  {
+    "id": 3,
+    "question": "De qual empresa de distribuição a Quarta Revisão Tarifária Periódica teve vigência a partir de 10 de maio de 2016, segundo a deliberação homologatória da SGT e SRD?",
+    "expected_doc": "2016_02735_pdf2",
+    "type": "deterministica"
+  },
+  {
+    "id": 4,
+    "question": "Em relação à EDEVP, qual foi o número e ano da audiência pública que serviu para avaliar as contribuições da sociedade sobre os limites dos indicadores de continuidade DEC e FEC para o período de 2017 a 2021?",
+    "expected_doc": "2016_02735_pdf2",
+    "type": "parafraseada_audiencia"
+  },
+  {
+    "id": 5,
+    "question": "Na Portaria nº 4040 de 21 de junho de 2016, qual comissão permanente a servidora Andréa Campos Reis passou a integrar na condição de membro reconduzido?",
+    "expected_doc": "2016_02259_pdf1",
+    "type": "administrativa_rh"
+  },
+  {
+    "id": 6,
+    "question": "Qual ato administrativo de 2016 reconduziu diversos servidores, entre eles Cláudio Santos Ortis e Daniela Pimentel Saviotti, para atuarem na CPPA (Comissão Permanente de Procedimentos Administrativos Disciplinares)?",
+    "expected_doc": "2016_02259_pdf1",
+    "type": "parafraseada_pessoal"
+  },
+  {
+    "id": 7,
+    "question": "Qual é o número da Resolução Normativa publicada em maio de 2016 cujo objetivo é aprimorar a regulamentação referente aos contratos firmados entre as distribuidoras e os consumidores?",
+    "expected_doc": "2016_02553_pdf1",
+    "type": "regulamento"
+  },
+  {
+    "id": 8,
+    "question": "De acordo com a Resolução Normativa nº 714/2016, qual foi a audiência pública que gerou o recebimento de sugestões de agentes do setor para aprimorar os contratos de distribuição na agência?",
+    "expected_doc": "2016_02553_pdf1",
+    "type": "parafraseada_norma"
+  },
+  {
+    "id": 9,
+    "question": "Pelo Despacho nº 3.194 de dezembro de 2016, expedido pela Superintendência de Concessões, quais dois aproveitamentos hídricos foram formalmente excluídos da partição de quedas ótima?",
+    "expected_doc": "2016_00326_pdf1",
+    "type": "tecnica_inventario"
+  },
+  {
+    "id": 10,
+    "question": "O Despacho ANEEL nº 2.033, que aprovava originalmente a partição de quedas ótima dos aproveitamentos Invernadinha e Barra, foi alterado para excluir esses itens em 2016 por decisão de qual área técnica da agência?",
+    "expected_doc": "2016_00326_pdf1",
+    "type": "parafraseada_decisao"
+  },
+  {
+    "id": 11,
+    "question": "Para qual cooperativa de eletrificação a ANEEL abriu a Audiência Pública nº 047/2016 visando aprimorar a proposta de revisão extraordinária dos limites de DEC e FEC?",
+    "expected_doc": "2016_01751_pdf1",
+    "type": "operacional_audiencia"
+  },
+  {
+    "id": 12,
+    "question": "No Aviso divulgado pela Superintendência de Mediação Administrativa para a Ceris, qual foi o período de datas exato estabelecido para o envio de contribuições por intercâmbio documental?",
+    "expected_doc": "2016_01751_pdf1",
+    "type": "numerica_prazo"
+  },
+  {
+    "id": 13,
+    "question": "A Nota Técnica nº 133 elaborada no ano de 2021 pela agência tem o objetivo de analisar o recurso administrativo de qual empresa visando a manutenção do Despacho de Registro de Adequabilidade?",
+    "expected_doc": "2021_05837_pdf2",
+    "type": "juridica_recurso"
+  },
+  {
+    "id": 14,
+    "question": "Qual despacho da ANEEL, emitido em setembro de 2020 para decidir sobre uma prorrogação de vigência, foi o alvo do recurso administrativo interposto pela Omega Desenvolvimento de Energia 1 S.A.?",
+    "expected_doc": "2021_05837_pdf2",
+    "type": "parafraseada_recurso"
+  },
+  {
+    "id": 15,
+    "question": "Qual o nome da Sociedade de Propósito Específico (SPE) que foi expressamente autorizada, pela publicação em setembro de 2021, a implantar e explorar a Central Geradora Fotovoltaica Dunamis III?",
+    "expected_doc": "2021_01712_pdf1",
+    "type": "deterministica_outorga"
+  },
+  {
+    "id": 16,
+    "question": "A Resolução Autorizativa nº 10.652 da Diretoria da Agência em 2021 permitiu a exploração da central fotovoltaica Dunamis III sob qual regime específico de comercialização de energia elétrica?",
+    "expected_doc": "2021_01712_pdf1",
+    "type": "parafraseada_outorga"
+  },
+  {
+    "id": 17,
+    "question": "Qual cooperativa de eletrificação rural (nome completo ou sigla) teve as suas Tarifas de Energia (TE) homologadas pela Resolução 2.865 como parte do Reajuste Anual de 2021?",
+    "expected_doc": "2021_05064_pdf1",
+    "type": "numerica_tarifaria"
+  },
+  {
+    "id": 18,
+    "question": "A Resolução Homologatória que define as Tarifas de Uso do Sistema de Distribuição (TUSD) referentes à Ceres foi oficializada e publicada com qual data de assinatura em abril de 2021?",
+    "expected_doc": "2021_05064_pdf1",
+    "type": "parafraseada_data"
+  },
+  {
+    "id": 19,
+    "question": "Qual decreto federal do mês de novembro de 2020 é expressamente referenciado no PAINT/2021 como a base para os procedimentos a serem adotados pelas unidades de auditoria da Agência?",
+    "expected_doc": "2021_06547_pdf2",
+    "type": "administrativa_paint"
+  },
+  {
+    "id": 20,
+    "question": "Qual foi o plano oficial estruturado pela área de Auditoria Interna (AIN) da ANEEL para o exercício financeiro de 2021, aprovado via deliberação que cita o diretor Hélvio Neves Guerra?",
+    "expected_doc": "2021_06547_pdf2",
+    "type": "parafraseada_auditoria"
+  },
+
+
+
+  {
+    "id": 21,
+    "question": "No Despacho nº 105/2022, qual foi o prazo conferido para a elaboração da Revisão dos Estudos de Inventário Hidrelétrico do rio Piranga?",
+    "expected_doc": "2022_07279_pdf1",
+    "type": "numerica_prazo"
+  },
+  {
+    "id": 22,
+    "question": "A qual empresa, junto com o Senhor Vilson Marcos Testa, foi conferido o registro para a elaboração da revisão dos estudos de inventário hidrelétrico do rio Piranga?",
+    "expected_doc": "2022_07279_pdf1",
+    "type": "deterministica_empresa"
+  },
+  {
+    "id": 23,
+    "question": "Quem é a empresa controladora da ELETRONORTE, vencedora do Lote 08 do Leilão nº 1/2022-ANEEL, de acordo com o Extrato do Contrato de Concessão de Transmissão nº 13/2022-ANEEL?",
+    "expected_doc": "2022_01720_pdf1",
+    "type": "juridica_societaria"
+  },
+  {
+    "id": 24,
+    "question": "O Primeiro Termo Aditivo ao Contrato de Concessão de Transmissão nº 13/2022-ANEEL teve como objeto formalizar a transferência da concessão de serviço público para qual empresa específica (SPE)?",
+    "expected_doc": "2022_01720_pdf1",
+    "type": "operacional_contratos"
+  },
+  {
+    "id": 25,
+    "question": "Na homologação do Reajuste Tarifário Anual de 2022 da Certaja, qual foi o percentual médio de reajuste aplicado às tarifas de aplicação, conforme a Resolução Homologatória nº 3.080?",
+    "expected_doc": "2022_03374_pdf1",
+    "type": "numerica_tarifaria"
+  },
+  {
+    "id": 26,
+    "question": "Qual cooperativa regional de energia teve suas Tarifas de Energia e Tarifas de Uso do Sistema de Distribuição homologadas por meio da Resolução nº 3.080 de julho de 2022?",
+    "expected_doc": "2022_03374_pdf1",
+    "type": "deterministica_concessionaria"
+  },
+  {
+    "id": 27,
+    "question": "Com qual objetivo principal foi proposta a constituição de uma Comissão Especial de Licitação (CEL) pelo período de um ano, sob a relatoria do Diretor Hélvio Neves Guerra em 2022?",
+    "expected_doc": "2022_02116_pdf2",
+    "type": "administrativa_leilao"
+  },
+  {
+    "id": 28,
+    "question": "Qual secretaria vinculada à agência figurou como interessada no processo que estabeleceu a Comissão Especial de Licitação para conduzir certames de energia elétrica e eficiência energética?",
+    "expected_doc": "2022_02116_pdf2",
+    "type": "administrativa_estrutura"
+  },
+  {
+    "id": 29,
+    "question": "No âmbito das Centrais Geradoras Fotovoltaicas Solaris 44 a 70, qual empresa figura como interessada na autorização para implantar e explorar os empreendimentos sob o regime de Produção Independente de Energia Elétrica?",
+    "expected_doc": "2022_00748_pdf2",
+    "type": "deterministica_outorga"
+  },
+  {
+    "id": 30,
+    "question": "Em qual município e estado estão localizadas as Centrais Geradoras Fotovoltaicas Solaris 44 a 70, conforme registro no Despacho de Requerimento de Outorga de 2022?",
+    "expected_doc": "2022_00748_pdf2",
+    "type": "localizacao_geografica"
+  }
+]

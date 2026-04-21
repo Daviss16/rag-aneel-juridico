@@ -1,4 +1,4 @@
-#rode no terminal: python3 src/downloads/download_gui_batches.py data/raw/selected/fila_downloads_mestre.csv
+#rode no terminal: python3 -m src.downloads.download_gui_batches data/raw/selected/fila_downloads_mestre.csv
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@ import pandas as pd
 import pyautogui
 import pyperclip
 
-TAMANHO_LOTE = 500
+TAMANHO_LOTE = 1000
 
 PASTA_DOWNLOADS_NAVEGADOR = Path.home() / "Downloads"
 
@@ -27,7 +27,7 @@ def obter_arquivos_na_pasta(pasta: Path) -> set:
 
 def main():
     if len(sys.argv) != 2:
-        print("Uso: python3 src/downloads/download_gui_batches.py data/raw/selected/fila_downloads_mestre.csv")
+        print("Uso: python3 -m src.downloads.download_gui_batches data/raw/selected/fila_downloads_mestre.csv")
         sys.exit(1)
 
     caminho_csv = Path(sys.argv[1])

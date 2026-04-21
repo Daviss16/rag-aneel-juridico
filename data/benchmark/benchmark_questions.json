@@ -139,6 +139,28 @@
     "trecho_base": "OBJETO: obter subsídios para o aprimoramento da proposta de revisão extraordinária dos limites de Duração Equivalente de Interrupção por Unidade Consumidora – DEC e Frequência Equivalente de Interrupção por Unidade Consumidora – FEC da Cooperativa de Eletrificação da Região de Itapecerica da Serra – Ceris.",
     "evidence": "trecho_base"
   },
+  {
+    "id": 26,
+    "question": "Segundo o voto da revisão tarifária da EDEVP, por que o efeito tarifário foi mais elevado para consumidores conectados em Alta Tensão do que para consumidores em Baixa Tensão?",
+    "question_variation": "Qual justificativa regulatória foi apresentada para a diferença entre os efeitos tarifários de AT e BT na revisão da EDEVP?",
+    "type": "juridica",
+    "difficulty": "medium",
+    "expected_doc": "2016_02735_pdf2",
+    "expected_answer": "Porque a nova estrutura tarifária impactou mais os consumidores em alta tensão devido ao maior aumento do custo de expansão nesse nível",
+    "trecho_base": "A diferença entre os efeitos na Alta Tensão - AT e na Baixa Tensão - BT decorre da nova estrutura tarifária que é redefinida no momento da revisão tarifária, que impactou mais intensamente os consumidores na alta tensão, pelo fato do custo de expansão ter aumentado mais neste nível de tensão.",
+    "evidence": "trecho_base"
+  },
+  {
+    "id": 27,
+    "question": "Quais referenciais de perdas não técnicas e técnicas foram adotados para a EDEVP na revisão tarifária, e sobre que bases esses percentuais foram calculados?",
+    "question_variation": "Na revisão da EDEVP, quais foram os percentuais regulatórios definidos para perdas não técnicas e perdas técnicas e qual foi a base de cálculo de cada um?",
+    "type": "tecnica",
+    "difficulty": "hard",
+    "expected_doc": "2016_02735_pdf2",
+    "expected_answer": "Para perdas não técnicas, adotou-se como ponto de partida a média histórica de 1,95% sobre o mercado de baixa tensão medido, correspondente a 0,97% sobre o mercado de baixa tensão faturado, mantida até o final do ciclo. Para perdas técnicas, foi adotado o percentual de 6,47% sobre a energia injetada.",
+    "trecho_base": "No caso da EDEVP, propõe-se que seja adotado, como ponto de partida, o valor de sua média histórica, de 1,95% sobre o mercado de baixa tensão medido, que corresponde a 0,97% sobre o mercado de baixa tensão faturado, mantendo-se este patamar até o final do ciclo (2020). (...) O valor de perdas técnicas (...) foi informado (...) no percentual de 6,47% sobre a energia injetada.",
+    "evidence": "trecho_base"
+  },
   
 
  
@@ -220,6 +242,28 @@
     "evidence": "trecho_base"
   },
 
+  {
+    "id": 28,
+    "question": "Segundo a Nota Técnica nº 133/2021-SCG/ANEEL, qual distinção regulatória foi feita entre a revogação do DRS sem execução da garantia e a devolução da garantia de fiel cumprimento em casos de inviabilidade ambiental?",
+    "question_variation": "Na análise do caso Bonito A, qual diferença a ANEEL apontou entre o requisito para revogar o DRS sem executar a garantia e o requisito para devolver a garantia de fiel cumprimento?",
+    "type": "juridica",
+    "difficulty": "hard",
+    "expected_doc": "2021_05837_pdf2",
+    "expected_answer": "A Nota Técnica apontou que, para a revogação do DRS sem execução da garantia, basta a constatação de inviabilidade ambiental nos termos da legislação vigente, enquanto para a devolução da garantia de fiel cumprimento a norma exige declaração de inviabilidade ambiental pelo órgão competente.",
+    "trecho_base": "a referida Resolução prevê para a revogação do DRS sem execução de garantia a constatação, nos termos da legislação vigente, de inviabilidade ambiental do aproveitamento. De outra parte, a mesma norma, no item 24.2 do Anexo V, exige como requisito para devolução da garantia de fiel cumprimento, a declaração da inviabilidade ambiental pelo órgão competente.",
+    "evidence": "trecho_base"
+  },
+  {
+    "id": 29,
+    "question": "No PAINT/2021, qual tema foi selecionado no macroprocesso de Outorgas e Gestão do potencial hidráulico e qual foi o critério de seleção correspondente?",
+    "question_variation": "Qual agregado temático ligado a outorgas foi incluído no PAINT/2021 e por qual critério ele entrou na seleção?",
+    "type": "localizacao",
+    "difficulty": "medium",
+    "expected_doc": "2021_06547_pdf2",
+    "expected_answer": "Prorrogação das outorgas; critério: solicitação da alta gestão",
+    "trecho_base": "Outorgas e Gestão do potencial hidráulico | SCT/SCG | Prorrogação das outorgas | Solicitação da alta gestão",
+    "evidence": "trecho_base"
+  },
 
   {
     "id": 20,
@@ -285,50 +329,6 @@
 
 
 
-  {
-    "id": 26,
-    "question": "Segundo o voto da revisão tarifária da EDEVP, por que o efeito tarifário foi mais elevado para consumidores conectados em Alta Tensão do que para consumidores em Baixa Tensão?",
-    "question_variation": "Qual justificativa regulatória foi apresentada para a diferença entre os efeitos tarifários de AT e BT na revisão da EDEVP?",
-    "type": "juridica",
-    "difficulty": "medium",
-    "expected_doc": "2016_02735_pdf2",
-    "expected_answer": "Porque a nova estrutura tarifária impactou mais os consumidores em alta tensão devido ao maior aumento do custo de expansão nesse nível",
-    "trecho_base": "A diferença entre os efeitos na Alta Tensão - AT e na Baixa Tensão - BT decorre da nova estrutura tarifária que é redefinida no momento da revisão tarifária, que impactou mais intensamente os consumidores na alta tensão, pelo fato do custo de expansão ter aumentado mais neste nível de tensão.",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 27,
-    "question": "Quais referenciais de perdas não técnicas e técnicas foram adotados para a EDEVP na revisão tarifária, e sobre que bases esses percentuais foram calculados?",
-    "question_variation": "Na revisão da EDEVP, quais foram os percentuais regulatórios definidos para perdas não técnicas e perdas técnicas e qual foi a base de cálculo de cada um?",
-    "type": "tecnica",
-    "difficulty": "hard",
-    "expected_doc": "2016_02735_pdf2",
-    "expected_answer": "Para perdas não técnicas, adotou-se como ponto de partida a média histórica de 1,95% sobre o mercado de baixa tensão medido, correspondente a 0,97% sobre o mercado de baixa tensão faturado, mantida até o final do ciclo. Para perdas técnicas, foi adotado o percentual de 6,47% sobre a energia injetada.",
-    "trecho_base": "No caso da EDEVP, propõe-se que seja adotado, como ponto de partida, o valor de sua média histórica, de 1,95% sobre o mercado de baixa tensão medido, que corresponde a 0,97% sobre o mercado de baixa tensão faturado, mantendo-se este patamar até o final do ciclo (2020). (...) O valor de perdas técnicas (...) foi informado (...) no percentual de 6,47% sobre a energia injetada.",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 28,
-    "question": "Segundo a Nota Técnica nº 133/2021-SCG/ANEEL, qual distinção regulatória foi feita entre a revogação do DRS sem execução da garantia e a devolução da garantia de fiel cumprimento em casos de inviabilidade ambiental?",
-    "question_variation": "Na análise do caso Bonito A, qual diferença a ANEEL apontou entre o requisito para revogar o DRS sem executar a garantia e o requisito para devolver a garantia de fiel cumprimento?",
-    "type": "juridica",
-    "difficulty": "hard",
-    "expected_doc": "2021_05837_pdf2",
-    "expected_answer": "A Nota Técnica apontou que, para a revogação do DRS sem execução da garantia, basta a constatação de inviabilidade ambiental nos termos da legislação vigente, enquanto para a devolução da garantia de fiel cumprimento a norma exige declaração de inviabilidade ambiental pelo órgão competente.",
-    "trecho_base": "a referida Resolução prevê para a revogação do DRS sem execução de garantia a constatação, nos termos da legislação vigente, de inviabilidade ambiental do aproveitamento. De outra parte, a mesma norma, no item 24.2 do Anexo V, exige como requisito para devolução da garantia de fiel cumprimento, a declaração da inviabilidade ambiental pelo órgão competente.",
-    "evidence": "trecho_base"
-  },
-  {
-    "id": 29,
-    "question": "No PAINT/2021, qual tema foi selecionado no macroprocesso de Outorgas e Gestão do potencial hidráulico e qual foi o critério de seleção correspondente?",
-    "question_variation": "Qual agregado temático ligado a outorgas foi incluído no PAINT/2021 e por qual critério ele entrou na seleção?",
-    "type": "localizacao",
-    "difficulty": "medium",
-    "expected_doc": "2021_06547_pdf2",
-    "expected_answer": "Prorrogação das outorgas; critério: solicitação da alta gestão",
-    "trecho_base": "Outorgas e Gestão do potencial hidráulico | SCT/SCG | Prorrogação das outorgas | Solicitação da alta gestão",
-    "evidence": "trecho_base"
-  },
 
 
   

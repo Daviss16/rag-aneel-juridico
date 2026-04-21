@@ -15,9 +15,14 @@ def load_benchmark(path: Path) -> List[Dict[str, str]]:
     for idx, item in enumerate(data, start=1):
         question = (item.get("question") or "").strip()
         expected_doc = (item.get("expected_doc") or "").strip()
+        question_type = (item.get("type") or "desconhecido").strip()
 
         if not question or not expected_doc:
             continue  
+
+        item["question"] = question
+        item["expected_doc"] = expected_doc
+        item["type"] = question_type
 
         items.append(item)
 
@@ -40,7 +45,7 @@ def unique_docs_from_results(results: List[Dict[str, Any]], top_k_docs: int) -> 
 
     return docs
 
-def evaluate_question(retriever: Any, question: str, expected_doc: str, search_k: int = 10) -> Dict[str, Any]:
+def evaluate_question(retriever: Any, question: str, question_type: str, expected_doc: str, search_k: int = 10) -> Dict[str, Any]:
     chunk_results = retriever.search(question, top_k=search_k)
     ranked_docs = unique_docs_from_results(chunk_results, top_k_docs=3)
 
@@ -49,6 +54,7 @@ def evaluate_question(retriever: Any, question: str, expected_doc: str, search_k
 
     return {
         "question": question,
+        "type": question_type,
         "expected_doc": expected_doc,
         "retrieved_docs": ranked_docs,
         "detailed_results": chunk_results[:3],
@@ -66,6 +72,7 @@ def evaluate_benchmark(benchmark: List[Dict[str, str]], retriever: Any, search_k
         result = evaluate_question(
             retriever=retriever,
             question=item["question"],
+            question_type=item.get("type", "desconhecido"), 
             expected_doc=item["expected_doc"],
             search_k=search_k
         )

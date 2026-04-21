@@ -1,35 +1,78 @@
 {
-    "id": 36,
-    "question": "Qual foi o efeito tarifário médio da EDEVP em 2018?",
-    "type": "fake",
-    "difficulty": "medium"
-  },
-  {
-    "id": 37,
-    "question": "Qual despacho aprovou a construção da UHE Belo Monte?",
-    "type": "fake",
-    "difficulty": "easy"
-  },
-  {
-      "id": 38,
-    "question": "Qual foi o valor total investido pela ANEEL no projeto Cerquinha II?",
-    "type": "fake",
-    "difficulty": "medium"
-  },
-  {
-    "id": 39,
-    "question": "Qual resolução revogou integralmente o Despacho nº 741/2016?",
-    "type": "fake",
-    "difficulty": "hard"
-  }
-   {
-    "id": 15,
-    "question": "Segundo a análise da Nota Técnica, o recurso interposto possui efeito suspensivo automático? Em que fundamento normativo isso foi apoiado?",
-    "question_variation": "O recurso administrativo da Omega tinha efeito suspensivo automático? Qual norma foi citada para isso?",
-    "type": "juridica",
-    "difficulty": "medium",
-    "expected_doc": "2021_05837",
-    "expected_answer": "Sim, possui efeito suspensivo automático",
-    "trecho_base": "Analisar o Recurso Administrativo interposto pela Omega Desenvolvimento de Energia 1 S.A. (...) em face do Despacho nº 2.706, de 18 de setembro de 2020",
+    "id": 20,
+    "question": "Quem recebeu o Registro para a elaboração da revisão dos Estudos de Inventário Hidrelétrico do rio Piranga no Despacho nº 105/2022?",
+    "question_variation": "Quem foi contemplado com o registro para revisar os estudos de inventário hidrelétrico do rio Piranga no Despacho nº 105/2022?",
+    "type": "deterministica",
+    "difficulty": "easy",
+    "expected_doc": "2022_07279_pdf1",
+    "expected_answer": "Vilson Marcos Testa; Getop Empreendimentos e Gestão Ltda.",
+    "trecho_base": "decide: (i) conferir ao Senhor Vilson Marcos Testa (...) e à Getop Empreendimentos e Gestão Ltda. (...) o Registro para a elaboração da Revisão dos Estudos de Inventário Hidrelétrico do rio Piranga",
     "evidence": "trecho_base"
   },
+  {
+    "id": 21,
+    "question": "Que comunicação específica foi feita quanto à UHE Brecha no Despacho nº 105/2022?",
+    "question_variation": "Qual restrição foi comunicada pela ANEEL em relação à UHE Brecha no Despacho nº 105/2022?",
+    "type": "juridica",
+    "difficulty": "easy",
+    "expected_doc": "2022_07279_pdf1",
+    "expected_answer": "Foi comunicado que a UHE Brecha não poderá ser objeto do exercício do direito de preferência.",
+    "trecho_base": "(iv) comunicar que a UHE Brecha não poderá ser objeto do exercício do direito de preferência.",
+    "evidence": "trecho_base"
+  },
+
+
+
+  {
+    "id": 22,
+    "question": "Qual foi o objeto do Primeiro Termo Aditivo ao Contrato de Concessão nº 13/2022-ANEEL?",
+    "question_variation": "Para que finalidade foi firmado o Primeiro Termo Aditivo ao Contrato de Concessão nº 13/2022-ANEEL?",
+    "type": "juridica",
+    "difficulty": "easy",
+    "expected_doc": "2022_01720_pdf1",
+    "expected_answer": "Transferência da concessão para a SPE Nova Era Caladinho S.A.",
+    "trecho_base": "Objeto: formalizar a transferência da concessão de serviço público de transmissão de energia elétrica regida pelo CONTRATO DE CONCESSÃO nº 13/2022-ANEEL à SPE Nova Era Caladinho S.A.",
+    "evidence": "trecho_base"
+  },
+
+
+
+  {
+    "id": 23,
+    "question": "Qual foi o efeito tarifário médio homologado para a Certaja no Reajuste Tarifário Anual de 2022?",
+    "question_variation": "Qual percentual médio de reajuste foi homologado para a Certaja no reajuste tarifário anual de 2022?",
+    "type": "numerica",
+    "difficulty": "easy",
+    "expected_doc": "2022_03374_pdf1",
+    "expected_answer": "8,10%",
+    "trecho_base": "Art. 2º As tarifas de aplicação da Certaja (...) ficam, em média, reajustadas em 8,10% (...) correspondendo ao efeito tarifário médio a ser percebido pelos consumidores",
+    "evidence": "trecho_base"
+  },
+  {
+    "id": 24,
+    "question": "Em qual tabela do Anexo a resolução estabelece a receita anual referente à instalação de conexão da CEEE-GT de uso exclusivo pela Certaja?",
+    "question_variation": "Em qual tabela do anexo consta a receita anual da instalação de conexão da CEEE-GT de uso exclusivo da Certaja?",
+    "type": "localizacao",
+    "difficulty": "easy",
+    "expected_doc": "2022_03374_pdf1",
+    "expected_answer": "Na Tabela 6 do Anexo",
+    "trecho_base":  "Art. 7º Estabelecer, na Tabela 6 do Anexo, a receita anual referente à instalação de conexão da Companhia Estadual de Transmissão e Geração de Energia Elétrica – CEEE-GT, relativas às Demais Instalações de Transmissão – DIT de uso exclusivo pela Certaja",
+    "evidence": "trecho_base"
+  },
+
+
+
+
+
+  
+  {
+    "id": 34,
+    "question": "Quais percentuais de desconto tarifário foram definidos para as classes Rural - Grupo A e Água, Esgoto e Saneamento - Grupo A na Tabela 3 da Certaja?",
+    "question_variation": "Na Tabela 3 da Resolução Homologatória da Certaja, quais foram os descontos previstos para Rural Grupo A e para Água, Esgoto e Saneamento Grupo A?",
+    "type": "numerica",
+    "difficulty": "medium",
+    "expected_doc": "2022_03374_pdf1",
+    "expected_answer": "Rural Grupo A: 2%; Água/Esgoto/Saneamento Grupo A: 3%",
+    "trecho_base": "RURAL - GRUPO A 2% 2% 2% (...) ÁGUA, ESGOTO E SANEAMENTO - GRUPO A 3% 3% 3%",
+    "evidence": "trecho_base"
+  }
