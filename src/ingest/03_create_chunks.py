@@ -1,5 +1,6 @@
-#rode no terminal: python3 -m src.ingest.02_create_chunks
+#rode no terminal: python3 -m src.ingest.03_create_chunks
 
+import gc
 import json
 import logging
 from pathlib import Path
@@ -16,6 +17,7 @@ class ChunkConfig:
     
     input_jsonl: Path = base_dir / "data/interim/parsed/parsed_documents.jsonl"
     output_jsonl: Path = base_dir / "data/processed/chunks/chunks.jsonl"
+    catalog_json: Path = base_dir / "data/interim/metadata/metadata_catalog.json"
     log_file: Path = base_dir / "data/logs/chunking.log"
     
     chunk_size: int = 1200
@@ -27,19 +29,26 @@ def setup_logging(log_file: Path) -> None:
     log_file.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(message)s")
 
-def build_enriched_document(metadata: Dict[str, Any], raw_text: str) -> str:
-    tipo_ato = metadata.get("tipo_ato_titulo", "")
-    sigla = metadata.get("sigla_titulo", "")
-    ano = metadata.get("ano", "")
-    assunto = metadata.get("assunto_normalizado", "")
+def build_enriched_document(uid: str, raw_text: str, catalog: dict) -> str:
+    meta = catalog.get(uid, {})
     
-    revogada = metadata.get("revogada_flag", 0)
-    alerta = "\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]" if revogada == 1 else ""
+    tipo_ato = meta.get("tipo_ato_titulo", "Documento")
+    sigla = meta.get("sigla_titulo", "")
+    numero = meta.get("numero_titulo", "")
+    ano = meta.get("ano", "")
+    assunto = meta.get("assunto_normalizado", "Sem Assunto")
+    autor = meta.get("autor", "ANEEL")
+    ementa = meta.get("ementa", "Não disponível")
+    
+    revogada = meta.get("revogada_flag", 0)
+    alerta = "\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]" if str(revogada) == "1" else ""
     
     header = (
-        f"DOCUMENTO: {tipo_ato} {sigla}\n"
+        f"DOCUMENTO: {tipo_ato} {numero} ({sigla})\n"
+        f"AUTOR: {autor}\n"
         f"ANO: {ano}{alerta}\n"
         f"ASSUNTO: {assunto}\n"
+        f"EMENTA: {ementa}\n"
         f"---\n"
     )
     return header + raw_text
@@ -88,21 +97,31 @@ def process_chunks():
     setup_logging(CONFIG.log_file)
     CONFIG.output_jsonl.parent.mkdir(parents=True, exist_ok=True)
     
+    if not CONFIG.catalog_json.exists():
+        logging.error("Catálogo de metadados não encontrado!")
+        return
+        
+    print("⏳ Carregando catálogo para a memória...")
+    with open(CONFIG.catalog_json, "r", encoding="utf-8") as f:
+        metadata_catalog = json.load(f)
+        logging.info(f"Catálogo carregado: {len(metadata_catalog)} registros.")
+    
     total_docs = 0
     total_chunks = 0
+    
+    print("\nIniciando geração de Chunks Enriquecidos (Modo Econômico de RAM)...")
     
     with open(CONFIG.input_jsonl, "r", encoding="utf-8") as fin, \
          open(CONFIG.output_jsonl, "w", encoding="utf-8") as fout:
         
-        for line in fin:
+        for idx, line in enumerate(fin):
             if not line.strip(): continue
-
+            
             record = json.loads(line)
             uid = record["registro_uid"]
-            metadata = record["metadata"]
             raw_text = record["raw_text"]
             
-            enriched_text = build_enriched_document(metadata, raw_text)
+            enriched_text = build_enriched_document(uid, raw_text, metadata_catalog)
             chunks = chunk_text_with_header(enriched_text, CONFIG.chunk_size, CONFIG.chunk_overlap)
             
             for i, chunk_text in enumerate(chunks):
@@ -110,22 +129,26 @@ def process_chunks():
                     "chunk_id": f"{uid}_{i}",
                     "registro_uid": uid,
                     "text": chunk_text,
-                    "metadata": metadata 
+                    "metadata": metadata_catalog.get(uid, {})
                 }
                 fout.write(json.dumps(chunk_record, ensure_ascii=False) + "\n")
             
             total_docs += 1
             total_chunks += len(chunks)
+            
+            fout.flush() 
+            
+            del record, raw_text, enriched_text, chunks
+            
+            if idx % 100 == 0 and idx > 0:
+                gc.collect() 
+                print(f"Processados {idx} documentos... (RAM limpa)")
 
-            if total_docs % 100 == 0:
-                print(f"-> {total_docs} documentos processados... ({total_chunks} chunks gerados)")
-
-
-    print("\n" + "="*40)
-    print("CHUNKING FINALIZADO COM SUCESSO!")
-    print(f"Documentos lidos: {total_docs}")
-    print(f"Total de chunks gerados: {total_chunks}")
-    print("="*40 + "\n")
+    print("\n" + "="*50)
+    print("CHUNKING CONCLUÍDO COM SUCESSO!")
+    print(f"Total de Documentos: {total_docs}")
+    print(f"Total de Chunks Gerados: {total_chunks}")
+    print("="*50 + "\n")
             
     logging.info(f"Processo finalizado: {total_docs} documentos renderam {total_chunks} chunks.")
 

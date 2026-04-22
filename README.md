@@ -130,9 +130,29 @@ Saída:
 
 Esse arquivo passa a ser a base oficial para a fase de ingestão em larga escala.
 
-### 3. Extração Limpa (`01_parse_documents.py`)
+### 3. Extração Limpa (`01_extract_text.py`)
 
-Responsável por converter os PDFs padronizados em dados legíveis por máquina, extraindo texto limpo para o arquivo `data/interim/parsed/parsed_documents.jsonl`.
+Responsável por converter os PDFs padronizados em texto bruto.
+
+Estado atual:
+
+- extração focada exclusivamente no conteúdo textual dos documentos
+- saída minimalista contendo apenas:
+  - `registro_uid`
+  - `raw_text`
+- uso de PyMuPDF e pdfplumber para garantir cobertura de texto e tabelas
+
+#### Observação recente
+
+A lógica de metadados foi completamente removida desta etapa.
+
+Objetivo:
+
+- reduzir custo computacional
+- evitar reprocessamento pesado em mudanças futuras
+- desacoplar extração de texto da lógica documental
+
+O arquivo gerado (`parsed_documents.jsonl`) é leve, rápido de produzir e reutilizável.
 
 #### Parsing em escala (batch processing)
 
@@ -148,19 +168,64 @@ Essa abordagem permite:
 - execução resiliente a falhas
 - escalabilidade para o acervo completo
 
-### 4. Chunking e Enriquecimento (`02_create_chunks.py`)
+### 3.1 Catálogo de Metadados (`02_build_metadata_catalog.py`)
 
-Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido com metadados no início de cada documento, garantindo o Data Lineage para o LLM.
+Responsável por construir um índice documental enriquecido a partir dos JSONs originais da ANEEL.
 
-#### Observação recente sobre chunking
+Como funciona:
 
-Durante a avaliação em escala, foi identificado que os erros restantes estão associados a colisões de contexto entre documentos com trechos muito similares (boilerplate jurídico).
+- percorre os JSONs brutos mantendo a mesma ordem de geração dos `registro_uid`
+- replica metadados do registro original para cada PDF associado
+- limpa campos textuais (ex: remoção de prefixos como "Assunto:" e ruídos como "Imprimir")
 
-Foi aplicada uma melhoria simples no chunking:
+Saída:
 
-- evitar corte de palavras no meio dos chunks (respeitando limites de espaço)
+- catálogo indexado por `registro_uid`
+- contém:
+  - título
+  - autor
+  - ementa
+  - assunto
+  - tipo do ato
+  - demais campos relevantes
 
-Essa mudança melhora a qualidade textual dos chunks sem alterar a estrutura da pipeline.
+Benefícios:
+
+- execução extremamente rápida (segundos)
+- lookup O(1) durante o chunking
+- evita reprocessamento dos PDFs ao alterar metadados
+
+### 4. Chunking e Enriquecimento (`03_create_chunks.py`)
+
+Responsável por transformar o texto bruto em unidades de contexto otimizadas para retrieval.
+
+Estado atual:
+
+- leitura do texto bruto (`parsed_documents.jsonl`)
+- carregamento do catálogo de metadados na memória
+- chunking com overlap e tamanho ampliado (~2500 caracteres)
+- respeito a limites de palavras (evitando cortes no meio)
+
+#### Enriquecimento de contexto
+
+Cada chunk recebe um cabeçalho contendo:
+
+- título do documento
+- autor
+- ementa
+- identificador do ato (ex: PORTARIA 4402/2016)
+
+#### Observação recente
+
+Essa mudança foi introduzida para resolver o principal gargalo identificado:
+
+> colisão de contexto entre documentos com conteúdo jurídico similar
+
+Ao injetar metadados no cabeçalho:
+
+- cada chunk passa a carregar identidade documental forte
+- reduz ambiguidade em trechos genéricos
+- melhora significativamente a eficácia do BM25
 
 ### 5. Preparação do Corpus de Retrieval (`prepare_retrieval_corpus.py`)
 
@@ -298,6 +363,11 @@ Observação:
 - todo manifesto utilizado em experimentos de escala deve conter integralmente a amostra histórica de benchmark.
 - validação do sistema em escala (>1000 documentos) com comparação entre benchmarks V1 e V2
 - adicionar ementas e autores ao cabeçalho dos chunks, para garantir que identificadores únicos estejam presentes em todos os chunks
+- desacoplamento completo entre extração de texto e metadados documentais
+- introdução de catálogo de metadados indexado por `registro_uid`
+- enriquecimento de chunks com contexto documental (ementa, autor, título)
+- aumento do chunk size para melhorar coerência contextual
+- tratamento do problema de colisão de contexto como principal gargalo do retrieval
 
 ### Refatorações na Camada de Retrieval
 

@@ -46,6 +46,10 @@ def setup_logging(log_file: Path) -> None:
 def normalize_text(text: str) -> str:
     if not text: return ""
     text = text.replace("\x00", " ").replace("\r", "\n")
+    text = re.sub(r'\|\s*\|\s*\|', '|', text) 
+    text = re.sub(r'\|\s*\|', '|', text)
+    linhas = text.split('\n')
+    text = '\n'.join([linha for linha in linhas if linha.strip() != '|'])
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
     return text.strip()
@@ -75,6 +79,15 @@ class PDFExtractor(BaseExtractor):
             if doc_fitz.page_count == 0:
                 doc_fitz.close()
                 return None
+            
+            custom_table_settings = {
+                "vertical_strategy": "lines",
+                "horizontal_strategy": "lines",
+                "intersection_x_tolerance": 15,
+                "intersection_y_tolerance": 15,
+                "snap_tolerance": 5,
+                "join_tolerance": 5
+            }
 
             pages: List[str] = []
             with pdfplumber.open(path) as pdf_plumb:
@@ -82,7 +95,7 @@ class PDFExtractor(BaseExtractor):
                     page_fitz = doc_fitz[page_num]
                     page_plumb = pdf_plumb.pages[page_num]
                     
-                    tables = page_plumb.find_tables()
+                    tables = page_plumb.find_tables(table_settings=custom_table_settings)
                     if tables:
                         page_text = page_plumb.extract_text() or ""
                         extracted_tables = page_plumb.extract_tables()
@@ -242,14 +255,14 @@ def process_extraction():
                                 extracted_text = extractor.extract(file_path)
                                 
                                 if extracted_text and len(extracted_text) >= CONFIG.min_text_length:
-                                    metadata_limpo = row.dropna().to_dict()
+                    
                                     record = {
-                                        "registro_uid": registro_uid,
-                                        "raw_text": extracted_text,
-                                        "metadata": metadata_limpo
+                                    "registro_uid": registro_uid,
+                                    "raw_text": extracted_text
+                    
                                     }
                                     fout.write(json.dumps(record, ensure_ascii=False) + "\n")
-                                    logging.info(f"[{registro_uid}] Extraído com sucesso.")
+                                    logging.info(f"[{registro_uid}] Extraído com sucesso via {extractor.__class__.__name__}.")
                                     sucesso_count += 1
                                 else:
                                     logging.warning(f"[{registro_uid}] Texto vazio/curto.")
