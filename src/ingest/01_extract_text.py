@@ -1,10 +1,14 @@
 #rode no terminal: python3 -m src.ingest.01_extract_text
+#rode no terminal: python3 -m src.ingest.01_extract_text --reset PARA RESETAR O PROGRESSO E COMEÇAR DO INICIO
 
 import os
 import re
+import gc
 import json
 import logging
 import pandas as pd
+import sys
+import time
 import fitz  
 import pdfplumber
 from bs4 import BeautifulSoup
@@ -17,17 +21,17 @@ from typing import Optional, List, Dict, Any
 # ============================================================
 
 @dataclass(frozen=True)
-
-
 class ExtractConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
     
-    manifest_csv: Path = base_dir / "data/raw/selected/amostra_pdfs_150_v2.csv"
-    downloads_dir: Path = base_dir / "data/raw/documents/downloads"
+    manifest_csv: Path = base_dir / "data/raw/selected/manifesto_3_unified_pdfs.csv"
+    downloads_dir: Path = base_dir / "data/raw/documents/downloads/full_dataset"
     output_jsonl: Path = base_dir / "data/interim/parsed/parsed_documents.jsonl"
     log_file: Path = base_dir / "data/logs/extract.log"
+    tracker_file: Path = base_dir / "data/logs/processed_uids.txt" 
     
     min_text_length: int = 80
+    batch_size: int = 150 
 
 CONFIG = ExtractConfig()
 
@@ -45,6 +49,16 @@ def normalize_text(text: str) -> str:
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
     return text.strip()
+
+def carregar_uids_processados(tracker_path: Path) -> set:
+    processados = set()
+    if tracker_path.exists():
+        with open(tracker_path, "r", encoding="utf-8") as f:
+            for linha in f:
+                uid = linha.strip()
+                if uid:
+                    processados.add(uid)
+    return processados
 
 # ============================================================
 # EXTRATORES
@@ -164,42 +178,99 @@ class ExtractorFactory:
         return None
 
 # ============================================================
-# PROCESSAMENTO
+# PROCESSAMENTO (LÓGICA DE LOTES)
 # ============================================================
 
 def process_extraction():
     setup_logging(CONFIG.log_file)
     CONFIG.output_jsonl.parent.mkdir(parents=True, exist_ok=True)
+    CONFIG.tracker_file.parent.mkdir(parents=True, exist_ok=True)
     
+    if "--reset" in sys.argv:
+        if CONFIG.output_jsonl.exists():
+            CONFIG.output_jsonl.unlink() 
+        if CONFIG.tracker_file.exists():
+            CONFIG.tracker_file.unlink() 
+        print("\n MODO RESET: Histórico apagado. Começando extração do zero...\n")
+
     df = pd.read_csv(CONFIG.manifest_csv)
     
-    with open(CONFIG.output_jsonl, "w", encoding="utf-8") as fout:
-        for idx, row in df.iterrows():
-            ano = str(row.get("ano", ""))
-            arquivo = str(row.get("arquivo", ""))
-            registro_uid = str(row.get("registro_uid", ""))
+    try:
+        while True:
+            uids_processados = carregar_uids_processados(CONFIG.tracker_file)
+            df_pendentes = df[~df["registro_uid"].astype(str).isin(uids_processados)]
             
-            if not arquivo or not ano: continue
+            if df_pendentes.empty:
+                print("\n" + "="*50)
+                print("TODOS OS DOCUMENTOS JÁ FORAM PROCESSADOS!")
+                print("="*50 + "\n")
+                logging.info("Processamento completo. Não há lotes pendentes.")
+                break 
+                
+            df_lote = df_pendentes.head(CONFIG.batch_size)
             
-            file_path = CONFIG.downloads_dir / ano / arquivo
-            
-            if file_path.exists() and not file_path.is_dir():
+            print("\n" + "="*50)
+            print(f"PROCESSANDO LOTE DE {len(df_lote)} ARQUIVOS")
+            print(f"Restam {len(df_pendentes) - len(df_lote)} arquivos pendentes no total.")
+            print("="*50 + "\n")
+
+            sucesso_count = 0
+            erro_count = 0
+
+            with open(CONFIG.output_jsonl, "a", encoding="utf-8") as fout, \
+                 open(CONFIG.tracker_file, "a", encoding="utf-8") as ftrack:
+                 
+                for idx, row in df_lote.iterrows():
+                    registro_uid = str(row.get("registro_uid", ""))
+                    if not registro_uid: 
+                        continue
+                    
+                    arquivos_encontrados = list(CONFIG.downloads_dir.glob(f"{registro_uid}.*"))
+                    
+                    if not arquivos_encontrados:
+                        logging.warning(f"[{registro_uid}] Arquivo físico não encontrado.")
+                        erro_count += 1
+                    else:
+                        file_path = arquivos_encontrados[0]
+                        
+                        if file_path.exists() and not file_path.is_dir():
+                            extractor = ExtractorFactory.get_extractor(file_path)
+                            if not extractor:
+                                logging.warning(f"[{registro_uid}] Extensão não suportada: {file_path.suffix}")
+                                erro_count += 1
+                            else:
+                                extracted_text = extractor.extract(file_path)
+                                
+                                if extracted_text and len(extracted_text) >= CONFIG.min_text_length:
+                                    metadata_limpo = row.dropna().to_dict()
+                                    record = {
+                                        "registro_uid": registro_uid,
+                                        "raw_text": extracted_text,
+                                        "metadata": metadata_limpo
+                                    }
+                                    fout.write(json.dumps(record, ensure_ascii=False) + "\n")
+                                    logging.info(f"[{registro_uid}] Extraído com sucesso.")
+                                    sucesso_count += 1
+                                else:
+                                    logging.warning(f"[{registro_uid}] Texto vazio/curto.")
+                                    erro_count += 1
                 
-                extractor = ExtractorFactory.get_extractor(file_path)
-                if not extractor:
-                    logging.warning(f"[{registro_uid}] Extensão não suportada: {file_path.suffix}")
-                    continue
-                
-                extracted_text = extractor.extract(file_path)
-                
-                if extracted_text and len(extracted_text) >= CONFIG.min_text_length:
-                    record = {
-                        "registro_uid": registro_uid,
-                        "raw_text": extracted_text,
-                        "metadata": row.dropna().to_dict()
-                    }
-                    fout.write(json.dumps(record, ensure_ascii=False) + "\n")
-                    logging.info(f"[{registro_uid}] Extraído com sucesso via {extractor.__class__.__name__}.")
+                    ftrack.write(registro_uid + "\n")
+                    ftrack.flush()
+                    fout.flush() 
+                    gc.collect()
+
+            print(f"Lote finalizado. Sucessos: {sucesso_count} | Erros: {erro_count}")
+            time.sleep(5) 
+
+    except KeyboardInterrupt:
+        print("\n\n")
+        print("EXECUÇÃO INTERROMPIDA PELO USUÁRIO (Ctrl+C)")
+        print("Os arquivos jsonl e txt foram fechados com segurança.")
+        print("Nenhum dado do progresso atual foi perdido.")
+        print("\n")
+        sys.exit(0)
+
 
 if __name__ == "__main__":
     process_extraction()

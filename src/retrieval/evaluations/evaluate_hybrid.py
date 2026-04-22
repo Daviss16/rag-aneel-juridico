@@ -11,7 +11,7 @@ from src.retrieval.hybrid_retriever import build_hybrid_retriever
 @dataclass(frozen=True)
 class EvaluateHybridConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent.parent
-    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions_v2.json"
+    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions.json"
     output_path: Path = base_dir / "data" / "retrieval" / "evaluation" / "hybrid_metrics.json"
 
 def parse_args():

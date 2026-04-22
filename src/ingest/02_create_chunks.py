@@ -1,4 +1,4 @@
-#rode no terminal: python3 -m src.ingest.02_create_chunks.py
+#rode no terminal: python3 -m src.ingest.02_create_chunks
 
 import json
 import logging
@@ -65,14 +65,22 @@ def chunk_text_with_header(enriched_text: str, chunk_size: int, chunk_overlap: i
 
     while start < body_length:
         end = start + effective_body_size
-        body_chunk = body[start:end].strip()
         
+        if end < body_length:
+            ultimo_espaco = body.rfind(" ", start, end)
+            ultima_quebra = body.rfind("\n", start, end)
+            corte_ideal = max(ultimo_espaco, ultima_quebra)
+            
+            if corte_ideal > start + (effective_body_size // 2):
+                end = corte_ideal
+
+        body_chunk = body[start:end].strip()
         
         if body_chunk:
             chunks.append(f"{header}\n{body_chunk}".strip())
 
         if end >= body_length: break
-        start += max(1, effective_body_size - chunk_overlap)
+        start = end - chunk_overlap
 
     return chunks
 
@@ -87,6 +95,8 @@ def process_chunks():
          open(CONFIG.output_jsonl, "w", encoding="utf-8") as fout:
         
         for line in fin:
+            if not line.strip(): continue
+
             record = json.loads(line)
             uid = record["registro_uid"]
             metadata = record["metadata"]
@@ -106,6 +116,16 @@ def process_chunks():
             
             total_docs += 1
             total_chunks += len(chunks)
+
+            if total_docs % 100 == 0:
+                print(f"-> {total_docs} documentos processados... ({total_chunks} chunks gerados)")
+
+
+    print("\n" + "="*40)
+    print("CHUNKING FINALIZADO COM SUCESSO!")
+    print(f"Documentos lidos: {total_docs}")
+    print(f"Total de chunks gerados: {total_chunks}")
+    print("="*40 + "\n")
             
     logging.info(f"Processo finalizado: {total_docs} documentos renderam {total_chunks} chunks.")
 

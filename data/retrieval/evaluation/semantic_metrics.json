@@ -1,0 +1,905 @@
+{
+  "total_questions": 28,
+  "top_1_hits": 5,
+  "top_3_hits": 7,
+  "top_1_accuracy": 0.17857142857142858,
+  "top_3_recall": 0.25,
+  "results": [
+    {
+      "question": "A partir de que data a UG1 da PCH Santa Cecília foi liberada para início da operação comercial?",
+      "type": "deterministica",
+      "expected_doc": "2016_01901_pdf1",
+      "retrieved_docs": [
+        "2022_00006_pdf1",
+        "2021_04867_pdf1",
+        "2021_03878_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00006_pdf1_2",
+          "registro_uid": "2022_00006_pdf1",
+          "score": 0.5357481241226196,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Autorização\n---\n\n2004, e alterada pela Portaria do Ministério do Trabalho e Previdência Social n° 508, \nde 29 de abril de 2016; e (v) constitui obrigação da Fundação Oswaldo Cruz responder por eventuais danos \nque as instalações de energia elétrica causar a"
+        },
+        {
+          "chunk_id": "2021_04867_pdf1_1",
+          "registro_uid": "2021_04867_pdf1",
+          "score": 0.5286020040512085,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Extinção\n---\n\nNacional de Energia Elétrica - Aneel. \nArt. 3º Caberá à Aneel adotar as providências necessárias para o cumprimento das \nobrigações remanescentes da Concessão da CGH Santa Luzia, objeto do Contrato de Concessão nº \n07/1997-DNAEE, de 10 de julh"
+        },
+        {
+          "chunk_id": "2021_03878_pdf2_2",
+          "registro_uid": "2021_03878_pdf2",
+          "score": 0.5212326049804688,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Juízo de mérito\n---\n\nio Hidrelétrico e com o uso do \n\nPág. 2 da Nota Técnica nº 351/2021-SCG/ANEEL, de 21/06/2021. \npotencial hidráulico da revisão do projeto básico da PCH Santa Rosa. \n7. \nEm 1º de março de 2021, a Santa Rosa Energia Participações S.A. int"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual era a capacidade instalada da unidade geradora liberada pelo Despacho nº 1.978/2016?",
+      "type": "numerica",
+      "expected_doc": "2016_01901_pdf1",
+      "retrieved_docs": [
+        "2022_00056_pdf1",
+        "2016_00449_pdf2",
+        "2016_00104_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00056_pdf1_2",
+          "registro_uid": "2022_00056_pdf1",
+          "score": 0.6361572742462158,
+          "text_preview": "DOCUMENTO: DECRETO DEC\nANO: 2022\nASSUNTO: Contrato de concessão\n---\n\ninuta de contrato de concessão de geração de \n energia elétrica deverá ser aprovada pela Aneel e integrará o edital \n do leilão de privatização ou o prospecto de oferta pública da pessoa \n jurídica de que trata o caput do art. 1º, "
+        },
+        {
+          "chunk_id": "2016_00449_pdf2_5",
+          "registro_uid": "2016_00449_pdf2",
+          "score": 0.6279240250587463,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Alteração\n---\n\niro de 2014, a SGH manteve a decisão proferida no Despacho no 47, de 2014. \n10. \nPor intermédio do Despacho no 2.822, de 22 de julho de 2014, a Diretoria Colegiada da ANEEL \ndecidiu \n[...] conhecer do recurso interposto pelas empresas Maggi E"
+        },
+        {
+          "chunk_id": "2016_00104_pdf2_11",
+          "registro_uid": "2016_00104_pdf2",
+          "score": 0.6269887089729309,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2016\nASSUNTO: Autorização\n---\n\nes na legislação.\nBrasília, 13 de dezembro de 2016.\nREIVE BARROS DOS SANTOS\nDiretor\n\n| Nome | Cargo | Tipo | Início | Término |\n|---|---|---|---|---|\n| João Francisco Darlei da Silva Pereira | Técnico Administrativo | Licença Capacitação | "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual foi o efeito médio percebido pelos consumidores da EDEVP na Quarta Revisão Tarifária Periódica de 2016?",
+      "type": "numerica",
+      "expected_doc": "2016_02735_pdf2",
+      "retrieved_docs": [
+        "2016_02735_pdf2",
+        "2016_00163_pdf2",
+        "2016_03244_pdf4"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02735_pdf2_1",
+          "registro_uid": "2016_02735_pdf2",
+          "score": 0.6678051948547363,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2016\nASSUNTO: Homologação\n---\n\nmetodologias aplicáveis à revisão e estrutura tarifária são definidas nos Módulos 2 e 7 do \nPRORET. \n3. \nPor meio da Audiência Pública n° 008/2016 foi discutido com a sociedade a proposta de revisão \ntarifária e os limites de"
+        },
+        {
+          "chunk_id": "2016_00163_pdf2_1",
+          "registro_uid": "2016_00163_pdf2",
+          "score": 0.6257402896881104,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2016\nASSUNTO: Fixação\n---\n\nita de venda da energia elétrica de Angra 1 e 2 é calculada com \nperiodicidade anual, com ciclo de revisões tarifárias periódicas a cada três anos, a partir de 1o de janeiro de \n2016. Nos demais anos, é realizado reajuste tarifár"
+        },
+        {
+          "chunk_id": "2016_03244_pdf4_283",
+          "registro_uid": "2016_03244_pdf4",
+          "score": 0.6226582527160645,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Aprovação\n---\n\nação máxima até a \npróxima revisão tarifária periódica, em virtude de impactos tarifários significativos \naos usuários do sistema de distribuição provenientes da altera"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Segundo o voto, qual foi a razão regulatória para o não acolhimento do pleito da EDEVP relativo a custos com inventários para incorporação de redes particulares?",
+      "type": "juridica",
+      "expected_doc": "2016_02735_pdf2",
+      "retrieved_docs": [
+        "2016_02491_pdf5",
+        "2016_02491_pdf6",
+        "2016_02693_pdf3"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02491_pdf5_87",
+          "registro_uid": "2016_02491_pdf5",
+          "score": 0.6794984936714172,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nInstalações de transmissão do Sistema Interligado Nacional – SIN, de propriedade de concessionárias de serviço público de transmissão, definida segundo critérios estabe"
+        },
+        {
+          "chunk_id": "2016_02491_pdf5_82",
+          "registro_uid": "2016_02491_pdf5",
+          "score": 0.6780626773834229,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nde\nRede Básica\ntransmissão, definida segundo critérios estabelecidos pela ANEEL\nRedes de transmissão/distribuição e/ou subestações que atendam mais de um agente, podend"
+        },
+        {
+          "chunk_id": "2016_02491_pdf6_92",
+          "registro_uid": "2016_02491_pdf6",
+          "score": 0.6540113687515259,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nam mais de um agente, podendo ser uma rede principal ou rede\nRede compartilhada\ndependente\nRede compartilhada (principal ou depedente) cujo fluxo líquido de energia tem"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual componente financeiro foi apontado como o mais expressivo no processo tarifário da EDEVP e qual foi seu impacto?",
+      "type": "tecnica",
+      "expected_doc": "2016_02735_pdf2",
+      "retrieved_docs": [
+        "2016_03212_pdf2",
+        "2016_00197_pdf3",
+        "2021_00028_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_03212_pdf2_10",
+          "registro_uid": "2016_03212_pdf2",
+          "score": 0.6742972135543823,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Relação\n---\n\nsa proposta, conforme Nota Técnica nº 39/2016-SGT/ANEEL, manteve-se o entendimento \nde que é apropriada a manutenção de uma lista exaustiva, de forma a evitar análises pontuais, dando maior segurança \njurídica ao processo. A lista exaustiva não"
+        },
+        {
+          "chunk_id": "2016_00197_pdf3_26",
+          "registro_uid": "2016_00197_pdf3",
+          "score": 0.6557062864303589,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2016\nASSUNTO: Homologação\n---\n\nustos de geração por fonte termelétrica e à exposição aos preços de liquidação no \nmercado de curto prazo e os valores arrecadados de bandeira estão sendo revertidos no processo \ntarifária, atualizado por SELIC, totalizando ."
+        },
+        {
+          "chunk_id": "2021_00028_pdf2_16",
+          "registro_uid": "2021_00028_pdf2",
+          "score": 0.6493096351623535,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Fixação\n---\n\nação \nexcepcional narrada pela Requerente, será expedido Ofício Circular para as distribuidoras, instando-\nas acerca de seus interesses a partir da situação financeira própria de cada uma. Desse modo, as \ndistribuidoras devem requerer e comprov"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual foi o prazo de mandato atribuído aos membros da Comissão Permanente de Procedimentos Administrativos Disciplinares pela Portaria nº 4.040/2016?",
+      "type": "deterministica",
+      "expected_doc": "2016_02259_pdf1",
+      "retrieved_docs": [
+        "2016_00001_pdf1",
+        "2016_00430_pdf1",
+        "2016_00103_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_00001_pdf1_0",
+          "registro_uid": "2016_00001_pdf1",
+          "score": 0.7534947395324707,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Acatamento\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO N° 3.284, DE 15 DE DEZEMBRO DE 2016 \nO DIRETOR-GERAL DA AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL, no \nuso das suas atribuições regimentais, tendo em vista deliberação da Diretoria e "
+        },
+        {
+          "chunk_id": "2016_00430_pdf1_1",
+          "registro_uid": "2016_00430_pdf1",
+          "score": 0.7044553160667419,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2016\nASSUNTO: Criação\n---\n\nministração e Finanças – \nSAF a supervisão dos trabalhos da Comissão, de forma a garantir a correção dos procedimentos e a \neliminação das pendências registradas. \nArt. 6º Esta portaria entra em vigor a partir de 05 de dezembro de 2016. \nFRANCI"
+        },
+        {
+          "chunk_id": "2016_00103_pdf2_4",
+          "registro_uid": "2016_00103_pdf2",
+          "score": 0.69339519739151,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2016\nASSUNTO: Aprovação\n---\n\ninexigibilidade, dentre outras). \n13. \nPara 2017, o PdC em atendimento ao previsto na Portaria SLTI/MPOG n. 040, de 14 de \nsetembro de 2016, que institui o PCTIC – Plano de Contratações de Soluções de Tecnologia da Informação \ne Comunicações "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Quem foi designado como Presidente substituto da CPPA na Portaria nº 4.040/2016?",
+      "type": "deterministica",
+      "expected_doc": "2016_02259_pdf1",
+      "retrieved_docs": [
+        "2016_00083_pdf1",
+        "2022_01070_pdf2",
+        "2016_00017_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_00083_pdf1_0",
+          "registro_uid": "2016_00083_pdf1",
+          "score": 0.6363003253936768,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Designação\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO N° 3.063, DE 23 DE NOVEMBRO DE 2016 \nO PRESIDENTE DA COMISSÃO DE GESTÃO DA INFORMAÇÃO - CGI, com base no \nRegimento Interno"
+        },
+        {
+          "chunk_id": "2022_01070_pdf2_4",
+          "registro_uid": "2022_01070_pdf2",
+          "score": 0.6281532645225525,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2022\nASSUNTO: Convocação\n---\n\nintegrante da lista de substituição. \n§ 1º A lista de substituição será formada por 3 (três) servidores da agência, \nocupantes dos cargos de Superintendente, Gerente-Geral ou equivalente \nhierárquico, escolhidos e designados pelo Presidente "
+        },
+        {
+          "chunk_id": "2016_00017_pdf1_1",
+          "registro_uid": "2016_00017_pdf1",
+          "score": 0.6240432262420654,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2016\nASSUNTO: Designação\n---\n\nstrada, em regra, por termo de recebimento \ndefinitivo circunstanciado. \n§ 2º Na hipótese de haver prorrogações do contrato, as competências do gestor designado \nestarão mantidas, ressalvado o caso de exoneração com designação de novo gestor"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Que contratos a distribuidora deve celebrar com consumidores responsáveis por unidades consumidoras do Grupo A, segundo a redação dada ao art. 61?",
+      "type": "tecnica",
+      "expected_doc": "2016_02553_pdf1",
+      "retrieved_docs": [
+        "2016_02805_pdf2",
+        "2016_02553_pdf1",
+        "2022_01276_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02805_pdf2_4",
+          "registro_uid": "2016_02805_pdf2",
+          "score": 0.7042940258979797,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO CONJUNTA RES\nANO: 2016\nASSUNTO: Fixação\n---\n\nlação do direito fundamental expresso no art. 5º, XII, da Constituição Federal de 1988, por \nconsiderarem que os dados cadastrais e de consumo seriam dados sigilosos. \n11. \nNesse diapasão, ressalta-se que mesmo antes de ir à audiência"
+        },
+        {
+          "chunk_id": "2016_02553_pdf1_21",
+          "registro_uid": "2016_02553_pdf1",
+          "score": 0.7037336230278015,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nnadimplente da Câmara de Comercialização de Energia Elétrica – CCEE importa em rescisão concomitante dos seus contratos com a distribuidora.\n\n§ 6º O encerramento da rel"
+        },
+        {
+          "chunk_id": "2022_01276_pdf2_19",
+          "registro_uid": "2022_01276_pdf2",
+          "score": 0.703731894493103,
+          "text_preview": "DOCUMENTO: AVISO DE CONSULTA PÚBLICA ACP\nANO: 2022\nASSUNTO: Comunicado\n---\n\nntes tarifárias não associadas ao custo da \nenergia, por outro lado, serão abatidos os benefícios ao sistema elétrico propiciados pelas centrais de \nMMGD, transcrito a seguir. \nArt. 17. Após o período de transição de que tra"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": true
+    },
+    {
+      "question": "Em qual dispositivo a resolução trata do prazo para devolução ao consumidor de uma via assinada do CUSD e do CCER?",
+      "type": "localizacao",
+      "expected_doc": "2016_02553_pdf1",
+      "retrieved_docs": [
+        "2022_00199_pdf2",
+        "2022_00297_pdf2",
+        "2022_00293_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00199_pdf2_5",
+          "registro_uid": "2022_00199_pdf2",
+          "score": 0.6818375587463379,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2022\nASSUNTO: Autorização\n---\n\n[...] \n§ 2º A contagem dos prazos disposta neste artigo deve ser realizada a partir da: \n[...] \nII - devolução dos contratos assinados pelo consumidor e demais usuários e, caso \naplicável, pagamento dos custos constantes do or"
+        },
+        {
+          "chunk_id": "2022_00297_pdf2_8",
+          "registro_uid": "2022_00297_pdf2",
+          "score": 0.6669540405273438,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2022\nASSUNTO: Autorização\n---\n\ndisposta neste artigo deve ser realizada a partir da: \n[...] \nII - devolução dos contratos assinados pelo consumidor e demais usuários e, caso \naplicável, pagamento dos custos constantes do orçamento prévio. \n[...] \nArt. 127. "
+        },
+        {
+          "chunk_id": "2022_00293_pdf2_8",
+          "registro_uid": "2022_00293_pdf2",
+          "score": 0.6669540405273438,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2022\nASSUNTO: Autorização\n---\n\ndisposta neste artigo deve ser realizada a partir da: \n[...] \nII - devolução dos contratos assinados pelo consumidor e demais usuários e, caso \naplicável, pagamento dos custos constantes do orçamento prévio. \n[...] \nArt. 127. "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual providência foi determinada pelo Despacho nº 3.194/2016 em relação aos aproveitamentos Invernadinha e Barra?",
+      "type": "deterministica",
+      "expected_doc": "2016_00326_pdf1",
+      "retrieved_docs": [
+        "2021_02074_pdf2",
+        "2016_00939_pdf2",
+        "2022_04590_pdf10"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_02074_pdf2_1455",
+          "registro_uid": "2021_02074_pdf2",
+          "score": 0.6368545293807983,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Revisão\n---\n\nte delega, mediante licitação, na modalidade de concorrência, a \nconstrução total ou parcial, conservação, reforma, ampliação ou melhoramento de quaisquer obras de \ninteresse público à pessoa jurídica ou consórcio de empresas que demonstre capa"
+        },
+        {
+          "chunk_id": "2016_00939_pdf2_1",
+          "registro_uid": "2016_00939_pdf2",
+          "score": 0.6363277435302734,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Retificação\n---\n\n. \nNa 4ª Reunião Pública Ordinária da Diretoria, por meio do Despacho nº 383, de 16 de fevereiro \nde 2016, a Diretoria Colegiada da ANEEL, por unanimidade, decidiu: \n“[...] não conhecer dos Pedidos de Reconsideração interpostos pela BW Guir"
+        },
+        {
+          "chunk_id": "2021_02074_pdf2_1179",
+          "registro_uid": "2021_02074_pdf2",
+          "score": 0.6344125270843506,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Revisão\n---\n\ndeve levar a um processo de busca na essência econômica das informações contábeis. \nSugerem-se as seguintes etapas no planejamento do processo contábil pela alta administração com vistas \nao objetivo de divulgação: \na) formulação e escolha de p"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "De qual ato anterior o Despacho nº 3.194/2016 determinou a exclusão dos aproveitamentos Invernadinha e Barra?",
+      "type": "localizacao",
+      "expected_doc": "2016_00326_pdf1",
+      "retrieved_docs": [
+        "2022_03392_pdf2",
+        "2022_02726_pdf2",
+        "2022_04590_pdf7"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_03392_pdf2_4",
+          "registro_uid": "2022_03392_pdf2",
+          "score": 0.6164240837097168,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Negação\n---\n\nse do juízo de \nreconsideração, e finalmente no meu voto, que analisou o recurso administrativo, que resultou no \nDespacho nº 2.710/2021. Essa última decisão foi aprovada por unanimidade dos Diretores votantes \npresentes. Nesse novo requeriment"
+        },
+        {
+          "chunk_id": "2022_02726_pdf2_32",
+          "registro_uid": "2022_02726_pdf2",
+          "score": 0.6144546866416931,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Oliveira Energia Geração e Serviços Ltda\n---\n\nção de Acordos Bilaterais entre partes signatárias de Contratos de Comercialização\nde Energia no Ambiente Regulado – CCEAR vinculados a empreendimentos de geração que não\npossuam unidades geradoras em operação c"
+        },
+        {
+          "chunk_id": "2022_04590_pdf7_4",
+          "registro_uid": "2022_04590_pdf7",
+          "score": 0.6040636301040649,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Aprovação\n---\n\nrocesso de \nautorização; \n▪ Em caso de repotenciação de equipamentos, as características dos equipamentos existentes e previstos \ndescrevendo as principais atividades a serem executadas; \n▪ Em caso de remanejamento ou substituição "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual era o objeto da Audiência Pública nº 047/2016 instaurada pela ANEEL?",
+      "type": "juridica",
+      "expected_doc": "2016_01751_pdf1",
+      "retrieved_docs": [
+        "2021_06158_pdf3",
+        "2016_00524_pdf4",
+        "2021_06156_pdf3"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_06158_pdf3_3",
+          "registro_uid": "2021_06158_pdf3",
+          "score": 0.646598756313324,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2021\nASSUNTO: Procedimento\n---\n\na Nota Técnica 136/2020-SGE/ANEEL em que \napresenta a análise a partir desses aspectos e propõe a abertura de audiência pública para a apreciação \nda proposta pela sociedade. \n9. \nEm 14 de dezembro de 2020, na Sessão de Sorteio "
+        },
+        {
+          "chunk_id": "2016_00524_pdf4_16",
+          "registro_uid": "2016_00524_pdf4",
+          "score": 0.6120052337646484,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nalização, versão 2017, está sendo conduzida em processo específico na Audiência \nPública nº 67/2016. \n30. \nCabe destacar que também devem ser alterados diversos disposi"
+        },
+        {
+          "chunk_id": "2021_06156_pdf3_3",
+          "registro_uid": "2021_06156_pdf3",
+          "score": 0.6050792336463928,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2021\nASSUNTO: Exposição humana\n---\n\n5 de dezembro de 2020, a SGE emitiu a Nota Técnica 136/2020-SGE/ANEEL em que \napresenta a análise a partir desses aspectos e propõe a abertura de audiência pública para a apreciação \nda proposta pela sociedade. \n9. \nEm 14 de"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Segundo o voto da revisão tarifária da EDEVP, por que o efeito tarifário foi mais elevado para consumidores conectados em Alta Tensão do que para consumidores em Baixa Tensão?",
+      "type": "juridica",
+      "expected_doc": "2016_02735_pdf2",
+      "retrieved_docs": [
+        "2016_02735_pdf2",
+        "2022_00273_pdf2",
+        "2021_02074_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02735_pdf2_3",
+          "registro_uid": "2016_02735_pdf2",
+          "score": 0.6944601535797119,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2016\nASSUNTO: Homologação\n---\n\ns conectados na Baixa Tensão. \n: Superintendência de Gestão Tarifária - SGT/ANEEL. \n9. \nA diferença entre os efeitos na Alta Tensão - AT e na Baixa Tensão - BT decorre da nova estrutura \ntarifária que é redefinida no momento "
+        },
+        {
+          "chunk_id": "2022_00273_pdf2_30",
+          "registro_uid": "2022_00273_pdf2",
+          "score": 0.6579622030258179,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\na emissão de Resolução Homologatória, conforme minuta anexa, a fim de:\na) HOMOLOGAR o índice de reajuste tarifário anual das tarifas da Energisa Acre, a vigorar\na partir de 13 de dezembro de 2022, que conduz ao efeito médio a"
+        },
+        {
+          "chunk_id": "2021_02074_pdf2_511",
+          "registro_uid": "2021_02074_pdf2",
+          "score": 0.6511730551719666,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Revisão\n---\n\neiros \nSetoriais (majoração de alíquotas de tributos, programas sociais governamentais e outros); e \n pela reconhecimento do faturamento da bandeira tarifária ainda não homologada pela CCRBT na conta \n1111.2.07 – Bandeiras Tarifárias em contra"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Quais referenciais de perdas não técnicas e técnicas foram adotados para a EDEVP na revisão tarifária, e sobre que bases esses percentuais foram calculados?",
+      "type": "tecnica",
+      "expected_doc": "2016_02735_pdf2",
+      "retrieved_docs": [
+        "2016_03244_pdf4",
+        "2022_00273_pdf3",
+        "2016_01792_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_03244_pdf4_220",
+          "registro_uid": "2016_03244_pdf4",
+          "score": 0.652635931968689,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Aprovação\n---\n\ns prazos indicados, outras informações, \nplanilhas e documentos pertinentes ao cálculo tarifário, que venham a ser \nrequeridos pela ANEEL. \n13. \nA Memória de Cálculo do"
+        },
+        {
+          "chunk_id": "2022_00273_pdf3_102",
+          "registro_uid": "2022_00273_pdf3",
+          "score": 0.6453621983528137,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\n.\n26. O Custo relativo ao Uso de Sistemas de Distribuição refere-se aos valores pagos pelas\nconcessionárias de distribuição a outras Distribuidoras, conforme Contrato de Uso do Sistema de\nDistribuição – CUSD celebrado entre a"
+        },
+        {
+          "chunk_id": "2016_01792_pdf2_17",
+          "registro_uid": "2016_01792_pdf2",
+          "score": 0.6415741443634033,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Conceituação\n---\n\nANEEL. Em \nespecial, quando se verifica que a perda técnica informada pela empresa, de 7,65%, está bem distante do nível regulatório \nde 5,40%. \n37. \nNeste caso faz-se necessário analisar as razões do percentual de perdas técnicas calculad"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Quais elementos foram expressamente considerados na elaboração do PAINT/2021 pela Auditoria Interna da ANEEL?",
+      "type": "tecnica",
+      "expected_doc": "2021_06547_pdf2",
+      "retrieved_docs": [
+        "2021_00128_pdf2",
+        "2022_00177_pdf2",
+        "2021_06547_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_00128_pdf2_6",
+          "registro_uid": "2021_00128_pdf2",
+          "score": 0.823188066482544,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\na II – Universo de auditoria, tomando por base a etapa I de elaboração do PAINT, \nEntendimento da ANEEL, e com respaldo no Plano de Gestão Anual da ANEEL 2021, os objetos de auditoria \nforam definidos de forma abrangente, uma vez que a ANEEL "
+        },
+        {
+          "chunk_id": "2021_00128_pdf2_5",
+          "registro_uid": "2021_00128_pdf2",
+          "score": 0.8138042688369751,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\no 1 (4/9/2020), que tem por objetivo formalizar e padronizar o processo relativo à \nelaboração do Plano Anual de Auditoria Interna – PAINT, em consonância com a legislação, as orientações \ntécnicas da Controladoria-Geral da União, com as IPPF"
+        },
+        {
+          "chunk_id": "2022_00177_pdf2_1",
+          "registro_uid": "2022_00177_pdf2",
+          "score": 0.7755709290504456,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Aprovação\n---\n\no Procedimento \nOperacional – POP 2 “PAINT-RAINT”, versão 1 (4/9/2020), que tem por objetivo formalizar e padronizar o \nprocesso relativo à elaboração do Plano Anual de Auditoria Interna – PAINT e do Relatório Anual de \nAtividades de Auditori"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual foi a carga total de trabalho prevista na Tabela 1 do PAINT/2021?",
+      "type": "numerica",
+      "expected_doc": "2021_06547_pdf2",
+      "retrieved_docs": [
+        "2021_06547_pdf2",
+        "2022_00177_pdf2",
+        "2021_00128_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_06547_pdf2_6",
+          "registro_uid": "2021_06547_pdf2",
+          "score": 0.7052320241928101,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\npela CGU, conforme disposição da Tabela 1.\n14. Já a Tabela 2 apresenta a relação dos temas selecionados pela que serão objeto de exames\nno exercício de 2021. Destaco que o primeiro item tem a previsão de 400 homens-horas de acordo com\na ativi"
+        },
+        {
+          "chunk_id": "2022_00177_pdf2_5",
+          "registro_uid": "2022_00177_pdf2",
+          "score": 0.6840361952781677,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Aprovação\n---\n\no; (vi) expectativas da Diretoria \nColegiada da ANEEL; (vii) Agendas Estratégicas da ANEEL (Ciclo 2018‐2023); (viii) estrutura de governança; \n(ix) controles internos; (x) obrigações normativas e (xi) análise de impacto do negócio. \n15. \nEm c"
+        },
+        {
+          "chunk_id": "2021_06547_pdf2_5",
+          "registro_uid": "2021_06547_pdf2",
+          "score": 0.6808194518089294,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\na 1.916\nOutros (atendimento TCU/CGU, Gestão de risco, férias, licenças) 6.883\nTotal 20.080\n13. Para certificar que todas as atividades serão cumpridas, a AIN estabeleceu uma sistemática\nde alocação de força de trabalho. Assim, com base no his"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual era a pretensão principal da recorrente em relação ao DRS-PCH da PCH Bonito A?",
+      "type": "juridica",
+      "expected_doc": "2021_05837_pdf2",
+      "retrieved_docs": [
+        "2021_05837_pdf2",
+        "2016_03175_pdf2",
+        "2021_00131_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_05837_pdf2_11",
+          "registro_uid": "2021_05837_pdf2",
+          "score": 0.6410994529724121,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Revogação\n---\n\ne \ninviabilidade ambiental (Documento SIC nº 48513.021739/2020-00 – Anexo 010) referente à PCH Cascudo \n(pertencente a mesma participação de quedas do rio Piquiri, e mencionado pela Recorrente em seu \nRecurso), além do relatado no Ofício nº 4"
+        },
+        {
+          "chunk_id": "2016_03175_pdf2_10",
+          "registro_uid": "2016_03175_pdf2",
+          "score": 0.6229891777038574,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2016\nASSUNTO: Registro\n---\n\nExecutivo (DRS-PCH) e para a solicitação da outorga, que deverá ser requerida em \naté 3 anos da data de publicação do DRS-PCH. \n16. \nNesse sentido, pode-se compreender tanto o Despacho de Aprovação de Projeto Básico, da REN \n343/08, quanto o D"
+        },
+        {
+          "chunk_id": "2021_00131_pdf2_11",
+          "registro_uid": "2021_00131_pdf2",
+          "score": 0.6175323724746704,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Juízo de reconsideração\n---\n\nle de prazos para DRS-PCH, \nquando analisado pela Diretoria Colegiada, não deve se sobrepor às demais dimensões da \nnorma. Entendo, portanto, que essa Diretoria deve analisar o caso concreto à luz da \nfinalidade da norma, a qual"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual percentual de redução foi estabelecido para aplicação às TUST e TUSD da UFV Dunamis III?",
+      "type": "tecnica",
+      "expected_doc": "2021_01712_pdf1",
+      "retrieved_docs": [
+        "2022_01779_pdf1",
+        "2021_02636_pdf1",
+        "2016_00524_pdf4"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_01779_pdf1_3",
+          "registro_uid": "2022_01779_pdf1",
+          "score": 0.618431806564331,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Autorização\n---\n\ns pelo Poder Público, caso fortuito ou força maior, devidamente reconhecidos pela ANEEL. \nArt. 3º Estabelecer em 50% (cinquenta por cento) o percentual de redução "
+        },
+        {
+          "chunk_id": "2021_02636_pdf1_4",
+          "registro_uid": "2021_02636_pdf1",
+          "score": 0.6044314503669739,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2021\nASSUNTO: Autorização\n---\n\ner em 50% (cinquenta por cento) o percentual de redução a ser aplicado às \nTarifas de Uso dos Sistemas Elétricos de Transmissão e de Distribuição – TUST e TUSD, aplicável a UFV \nVista Alegre XIII, nos termos da legislação e da"
+        },
+        {
+          "chunk_id": "2016_00524_pdf4_49",
+          "registro_uid": "2016_00524_pdf4",
+          "score": 0.6041849851608276,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\ncentual de redução não incidirá sobre as tarifas de uso dos sistemas de \ntransmissão e distribuição aplicadas ao faturamento dos contratos de reserva de \ncapacidade. ” "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual foi o efeito tarifário médio homologado para os consumidores da Ceres no Reajuste Tarifário Anual de 2021?",
+      "type": "numerica",
+      "expected_doc": "2021_05064_pdf1",
+      "retrieved_docs": [
+        "2016_02735_pdf2",
+        "2021_04505_pdf1",
+        "2022_00878_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02735_pdf2_1",
+          "registro_uid": "2016_02735_pdf2",
+          "score": 0.7290619611740112,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2016\nASSUNTO: Homologação\n---\n\nmetodologias aplicáveis à revisão e estrutura tarifária são definidas nos Módulos 2 e 7 do \nPRORET. \n3. \nPor meio da Audiência Pública n° 008/2016 foi discutido com a sociedade a proposta de revisão \ntarifária e os limites de"
+        },
+        {
+          "chunk_id": "2021_04505_pdf1_3",
+          "registro_uid": "2021_04505_pdf1",
+          "score": 0.7242662906646729,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2021\nASSUNTO: Reajuste tarifário anual\n---\n\nribuidora pela migração de unidades consumidoras para o sistema de transmissão, que estarão em \nvigor no período de 29 de maio de 2021 a 28 de maio de 2022. \nArt. 7º Homologar, na Tabela 7 do Anexo, o valor mensa"
+        },
+        {
+          "chunk_id": "2022_00878_pdf2_26",
+          "registro_uid": "2022_00878_pdf2",
+          "score": 0.7157801389694214,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\n13.016.008 14.027.311\nIV. SOBRE O MERCADO CONSIDERADO NA REVISÃO TARIFÁRIA PERIÓDICA DE 2021\n36. A Resolução Homologatória nº 2.972, de 16 de novembro de 2021 aprovou a revisão\ntarifária periódica de 2021 da Companhia Estadua"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Onde a resolução define os percentuais de descontos relativos aos benefícios tarifários incidentes sobre as tarifas de aplicação da Ceres?",
+      "type": "localizacao",
+      "expected_doc": "2021_05064_pdf1",
+      "retrieved_docs": [
+        "2016_03244_pdf4",
+        "2022_01276_pdf2",
+        "2022_04590_pdf8"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_03244_pdf4_14",
+          "registro_uid": "2016_03244_pdf4",
+          "score": 0.6560050249099731,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Aprovação\n---\n\nperativas quando da\nredução dos subsídios na TE. Outras contribuições propuseram, ao invés da definição de grupos de\nsimilaridade, manter a relação atual entre as tarif"
+        },
+        {
+          "chunk_id": "2022_01276_pdf2_14",
+          "registro_uid": "2022_01276_pdf2",
+          "score": 0.6556393504142761,
+          "text_preview": "DOCUMENTO: AVISO DE CONSULTA PÚBLICA ACP\nANO: 2022\nASSUNTO: Comunicado\n---\n\núnico titular detenha 25% (vinte e cinco por cento) ou mais da \nparticipação do excedente de energia elétrica, o faturamento de energia das unidades participantes \ndo SCEE deve considerar, até 2028, a incidência: \nI - de 100"
+        },
+        {
+          "chunk_id": "2022_04590_pdf8_77",
+          "registro_uid": "2022_04590_pdf8",
+          "score": 0.6541484594345093,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Aprovação\n---\n\nra apuração do lucro líquido a ser compartilhado, será considerado como despesas incorridas na \nprestação do serviço o percentual de 80% (oitenta por cento) da receita líquida. Ou seja, um percentual \nde 10% será destinado à modici"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Segundo a Nota Técnica nº 133/2021-SCG/ANEEL, qual distinção regulatória foi feita entre a revogação do DRS sem execução da garantia e a devolução da garantia de fiel cumprimento em casos de inviabilidade ambiental?",
+      "type": "juridica",
+      "expected_doc": "2021_05837_pdf2",
+      "retrieved_docs": [
+        "2016_02491_pdf6",
+        "2016_02491_pdf5",
+        "2022_03295_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02491_pdf6_26",
+          "registro_uid": "2016_02491_pdf6",
+          "score": 0.6982722282409668,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nde transmissão ou distribuição seja menor ou igual a 30.000 kW (trinta\nmil quilowatts), e cuja parte compradora seja um consumidor livre ou especial\nContrato de Comerci"
+        },
+        {
+          "chunk_id": "2016_02491_pdf5_17",
+          "registro_uid": "2016_02491_pdf5",
+          "score": 0.6920937299728394,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\n---\n\nrado entre o agente vendedor e o\nAmbiente de Contratação Regulada ou CCEAR agente de distribuição no âmbito do Ambiente de Contratação Regulada (ACR)\nContrato de Comerc"
+        },
+        {
+          "chunk_id": "2022_03295_pdf2_12",
+          "registro_uid": "2022_03295_pdf2",
+          "score": 0.672100305557251,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Consolidação\n---\n\nque será incrementada ao sistema com a inserção de cada unidade \ngeradora, exceto nos casos em que foi declarada inexistência de relacionamento. \nIV - licença de operação, emitida pelo órgão ambiental competente; \nV - declaração"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "No PAINT/2021, qual tema foi selecionado no macroprocesso de Outorgas e Gestão do potencial hidráulico e qual foi o critério de seleção correspondente?",
+      "type": "localizacao",
+      "expected_doc": "2021_06547_pdf2",
+      "retrieved_docs": [
+        "2021_06547_pdf2",
+        "2021_00128_pdf2",
+        "2016_00345_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_06547_pdf2_6",
+          "registro_uid": "2021_06547_pdf2",
+          "score": 0.7454611659049988,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\npela CGU, conforme disposição da Tabela 1.\n14. Já a Tabela 2 apresenta a relação dos temas selecionados pela que serão objeto de exames\nno exercício de 2021. Destaco que o primeiro item tem a previsão de 400 homens-horas de acordo com\na ativi"
+        },
+        {
+          "chunk_id": "2021_00128_pdf2_6",
+          "registro_uid": "2021_00128_pdf2",
+          "score": 0.7322141528129578,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\na II – Universo de auditoria, tomando por base a etapa I de elaboração do PAINT, \nEntendimento da ANEEL, e com respaldo no Plano de Gestão Anual da ANEEL 2021, os objetos de auditoria \nforam definidos de forma abrangente, uma vez que a ANEEL "
+        },
+        {
+          "chunk_id": "2021_00128_pdf2_20",
+          "registro_uid": "2021_00128_pdf2",
+          "score": 0.7031641602516174,
+          "text_preview": "DOCUMENTO: PORTARIA PRT\nANO: 2021\nASSUNTO: Aprovação\n---\n\ncontroles relativos aos\nlançamentos contábeis, com\nfoco nos processos.\nAssegurar, com razoável\ncerteza, a conformidade,\neficácia e eficiência: na gestão\nAnálise de\ndo contrato da Central de\nimpacto do\nTeleatendimento - CTA no\nnegócio\ntratamen"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Quem recebeu o Registro para a elaboração da revisão dos Estudos de Inventário Hidrelétrico do rio Piranga no Despacho nº 105/2022?",
+      "type": "deterministica",
+      "expected_doc": "2022_07279_pdf1",
+      "retrieved_docs": [
+        "2021_00167_pdf1",
+        "2022_03130_pdf2",
+        "2022_00334_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_00167_pdf1_1",
+          "registro_uid": "2021_00167_pdf1",
+          "score": 0.6661579608917236,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Redução\n---\n\nmas Elétricos de Transmissão — TUST e à Tarifas de \nUso dos Sistemas Elétricos de Distribuição — TUSD referente à autoprodução ou à comercialização da \nenergia proveniente da UTE Entre Rios, incidindo tanto na produção quanto no consumo, nos te"
+        },
+        {
+          "chunk_id": "2022_03130_pdf2_11",
+          "registro_uid": "2022_03130_pdf2",
+          "score": 0.6559233069419861,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Negação\n---\n\nia e a subestação elevadora não está finalizada, a UTE EPP IV não foi construída \ne a UTE Edlux X e a UTE Rio de Janeiro I, apesar de concluída a fase de montagem \neletromecânica dos equipamentos, não podem entrar em operação devido a não concl"
+        },
+        {
+          "chunk_id": "2022_00334_pdf2_16",
+          "registro_uid": "2022_00334_pdf2",
+          "score": 0.6523791551589966,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Fixação\n---\n\nontantes de \npotência contratada e de energia elétrica da UHE Itaipu a serem comercializados no ano de 2023 pela \nEletrobras com as concessionárias de distribuição de energia elétrica das regiões Sul, Sudeste e Centro-\nOeste, , b"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Que comunicação específica foi feita quanto à UHE Brecha no Despacho nº 105/2022?",
+      "type": "juridica",
+      "expected_doc": "2022_07279_pdf1",
+      "retrieved_docs": [
+        "2022_03899_pdf2",
+        "2022_00081_pdf1",
+        "2022_00334_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_03899_pdf2_6",
+          "registro_uid": "2022_03899_pdf2",
+          "score": 0.6418309211730957,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Prorrogação de prazo\n---\n\npassaram a operar fazendo uso dos equipamentos definitivos, o que retira a situação \nde excepcionalidade anteriormente autorizada. \n13. \nForam trazidos aos autos novas declarações do ONS que atestam a energização do \ntransformador "
+        },
+        {
+          "chunk_id": "2022_00081_pdf1_1",
+          "registro_uid": "2022_00081_pdf1",
+          "score": 0.6035168170928955,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Aprovação\n---\n\nso licitatório \ncorrespondente ao Leilão de Compra de Energia Elétrica – 002/2022, ressalvado que as cláusulas \ncontratuais relacionadas a preço, prazos, montantes da energia elétrica comercializados, suspensão de \nfornecimento e resolução do"
+        },
+        {
+          "chunk_id": "2022_00334_pdf2_5",
+          "registro_uid": "2022_00334_pdf2",
+          "score": 0.6029757261276245,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Fixação\n---\n\no de 2022, por meio da Nota Técnica nº 212/2022-SGT/ANEEL4, a SGT \napresentou proposta dos montantes de Potência Contratada e de Energia Elétrica da UHE Itaipu para \nserem comercializados com empresas concessionárias de serviço p"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual foi o objeto do Primeiro Termo Aditivo ao Contrato de Concessão nº 13/2022-ANEEL?",
+      "type": "juridica",
+      "expected_doc": "2022_01720_pdf1",
+      "retrieved_docs": [
+        "2022_05933_pdf2",
+        "2021_03510_pdf2",
+        "2022_00113_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_05933_pdf2_15",
+          "registro_uid": "2022_05933_pdf2",
+          "score": 0.6478605270385742,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Celebração\n---\n\no da outorga por igual período. Todavia, não \ndeve constar no termo aditivo a previsão de prorrogação automática do contrato no caso de falta de \npronunciamento do Poder Concedente. \n26. \nDessa forma, considerando (i) o processo da concessio"
+        },
+        {
+          "chunk_id": "2022_05933_pdf2_5",
+          "registro_uid": "2022_05933_pdf2",
+          "score": 0.6235743761062622,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2022\nASSUNTO: Celebração\n---\n\ncom prazo de vigência de 30 anos. \n15. \nEm 14 de março de 2017 a Enel RJ celebrou o Sexto Termo Aditivo ao Contrato de \nConcessão nº 05/1996, atualizando o referido Contrato de acordo com os Despachos ANEEL nº \n3.540/2015 e nº 2.194/2016. \n1"
+        },
+        {
+          "chunk_id": "2021_03510_pdf2_3",
+          "registro_uid": "2021_03510_pdf2",
+          "score": 0.6217654943466187,
+          "text_preview": "DOCUMENTO: DESPACHO DSP\nANO: 2021\nASSUNTO: Extinção\n---\n\nAditivo ao CCESI n° 05/2017. \n6. \nPor meio da Carta CTA – DRR nº 077/2021, de 14/06/2021, a Amazonas Energia \nencaminhou o Terceiro Termo Aditivo ao CCESI nº 05/17, solicitando, novamente, sua análise e \nhomologação. \n7. \nPor meio da Nota Técn"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Qual foi o efeito tarifário médio homologado para a Certaja no Reajuste Tarifário Anual de 2022?",
+      "type": "numerica",
+      "expected_doc": "2022_03374_pdf1",
+      "retrieved_docs": [
+        "2022_00274_pdf1",
+        "2022_00170_pdf1",
+        "2022_00275_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00274_pdf1_0",
+          "registro_uid": "2022_00274_pdf1",
+          "score": 0.7017372846603394,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nRESOLUÇÃO HOMOLOGATÓRIA Nº 3.157, DE 13 DE DEZEMBRO DE 2022 \nHomologa o resultado do Reajuste Tarifário Anual de \n2022, as Tarifas de Energia – TE, e as Tarifas de Uso \ndo Sistema"
+        },
+        {
+          "chunk_id": "2022_00170_pdf1_0",
+          "registro_uid": "2022_00170_pdf1",
+          "score": 0.7004156112670898,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nRESOLUÇÃO HOMOLOGATÓRIA Nº 3.154, DE 13 DE DEZEMBRO DE 2022 \nHomologa o resultado do Reajuste Tarifário Anual de \n2022, as Tarifas de Energia – TE, e as Tarifas de Uso \ndo Sistema"
+        },
+        {
+          "chunk_id": "2022_00275_pdf1_0",
+          "registro_uid": "2022_00275_pdf1",
+          "score": 0.6941419839859009,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nRESOLUÇÃO HOMOLOGATÓRIA Nº 3.163, DE 13 DE DEZEMBRO DE 2022 \nHomologa o resultado do Reajuste Tarifário Anual de \n2022, as Tarifas de Energia – TE e as Tarifas de Uso \ndo Sistema "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Em qual tabela do Anexo a resolução estabelece a receita anual referente à instalação de conexão da CEEE-GT de uso exclusivo pela Certaja?",
+      "type": "localizacao",
+      "expected_doc": "2022_03374_pdf1",
+      "retrieved_docs": [
+        "2022_00199_pdf2",
+        "2022_07207_pdf8",
+        "2022_00204_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00199_pdf2_7",
+          "registro_uid": "2022_00199_pdf2",
+          "score": 0.7073918581008911,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA REA\nANO: 2022\nASSUNTO: Autorização\n---\n\nmínimo, sobre: \n[...] \nb) A obrigatoriedade da observância aos PROCEDIMENTOS DE REDE; \n[...] \n2.9 Para conectar-se às INSTALAÇÕES DE TRANSMISSÃO, o ACESSANTE deverá \ncelebrar CCT com a concessionária responsável pelo barrament"
+        },
+        {
+          "chunk_id": "2022_07207_pdf8_187",
+          "registro_uid": "2022_07207_pdf8",
+          "score": 0.7067015171051025,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Aprovação\n---\n\npecífica;\nb) A obrigatoriedade da observância aos PROCEDIMENTOS DE REDE;\nc) A definição dos locais e dos procedimentos para medição e informação de dados;\nd) A sujeição às normas e padrões técnicos de caráter geral da concessionári"
+        },
+        {
+          "chunk_id": "2022_07207_pdf8_14",
+          "registro_uid": "2022_07207_pdf8",
+          "score": 0.7016010284423828,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Aprovação\n---\n\njunto de equipamentos necessários para a interligação elétrica das instalações do\nUSUÁRIO às INSTALAÇÕES DE TRANSMISSÃO e, quando for o caso, a localização dos vãos de\nconexão na subestação;\nf) O uso, quando for o caso, das DIT;\ng)"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Quais percentuais de desconto tarifário foram definidos para as classes Rural - Grupo A e Água, Esgoto e Saneamento - Grupo A na Tabela 3 da Certaja?",
+      "type": "numerica",
+      "expected_doc": "2022_03374_pdf1",
+      "retrieved_docs": [
+        "2022_03294_pdf4",
+        "2022_00561_pdf6",
+        "2022_00104_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_03294_pdf4_7",
+          "registro_uid": "2022_03294_pdf4",
+          "score": 0.7179027795791626,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Aprovação\n---\n\niro de 2013; \ng) Distribuição – redução tarifária da TUSD e TE aplicada no atendimento de concessionárias ou \npermissionárias, conforme Decreto nº 4.541, de 23 de dezembro de 2002, arts. 51 e 52; \n\nh) Irrigante e Aquicultura Horári"
+        },
+        {
+          "chunk_id": "2022_00561_pdf6_7",
+          "registro_uid": "2022_00561_pdf6",
+          "score": 0.7135188579559326,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA REN\nANO: 2022\nASSUNTO: Alteração\n---\n\niro de 2013; \ng) Distribuição – redução tarifária da TUSD e TE aplicada no atendimento de concessionárias ou \npermissionárias, conforme Decreto nº 4.541, de 23 de dezembro de 2002, arts. 51 e 52; \n\nh) Irrigante e Aquicultura Horári"
+        },
+        {
+          "chunk_id": "2022_00104_pdf2_35",
+          "registro_uid": "2022_00104_pdf2",
+          "score": 0.6941139698028564,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA REH\nANO: 2022\nASSUNTO: Homologação\n---\n\nuários do serviço público de distribuição de energia elétrica, nos termos do inciso VII \ndo caput do art. 13 da Lei nº 10.438, de 26 de abril de 2002: (...) \n§ 2º No reajuste ou procedimento ordinário de revisão tarifária de "
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    }
+  ]
+}

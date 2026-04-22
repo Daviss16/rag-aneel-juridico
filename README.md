@@ -134,9 +134,33 @@ Esse arquivo passa a ser a base oficial para a fase de ingestão em larga escala
 
 Responsável por converter os PDFs padronizados em dados legíveis por máquina, extraindo texto limpo para o arquivo `data/interim/parsed/parsed_documents.jsonl`.
 
+#### Parsing em escala (batch processing)
+
+Para suportar o corpus ampliado, foi implementado um mecanismo de parsing em lotes:
+
+- processamento incremental (ex: 150 documentos por execução)
+- controle de progresso via arquivo (`processed_uids.txt`)
+- capacidade de retomada sem reprocessamento
+
+Essa abordagem permite:
+
+- processamento de grandes volumes com baixo consumo de memória
+- execução resiliente a falhas
+- escalabilidade para o acervo completo
+
 ### 4. Chunking e Enriquecimento (`02_create_chunks.py`)
 
 Responsável por aplicar chunking com overlap e injetar o cabeçalho enriquecido com metadados no início de cada documento, garantindo o Data Lineage para o LLM.
+
+#### Observação recente sobre chunking
+
+Durante a avaliação em escala, foi identificado que os erros restantes estão associados a colisões de contexto entre documentos com trechos muito similares (boilerplate jurídico).
+
+Foi aplicada uma melhoria simples no chunking:
+
+- evitar corte de palavras no meio dos chunks (respeitando limites de espaço)
+
+Essa mudança melhora a qualidade textual dos chunks sem alterar a estrutura da pipeline.
 
 ### 5. Preparação do Corpus de Retrieval (`prepare_retrieval_corpus.py`)
 
@@ -170,6 +194,25 @@ Resultados no benchmark atual:
 - Top-1 accuracy: **78,57%**
 - Top-3 recall: **100%**
 
+Resultados adicionais em escala: 
+
+Com a expansão do corpus para mais de 1000 documentos (~23k chunks), foi realizada uma nova avaliação utilizando um segundo benchmark (V2), construído a partir dos próprios chunks com pequenas variações linguísticas.
+
+Resultados:
+
+**Benchmark V1**
+- Top-1 accuracy: **71,4%**
+- Top-3 recall: **85,7%**
+
+**Benchmark V2**
+- Top-1 accuracy: **80%**
+- Top-3 recall: **96,6%**
+
+Observação:
+
+- O BM25 apresentou melhora significativa no Benchmark V2, que utiliza termos mais alinhados ao conteúdo textual dos documentos.
+- Isso reforça que o modelo é altamente eficaz em cenários com correspondência lexical forte.
+
 O baseline já consegue recuperar todos os documentos esperados dentro do top-3, indicando boa qualidade do corpus e da pipeline.
 
 ### 7. Retrieval Semântico (`semantic_retriever.py`)
@@ -187,6 +230,11 @@ Resultados no benchmark atual:
 
 - Top-1 accuracy: **32,14%**
 - Top-3 recall: **60,71%**
+
+Resultados adicionais (Benchmark V2) para mais de 1000 documentos:
+
+- Top-1 accuracy: **17,8%**
+- Top-3 recall: **25%**
 
 Comparado ao BM25, o método semântico apresentou queda significativa de desempenho, principalmente em perguntas com:
 
@@ -220,6 +268,21 @@ A implementação também expõe os seguintes scores para análise:
 
 Essa abordagem equilibra precisão lexical com similaridade semântica.
 
+#### Resultados adicionais em escala (Benchmark V2) para 1000 documentos
+
+**Benchmark V1**
+- Top-1 accuracy: **71,4%**
+- Top-3 recall: **82,1%**
+
+**Benchmark V2**
+- Top-1 accuracy: **76,6%**
+- Top-3 recall: **93,3%**
+
+Observação:
+
+- O modelo híbrido manteve desempenho próximo ao BM25.
+- Não houve ganho consistente na correção dos erros, indicando que o principal gargalo atual não está no algoritmo de ranking.
+
 ## Decisões de engenharia já adotadas
 
 - adoção de automação GUI em vez de requests puras para bypass de restrições de infraestrutura do alvo (ex: Cloudflare).
@@ -233,6 +296,8 @@ Essa abordagem equilibra precisão lexical com similaridade semântica.
 - separação explícita entre ingestão e retrieval, permitindo experimentação controlada sobre o corpus.
 - avaliação baseada em benchmark estruturado com métricas de recuperação (top-1 e top-3).
 - todo manifesto utilizado em experimentos de escala deve conter integralmente a amostra histórica de benchmark.
+- validação do sistema em escala (>1000 documentos) com comparação entre benchmarks V1 e V2
+- adicionar ementas e autores ao cabeçalho dos chunks, para garantir que identificadores únicos estejam presentes em todos os chunks
 
 ### Refatorações na Camada de Retrieval
 

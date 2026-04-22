@@ -53,10 +53,13 @@ data/logs/
 data/interim/
 data/processed/
 
-data/retrieval/
+data/retrieval/indexes/
+data/retrieval/prepared/
 data/raw/documents/temp/
 data/raw/documents/golden_dataset/
-data/raw/documents/downloads/full_dataset/
+data/raw/documents/downloads/
+
+metrics.txt
 
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
