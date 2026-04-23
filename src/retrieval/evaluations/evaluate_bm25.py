@@ -11,7 +11,7 @@ from src.retrieval.bm25_retriever import build_bm25_retriever
 @dataclass(frozen=True)
 class EvaluateBM25Config:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent.parent
-    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions.json"
+    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions_v2.json"
     output_path: Path = base_dir / "data" / "retrieval" / "evaluation" / "bm25_metrics.json"
 
 def parse_args():
@@ -33,6 +33,7 @@ def main():
     metrics = evaluate_benchmark(benchmark, retriever=retriever)
     save_metrics(metrics, output_path)
 
+    print(f"Total: {metrics['total_questions']}")
     print(f"BM25 - Top-1 Accuracy: {metrics['top_1_accuracy']:.4f}")
     print(f"BM25 - Top-3 Recall: {metrics['top_3_recall']:.4f}")
     print(f"Resultados salvos em: {output_path}")

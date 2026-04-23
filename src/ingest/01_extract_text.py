@@ -98,7 +98,9 @@ class PDFExtractor(BaseExtractor):
                     tables = page_plumb.find_tables(table_settings=custom_table_settings)
                     if tables:
                         page_text = page_plumb.extract_text() or ""
-                        extracted_tables = page_plumb.extract_tables()
+                        
+                        extracted_tables = page_plumb.extract_tables(table_settings=custom_table_settings)
+                        
                         for table in extracted_tables:
                             if not table: continue
                             md_table = []
@@ -107,6 +109,7 @@ class PDFExtractor(BaseExtractor):
                                 md_table.append("| " + " | ".join(clean_row) + " |")
                                 if i == 0:
                                     md_table.append("|" + "|".join(["---"] * len(clean_row)) + "|")
+                            
                             page_text += "\n\n" + "\n".join(md_table) + "\n\n"
                         pages.append(page_text)
                     else:

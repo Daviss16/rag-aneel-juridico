@@ -4,6 +4,7 @@ import os
 import json
 import logging
 import re
+import sqlite3
 from pathlib import Path
 from typing import Dict, Any
 
@@ -38,8 +39,30 @@ def parse_titulo(titulo: str):
     return sigla, tipo_ato, numero_ato
 
 def build_catalog():
-    OUTPUT_CATALOG.parent.mkdir(parents=True, exist_ok=True)
-    catalog: Dict[str, Dict[str, Any]] = {}
+    DB_PATH = BASE_DIR / "data/interim/metadata/metadata_catalog.db"
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    
+    if DB_PATH.exists(): DB_PATH.unlink()
+    
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        CREATE TABLE metadata (
+            registro_uid TEXT PRIMARY KEY,
+            ano TEXT,
+            titulo TEXT,
+            sigla_titulo TEXT,
+            tipo_ato_titulo TEXT,
+            numero_titulo TEXT,
+            autor TEXT,
+            assunto_normalizado TEXT,
+            situacao_normalizada TEXT,
+            revogada_flag INTEGER,
+            ementa TEXT,
+            pdf_tipo TEXT
+        )
+    """)
     
     total_jsons = 0
     total_uids = 0
@@ -55,72 +78,67 @@ def build_catalog():
         try:
             with open(json_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            
+                
             record_idx = 0
-            
+                
             for date_key, date_content in data.items():
                 registros = date_content.get("registros", []) if isinstance(date_content, dict) else []
                 if not isinstance(registros, list):
                     continue
-                
+                    
                 for item in registros:
                     if not isinstance(item, dict):
                         continue
-                        
+                            
                     record_idx += 1
-                    
+                        
                     titulo_bruto = item.get("titulo", "")
                     sigla, tipo_ato, numero_ato = parse_titulo(titulo_bruto)
-                    
+                        
                     autor = item.get("autor", "ANEEL")
                     assunto = clean_prefix(item.get("assunto", ""), "Assunto:")
                     situacao = clean_prefix(item.get("situacao", ""), "Situação:")
-                    
+                        
                     ementa_bruta = item.get("ementa")
                     if ementa_bruta is None or str(ementa_bruta).strip() == "None":
                         ementa_limpa = "Não disponível"
                     else:
                         ementa_limpa = " ".join(str(ementa_bruta).split()).replace(" Imprimir", "").strip()
-                    
+                        
                     revogada_flag = 1 if "REVOGADA" in situacao.upper() else 0
-                    
+                        
                     pdfs = item.get("pdfs", [])
                     if not isinstance(pdfs, list):
                         pdfs = []
-                        
+                            
                     for pdf_idx, pdf_info in enumerate(pdfs, start=1):
                         if not isinstance(pdf_info, dict):
                             continue
-                            
+                                
                         registro_uid = f"{ano}_{record_idx:05d}_pdf{pdf_idx}"
+                        pdf_tipo = clean_prefix(pdf_info.get("tipo", ""), ":").strip()
                         
-                        catalog[registro_uid] = {
-                            "ano": ano,
-                            "titulo": titulo_bruto,
-                            "sigla_titulo": sigla,
-                            "tipo_ato_titulo": tipo_ato,
-                            "numero_titulo": numero_ato,
-                            "autor": autor,
-                            "assunto_normalizado": assunto,
-                            "situacao_normalizada": situacao,
-                            "revogada_flag": revogada_flag,
-                            "ementa": ementa_limpa,
-                            "pdf_tipo": clean_prefix(pdf_info.get("tipo", ""), ":").strip()
-                        }
+                        cursor.execute("""
+                            INSERT INTO metadata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """, (
+                            registro_uid, ano, titulo_bruto, sigla, tipo_ato, numero_ato,
+                            autor, assunto, situacao, revogada_flag, ementa_limpa, pdf_tipo
+                        ))
+                        
                         total_uids += 1
-                        
+                            
             total_jsons += 1
             logging.info(f"Processado: {filename} ({record_idx} registros) -> Ano extraído: {ano}")
-            
+                
         except Exception as e:
             logging.error(f"Erro em {filename}: {e}")
 
-    with open(OUTPUT_CATALOG, "w", encoding="utf-8") as fout:
-        json.dump(catalog, fout, ensure_ascii=False, indent=2)
+    conn.commit()
+    conn.close()
     
     print("\n" + "="*50)
-    print(f"CATÁLOGO DE METADADOS CONCLUÍDO")
-    print(f"Total de registros_uid mapeados: {total_uids}")
+    print(f"CATÁLOGO DE METADADOS (SQLITE) CONCLUÍDO")
+    print(f"Total de registros_uid inseridos: {total_uids}")
     print("="*50 + "\n")
 
 if __name__ == "__main__":

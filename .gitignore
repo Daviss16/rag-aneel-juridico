@@ -53,8 +53,8 @@ data/logs/
 data/interim/
 data/processed/
 
-data/retrieval/indexes/
-data/retrieval/prepared/
+data/retrieval/
+#data/retrieval/prepared/
 data/raw/documents/temp/
 data/raw/documents/golden_dataset/
 data/raw/documents/downloads/

@@ -201,31 +201,36 @@ Responsável por transformar o texto bruto em unidades de contexto otimizadas pa
 
 Estado atual:
 
-- leitura do texto bruto (`parsed_documents.jsonl`)
-- carregamento do catálogo de metadados na memória
-- chunking com overlap e tamanho ampliado (~2500 caracteres)
-- respeito a limites de palavras (evitando cortes no meio)
+- leitura do texto bruto extraído
+- carregamento do catálogo de metadados em sqlite
+- chunking com overlap
+- respeito a limites de palavras, evitando corte no meio
+- injeção de contexto documental no cabeçalho dos chunks
 
 #### Enriquecimento de contexto
 
-Cada chunk recebe um cabeçalho contendo:
+Cada chunk passa a receber um cabeçalho enriquecido com metadados do documento, incluindo:
 
-- título do documento
+- título
 - autor
 - ementa
-- identificador do ato (ex: PORTARIA 4402/2016)
+- identificador do ato
 
-#### Observação recente
+Essa mudança foi introduzida para reduzir colisões de contexto entre documentos com trechos jurídicos muito similares.
 
-Essa mudança foi introduzida para resolver o principal gargalo identificado:
+#### Escolha do tamanho de chunk
 
-> colisão de contexto entre documentos com conteúdo jurídico similar
+Foram testados tamanhos de chunk de 1200, 2500 e 3000 caracteres.
 
-Ao injetar metadados no cabeçalho:
+O valor de **2500 caracteres** foi adotado como configuração principal por apresentar o melhor equilíbrio entre:
 
-- cada chunk passa a carregar identidade documental forte
-- reduz ambiguidade em trechos genéricos
-- melhora significativamente a eficácia do BM25
+- manutenção do **Top-3 recall**
+- redução drástica da quantidade total de chunks 
+- maior coerência textual dentro de cada unidade recuperada
+
+Essa decisão segue o objetivo principal do projeto nesta fase:
+
+> maximizar a recuperação correta no **top-3**, que será repassado para a etapa posterior com LLM
 
 ### 5. Preparação do Corpus de Retrieval (`prepare_retrieval_corpus.py`)
 
@@ -259,19 +264,19 @@ Resultados no benchmark atual:
 - Top-1 accuracy: **78,57%**
 - Top-3 recall: **100%**
 
-Resultados adicionais em escala: 
+### Resultados adicionais em escala com chunks enriquecidos
 
-Com a expansão do corpus para mais de 1000 documentos (~23k chunks), foi realizada uma nova avaliação utilizando um segundo benchmark (V2), construído a partir dos próprios chunks com pequenas variações linguísticas.
+Com o corpus ampliado e os chunks enriquecidos com ementa, o BM25 manteve desempenho forte em recuperação no top-3.
 
-Resultados:
+Resultados observados:
 
 **Benchmark V1**
-- Top-1 accuracy: **71,4%**
-- Top-3 recall: **85,7%**
+- Top-1 accuracy: **82,1%** 
+- Top-3 recall: **92,8%** 
 
 **Benchmark V2**
-- Top-1 accuracy: **80%**
-- Top-3 recall: **96,6%**
+- Top-1 accuracy: **80%** 
+- Top-3 recall: **93,3%** 
 
 Observação:
 
@@ -333,20 +338,21 @@ A implementação também expõe os seguintes scores para análise:
 
 Essa abordagem equilibra precisão lexical com similaridade semântica.
 
-#### Resultados adicionais em escala (Benchmark V2) para 1000 documentos
+#### Resultados adicionais em escala com chunks enriquecidos
 
 **Benchmark V1**
-- Top-1 accuracy: **71,4%**
-- Top-3 recall: **82,1%**
+- Top-1 accuracy: **78,5%**
+- Top-3 recall: **92,8%**
 
 **Benchmark V2**
-- Top-1 accuracy: **76,6%**
-- Top-3 recall: **93,3%**
+- Top-1 accuracy: **83,3%** 
+- Top-3 recall: **93,3%** 
 
 Observação:
 
-- O modelo híbrido manteve desempenho próximo ao BM25.
-- Não houve ganho consistente na correção dos erros, indicando que o principal gargalo atual não está no algoritmo de ranking.
+- O modelo híbrido apresentou melhora com o enriquecimento por ementa, mas o principal critério de decisão permaneceu o **Top-3 recall**.
+- Como o recall se manteve estável com chunk 2500 e o banco foi drasticamente reduzido, essa configuração foi mantida como padrão.
+
 
 ## Decisões de engenharia já adotadas
 
@@ -368,6 +374,7 @@ Observação:
 - enriquecimento de chunks com contexto documental (ementa, autor, título)
 - aumento do chunk size para melhorar coerência contextual
 - tratamento do problema de colisão de contexto como principal gargalo do retrieval
+- adoção de chunk size 2500 como melhor equilíbrio entre recall e custo operacional
 
 ### Refatorações na Camada de Retrieval
 

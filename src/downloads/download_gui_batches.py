@@ -42,13 +42,18 @@ def main():
         df['status_processamento'] = 'pendente'
 
     mascara_pendentes = df['status_processamento'] == 'pendente'
-    lote_atual = df[mascara_pendentes].head(TAMANHO_LOTE)
+    
+    mascara_ementa_vazia = (df['ementa_status'] == 'NULL') | (df['ementa_status'].isna())
+
+    mascara_alvo = mascara_pendentes & mascara_ementa_vazia
+
+    lote_atual = df[mascara_alvo].head(TAMANHO_LOTE)
 
     if lote_atual.empty:
-        print("Nenhum documento pendente na fila! Processo concluído.")
+        print("Nenhum documento crítico (pendente e sem ementa) restando na fila! Processo concluído.")
         sys.exit(0)
 
-    print(f"\nIniciando lote de {len(lote_atual)} documentos...")
+    print(f"\nFoco Cirúrgico: Iniciando lote de {len(lote_atual)} documentos (Pendente + Ementa Vazia)...")
     print("Mude para a janela do seu navegador AGORA. Começando em 10 segundos...\n")
     time.sleep(10)
 

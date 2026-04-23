@@ -39,8 +39,8 @@ def main():
     save_metrics(metrics, output_path)
 
     print(f"Total: {metrics['total_questions']}")
-    print(f"Top-1 accuracy: {metrics['top_1_accuracy']:.4f}")
-    print(f"Top-3 recall: {metrics['top_3_recall']:.4f}")
+    print(f"Hybrid - Top-1 accuracy: {metrics['top_1_accuracy']:.4f}")
+    print(f"Hybrid - Top-3 recall: {metrics['top_3_recall']:.4f}")
     print(f"Output: {output_path}")
 
 if __name__ == "__main__":
