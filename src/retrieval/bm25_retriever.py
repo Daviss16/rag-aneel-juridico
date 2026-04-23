@@ -10,6 +10,10 @@ from pathlib import Path
 
 from rank_bm25 import BM25Okapi
 from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
+from src.retrieval.metadata_reranker import (
+    MetadataRerankConfig,
+    rerank_top_n_results_with_metadata,
+)
 
 @dataclass(frozen=True)
 class BM25Config:
@@ -17,11 +21,21 @@ class BM25Config:
     prepared_chunks_path: Path = base_dir / "data" / "retrieval" / "prepared" / "prepared_chunks.jsonl"
 
 
-TOKEN_PATTERN = re.compile(r"[a-zà-ÿ0-9]+")
-
+TOKEN_PATTERN = re.compile(r"[a-zà-ÿ0-9]+(?:[/-][a-zà-ÿ0-9]+)*")
 
 def tokenize(text: str) -> list[str]:
-    return TOKEN_PATTERN.findall((text or "").lower())
+    text = (text or "").lower()
+    raw_tokens = TOKEN_PATTERN.findall(text)
+
+    tokens: list[str] = []
+    for token in raw_tokens:
+        tokens.append(token)
+
+        if "/" in token or "-" in token:
+            parts = re.split(r"[/-]", token)
+            tokens.extend([p for p in parts if p])
+
+    return tokens
 
 
 class BM25Retriever:
@@ -30,38 +44,57 @@ class BM25Retriever:
             raise ValueError("O corpus de chunks está vazio.")
 
         self.chunks = chunks
+        self.chunk_by_id = {chunk.chunk_id: chunk for chunk in chunks}
         self.tokenized_corpus = [tokenize(chunk.text_retrieval) for chunk in chunks]
         self.index = BM25Okapi(self.tokenized_corpus)
 
-    def search(self, query: str, top_k: int = 5) -> list[dict]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+        candidate_k: int = 20,
+        use_metadata_rerank: bool = True,
+        metadata_rerank_config: MetadataRerankConfig | None = None,
+    ) -> list[dict]:
+
         if not query or not query.strip():
             return []
 
         query_tokens = tokenize(query)
+
         if not query_tokens:
             return []
+
+        candidate_k = max(candidate_k, top_k)
 
         scores = self.index.get_scores(query_tokens)
         ranked_indices = sorted(
             range(len(scores)),
             key=lambda i: scores[i],
             reverse=True,
-        )[:top_k]
+        )[:candidate_k]
 
         results = []
         for idx in ranked_indices:
             chunk = self.chunks[idx]
             results.append(
                 {
-                    "chunk_id": chunk.chunk_id,
-                    "registro_uid": chunk.registro_uid,
-                    "score": float(scores[idx]),
-                    "text_preview": chunk.text_original[:300],
+                "chunk_id": chunk.chunk_id,
+                "registro_uid": chunk.registro_uid,
+                "score": float(scores[idx]),
+                "text_preview": chunk.text_original[:300],
                 }
             )
 
-        return results
-    
+        if use_metadata_rerank and results:
+            results = rerank_top_n_results_with_metadata(
+                results=results,
+                query=query,
+                chunk_by_id=self.chunk_by_id,
+                config=metadata_rerank_config,
+            )
+
+        return results[:top_k]
 
 def build_bm25_retriever(
     config: BM25Config | None = None,

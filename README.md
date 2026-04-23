@@ -285,6 +285,53 @@ Observação:
 
 O baseline já consegue recuperar todos os documentos esperados dentro do top-3, indicando boa qualidade do corpus e da pipeline.
 
+### 6.1 Melhorias no Retrieval
+
+Após o baseline com BM25, foram testadas três melhorias incrementais na camada de retrieval.
+
+### 1. Nova tokenização
+
+Foi aplicada uma melhoria no tokenizador do BM25 para preservar melhor estruturas importantes do domínio jurídico, como:
+
+- números de atos (`4157/2021`)
+- siglas compostas (`scg/aneel`)
+- intervalos e tokens com separadores
+
+Essa mudança melhorou a recuperação lexical sem alterar a arquitetura do sistema.
+
+---
+
+### 2. Query enriquecida
+
+Também foi testada uma etapa de enriquecimento de query, com foco em:
+
+- normalização textual
+- reforço de termos
+- expansão de siglas
+- expansão de intervalos
+
+#### Resultado
+
+Essa abordagem **não trouxe ganho mensurável** nos benchmarks e, por isso, **não foi incorporada ao pipeline principal**.
+
+---
+
+### 3. Metadata Reranking
+
+A principal melhoria adicional veio da introdução de um **reranker leve após o BM25**, utilizando sinais estruturais e textuais do próprio documento.
+
+Foram usados principalmente:
+
+- ano
+- número do ato
+- tipo de ato
+- sigla
+- assunto
+- ementa
+
+A **ementa** teve papel importante no desempate entre documentos muito semelhantes, por concentrar nomes, contexto e descrição objetiva do conteúdo.
+
+
 ### 7. Retrieval Semântico (`semantic_retriever.py`)
 
 Foi implementado um segundo baseline de retrieval utilizando embeddings.
@@ -420,6 +467,7 @@ rag-aneel/
 │   ├── retrieval/
 │   │   ├── prepared/
 │   │   ├── indexes/
+│   │   ├── metadata/
 │   │   └── evaluation/
 │   └── logs/
 ├── src/
@@ -431,7 +479,8 @@ rag-aneel/
 │   │   └── download_gui_batches.py            
 │   ├── ingest/
 │   │   └── 01_parse_documents.py
-│   |   └── 02_create_chunks.py
+│   │   └── 02_build_metadata_catalog.py
+│   |   └── 03_create_chunks.py
 │   ├── retrieval/
 │   │   ├── evaluations/
 │   │   |   |── evaluate_bm25.py
@@ -443,8 +492,9 @@ rag-aneel/
 │   │   ├── data_loader.py
 │   │   ├── schemas.py
 │   |   ├── hybrid_retriever.py
+│   │   ├── semantic_retriever.py
 │   │   ├── bm25_retriever.py
-│   |   └── semantic_retriever.py
+│   |   └── metadata_reranker.py
 │   └── utils/
 │       ├── split_manifest.py
 │       ├── merge_required_pdfs_into_manifest.py
