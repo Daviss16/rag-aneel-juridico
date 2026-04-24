@@ -50,6 +50,7 @@ data/logs/
 # =========================
 # Saídas intermediárias e processadas
 # =========================
+archive/backup/
 data/interim/
 data/processed/
 
@@ -58,6 +59,9 @@ data/retrieval/
 data/raw/documents/temp/
 data/raw/documents/golden_dataset/
 data/raw/documents/downloads/
+data/raw/json
+
+data/raw/metadata
 
 metrics.txt
 

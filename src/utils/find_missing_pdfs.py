@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 
-def get_base_uid(registro_uid: str) -> str:
+def get_registro_uid(registro_uid: str) -> str:
     registro_uid = (registro_uid or "").strip()
     return registro_uid
 
@@ -22,9 +22,9 @@ def load_keys(csv_path: Path) -> set[tuple[str, str]]:
         reader = csv.DictReader(f)
 
         for row in reader:
-            base_uid = get_base_uid(row["registro_uid"])
+            registro_uid = get_registro_uid(row["registro_uid"])
             pdf_ordem = normalize_pdf_ordem(row["pdf_ordem"])
-            keys.add((base_uid, pdf_ordem))
+            keys.add((registro_uid, pdf_ordem))
 
     return keys
 

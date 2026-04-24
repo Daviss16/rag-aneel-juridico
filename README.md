@@ -453,9 +453,7 @@ rag-aneel/
 │   │       ├── temp/
 │   │       │   └── lotes_baixados/       
 │   │       └── downloads/                
-│   │           ├── 2016/
-│   │           ├── 2021/
-│   │           └── 2022/
+│   │           └── full_dataset
 │   ├── interim/
 │   │   ├── resolved/
 │   │   |── parsed/
@@ -499,6 +497,7 @@ rag-aneel/
 │       ├── split_manifest.py
 │       ├── merge_required_pdfs_into_manifest.py
 │       └── find_missing_pdfs.py
+├── conectar_drive.sh
 ├── .gitignore
 ├── requirements.txt
 └── README.md
