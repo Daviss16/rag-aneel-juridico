@@ -10,6 +10,7 @@ from pathlib import Path
 
 from rank_bm25 import BM25Okapi
 from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
+from archive.deprecated.query_processing import process_query
 from src.retrieval.metadata_reranker import (
     MetadataRerankConfig,
     rerank_top_n_results_with_metadata,
@@ -54,13 +55,18 @@ class BM25Retriever:
         top_k: int = 5,
         candidate_k: int = 20,
         use_metadata_rerank: bool = True,
+        use_query_processing: bool = True,
         metadata_rerank_config: MetadataRerankConfig | None = None,
     ) -> list[dict]:
 
         if not query or not query.strip():
             return []
 
-        query_tokens = tokenize(query)
+        if use_query_processing:
+            processed = process_query(query)
+            query_tokens = processed.enriched_tokens
+        else:
+            query_tokens = tokenize(query)
 
         if not query_tokens:
             return []

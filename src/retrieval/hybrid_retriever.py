@@ -10,12 +10,18 @@ import numpy as np
 
 from src.retrieval.bm25_retriever import BM25Retriever, BM25Config, load_prepared_chunks, tokenize, build_bm25_retriever
 from src.retrieval.semantic_retriever import SemanticRetriever, SemanticConfig, build_semantic_retriever
+from src.retrieval.metadata_reranker import (
+    MetadataRerankConfig,
+    compute_metadata_boost_ratio,
+)
 
 @dataclass(frozen=True)
 class HybridConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
     candidate_k: int = 20
-    alpha: float = 0.7
+    weight_bm25: float = 0.65
+    weight_semantic: float = 0.25
+    weight_metadata: float = 0.10
 
 
 def min_max_normalize(values: np.ndarray) -> np.ndarray:
@@ -32,11 +38,23 @@ def min_max_normalize(values: np.ndarray) -> np.ndarray:
 
 
 class HybridRetriever:
-    def __init__(self, bm25_retriever: BM25Retriever, semantic_retriever: SemanticRetriever, candidate_k: int = 20, alpha: float = 0.7) -> None:
-        self.candidate_k = candidate_k
-        self.alpha = alpha
+    def __init__(
+        self,
+        bm25_retriever: BM25Retriever,
+        semantic_retriever: SemanticRetriever,
+        candidate_k: int = 20,
+        weight_bm25: float = 0.65,
+        weight_semantic: float = 0.25,
+        weight_metadata: float = 0.10,
+    ) -> None:
+        
         self.bm25 = bm25_retriever
         self.semantic = semantic_retriever
+        self.candidate_k = candidate_k
+
+        self.weight_bm25 = weight_bm25
+        self.weight_semantic = weight_semantic
+        self.weight_metadata = weight_metadata
 
     def search(self, query: str, top_k: int = 5) -> list[dict]:
         query_tokens = tokenize(query)
@@ -52,10 +70,28 @@ class HybridRetriever:
 
         candidate_bm25_scores = bm25_scores[candidate_indices]
 
+        metadata_scores = []
+        for corpus_idx in candidate_indices:
+            chunk = self.bm25.chunks[corpus_idx]
+            boost_ratio, _ = compute_metadata_boost_ratio(
+                query=query,
+                metadata=chunk.metadata,
+                config=MetadataRerankConfig(),
+            )
+            metadata_scores.append(boost_ratio)
+
+        metadata_scores = np.array(metadata_scores, dtype=float)
+
         norm_bm25 = min_max_normalize(candidate_bm25_scores)
         norm_semantic = min_max_normalize(np.array(semantic_scores))
+        norm_metadata = min_max_normalize(metadata_scores)
 
-        final_scores = self.alpha * norm_bm25 + (1.0 - self.alpha) * norm_semantic
+
+        final_scores = (
+            self.weight_bm25 * norm_bm25
+            + self.weight_semantic * norm_semantic
+            + self.weight_metadata * norm_metadata
+        )
 
         reranked = np.argsort(final_scores)[::-1][:top_k]
 
@@ -70,6 +106,7 @@ class HybridRetriever:
                     "registro_uid": chunk.registro_uid,
                     "score_bm25": float(candidate_bm25_scores[local_idx]),
                     "score_semantic": float(semantic_scores[local_idx]),
+                    "score_metadata": float(metadata_scores[local_idx]),
                     "score_final": float(final_scores[local_idx]),
                     "text_preview": chunk.text_original[:300],
                 }
@@ -91,7 +128,9 @@ def build_hybrid_retriever(config: HybridConfig | None = None) -> HybridRetrieve
         bm25_retriever=bm25_instance,
         semantic_retriever=semantic_instance,
         candidate_k=config.candidate_k, 
-        alpha=config.alpha
+        weight_bm25=config.weight_bm25,
+        weight_semantic=config.weight_semantic,
+        weight_metadata=config.weight_metadata,
     )
 
 def parse_args():

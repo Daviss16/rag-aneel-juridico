@@ -1,118 +1,127 @@
 {
-  "total_questions": 28,
-  "top_1_hits": 20,
-  "top_3_hits": 26,
-  "top_1_accuracy": 0.7142857142857143,
-  "top_3_recall": 0.9285714285714286,
+  "total_questions": 30,
+  "top_1_hits": 25,
+  "top_3_hits": 28,
+  "top_1_accuracy": 0.8333333333333334,
+  "top_3_recall": 0.9333333333333333,
   "results": [
     {
-      "question": "A partir de que data a UG1 da PCH Santa Cecília foi liberada para início da operação comercial?",
+      "question": "Qual despacho liberou a unidade geradora UG1 da PCH Santa Cecília para iniciar a sua operação comercial a partir de 27 de julho de 2016?",
       "type": "deterministica",
       "expected_doc": "2016_01901_pdf1",
       "retrieved_docs": [
         "2016_01901_pdf1",
-        "2022_00155_pdf1",
-        "2021_05696_pdf2"
+        "2022_00066_pdf1",
+        "2022_00256_pdf1"
       ],
       "detailed_results": [
         {
           "chunk_id": "2016_01901_pdf1_0",
           "registro_uid": "2016_01901_pdf1",
-          "score_bm25": 70.02127713488119,
-          "score_semantic": 0.5248140096664429,
-          "score_final": 1.000000011920929,
+          "score_bm25": 90.07095949614964,
+          "score_semantic": 0.5323124527931213,
+          "score_metadata": 0.24,
+          "score_final": 0.9957091063261032,
           "text_preview": "DOCUMENTO: DESPACHO 1978/2016 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2016\nASSUNTO: Liberação\nEMENTA: Libera a unidade geradora UG1, para início da operação comercial, da Pequena Central Hidrelétrica Santa Cecília, no município de Santo Antônio do Leverger, (MT), de titularidade da Geradora de Energia do Estado"
         },
         {
-          "chunk_id": "2022_00155_pdf1_0",
-          "registro_uid": "2022_00155_pdf1",
-          "score_bm25": 52.5156782288377,
-          "score_semantic": 0.5023537874221802,
-          "score_final": 0.4036227908377251,
-          "text_preview": "DOCUMENTO: DESPACHO 3595/2022 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2022\nASSUNTO: Liberação\nEMENTA: Libera as unidades geradoras UG1 a UG9, para início da operação comercial, da Central Geradora Eólica Ventos de São Januário 15, no município de Várzea Nova, (BA), de titularidade da Ventos de Santa Jacinta Ene"
+          "chunk_id": "2022_00066_pdf1_0",
+          "registro_uid": "2022_00066_pdf1",
+          "score_bm25": 66.63384199605335,
+          "score_semantic": 0.5088582634925842,
+          "score_metadata": 0.14666666666666667,
+          "score_final": 0.44315588257075134,
+          "text_preview": "DOCUMENTO: DESPACHO 3679/2022 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2022\nASSUNTO: Liberação\nEMENTA: Libera a unidade geradora UG1, para início da operação comercial, da Central Geradora Eólica Ventos de Santa Eugenia 07, no município de Uibaí, (BA), de titularidade da Oslo II S.A.\n---\n\nAGÊNCIA NACIONAL DE ENE"
         },
         {
-          "chunk_id": "2021_05696_pdf2_4",
-          "registro_uid": "2021_05696_pdf2",
-          "score_bm25": 51.19062505838554,
-          "score_semantic": 0.5240335464477539,
-          "score_final": 0.4026517495339942,
-          "text_preview": "DOCUMENTO: DESPACHO 815/2021 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2021\nASSUNTO: Indeferimento\nEMENTA: Indefere o requerimento de liberação da operação comercial das unidades geradoras UG1 e UG2 da Pequena Central Hidrelétrica Manuel Alves, no município de Dianópolis, (TO), de titularidade da Central Geradora"
+          "chunk_id": "2022_00256_pdf1_0",
+          "registro_uid": "2022_00256_pdf1",
+          "score_bm25": 66.51493884704936,
+          "score_semantic": 0.475338876247406,
+          "score_metadata": 0.14666666666666667,
+          "score_final": 0.3970576896615913,
+          "text_preview": "DOCUMENTO: DESPACHO 3566/2022 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2022\nASSUNTO: Liberação\nEMENTA: Libera a unidade geradora UG1, para início da operação comercial, da Usina Termelétrica Cambuí, no município de Santa Helena de Goiás, (GO), de titularidade da Energética Cambuí Ltda.\n---\n\nAGÊNCIA NACIONAL DE E"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Qual era a capacidade instalada da unidade geradora liberada pelo Despacho nº 1.978/2016?",
-      "type": "numerica",
+      "question": "Qual é a capacidade instalada da unidade geradora UG1 localizada em Santo Antônio do Leverger, Mato Grosso, que obteve liberação para operação comercial de acordo com a Superintendência de Fiscalização em 2016?",
+      "type": "parafraseada_numerica",
       "expected_doc": "2016_01901_pdf1",
       "retrieved_docs": [
         "2016_01901_pdf1",
-        "2021_02074_pdf2",
-        "2016_00172_pdf2"
+        "2016_00172_pdf2",
+        "2016_00650_pdf1"
       ],
       "detailed_results": [
         {
           "chunk_id": "2016_01901_pdf1_0",
           "registro_uid": "2016_01901_pdf1",
-          "score_bm25": 41.642214435911946,
-          "score_semantic": 0.5952849388122559,
-          "score_final": 0.9883887290954589,
+          "score_bm25": 123.09417561788314,
+          "score_semantic": 0.668327808380127,
+          "score_metadata": 0.16555555555555557,
+          "score_final": 1.0,
           "text_preview": "DOCUMENTO: DESPACHO 1978/2016 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2016\nASSUNTO: Liberação\nEMENTA: Libera a unidade geradora UG1, para início da operação comercial, da Pequena Central Hidrelétrica Santa Cecília, no município de Santo Antônio do Leverger, (MT), de titularidade da Geradora de Energia do Estado"
-        },
-        {
-          "chunk_id": "2021_02074_pdf2_710",
-          "registro_uid": "2021_02074_pdf2",
-          "score_bm25": 33.75516480167585,
-          "score_semantic": 0.6037079095840454,
-          "score_final": 0.5790456439942461,
-          "text_preview": "DOCUMENTO: DESPACHO 2904/2021 (DSP)\nAUTOR: SFF/ANEEL\nANO: 2021\nASSUNTO: Revisão\nEMENTA: Revisa o Manual de Contabilidade do Setor Elétrico - MCSE, na dimensão procedimental; bem como revoga a sua versão 2015, e aprova a versão 2022, conforme anexo.\n---\n\nessoria da Diretoria da ANEEL). \nCapacidade ge"
         },
         {
           "chunk_id": "2016_00172_pdf2_0",
           "registro_uid": "2016_00172_pdf2",
-          "score_bm25": 32.491079506107944,
-          "score_semantic": 0.5063962936401367,
-          "score_final": 0.3774312894210985,
+          "score_bm25": 78.58133813093231,
+          "score_semantic": 0.6652876138687134,
+          "score_metadata": 0.12444444444444444,
+          "score_final": 0.41928121481845565,
           "text_preview": "DOCUMENTO: DESPACHO 3247/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Deferimento\nEMENTA: Defere o requerimento administrativo interposto pela Companhia Hidro Elétrica do São Francisco - Chesf, visando à redução do Montante de Uso do Sistema de Transmissão - MUST da Usina Termelétrica Camaçari, em raz"
+        },
+        {
+          "chunk_id": "2016_00650_pdf1_0",
+          "registro_uid": "2016_00650_pdf1",
+          "score_bm25": 87.54454856094188,
+          "score_semantic": 0.5303307771682739,
+          "score_metadata": 0.11555555555555555,
+          "score_final": 0.41154547452549706,
+          "text_preview": "DOCUMENTO: DESPACHO 2960/2016 (DSP)\nAUTOR: SFG/ANEEL\nANO: 2016\nASSUNTO: Restauração\nEMENTA: Restaura a operação comercial da unidade geradora UG1 da Usina Hidrelétrica Itiquira I, no município de Itiquira, (MT), de propriedade da Itiquira Energética S.A.\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA - A"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Qual foi o efeito médio percebido pelos consumidores da EDEVP na Quarta Revisão Tarifária Periódica de 2016?",
-      "type": "numerica",
+      "question": "De qual empresa de distribuição a Quarta Revisão Tarifária Periódica teve vigência a partir de 10 de maio de 2016, segundo a deliberação homologatória da SGT e SRD?",
+      "type": "deterministica",
       "expected_doc": "2016_02735_pdf2",
       "retrieved_docs": [
         "2016_02735_pdf2",
-        "2022_00168_pdf2",
-        "2022_00169_pdf2"
+        "2016_02240_pdf3",
+        "2016_01170_pdf2"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2016_02735_pdf2_1",
+          "chunk_id": "2016_02735_pdf2_0",
           "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 71.35003186639177,
-          "score_semantic": 0.6196848154067993,
-          "score_final": 0.9909433245658874,
+          "score_bm25": 95.8590392149772,
+          "score_semantic": 0.6640216112136841,
+          "score_metadata": 0.2285714285714286,
+          "score_final": 1.0,
           "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
         },
         {
-          "chunk_id": "2016_02735_pdf2_0",
+          "chunk_id": "2016_02735_pdf2_5",
           "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 60.83292942656836,
-          "score_semantic": 0.5903119444847107,
-          "score_final": 0.6763631590338439,
+          "score_bm25": 77.59905931642486,
+          "score_semantic": 0.6244158744812012,
+          "score_metadata": 0.2285714285714286,
+          "score_final": 0.528701664687985,
           "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
         },
         {
           "chunk_id": "2016_02735_pdf2_12",
           "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 62.3005337850724,
-          "score_semantic": 0.497559130191803,
-          "score_final": 0.5860870051997806,
+          "score_bm25": 75.4739992478779,
+          "score_semantic": 0.5796356201171875,
+          "score_metadata": 0.2285714285714286,
+          "score_final": 0.4350605186036217,
           "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
         }
       ],
@@ -120,464 +129,623 @@
       "top_3_hit": true
     },
     {
-      "question": "Segundo o voto, qual foi a razão regulatória para o não acolhimento do pleito da EDEVP relativo a custos com inventários para incorporação de redes particulares?",
-      "type": "juridica",
+      "question": "Em relação à EDEVP, qual foi o número e ano da audiência pública que serviu para avaliar as contribuições da sociedade sobre os limites dos indicadores de continuidade DEC e FEC para o período de 2017 a 2021?",
+      "type": "parafraseada_audiencia",
       "expected_doc": "2016_02735_pdf2",
       "retrieved_docs": [
         "2016_02735_pdf2",
-        "2021_04872_pdf5",
-        "2021_05923_pdf2"
+        "2016_00230_pdf2",
+        "2016_00236_pdf3"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2016_02735_pdf2_7",
+          "chunk_id": "2016_02735_pdf2_0",
           "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 92.42647032551146,
-          "score_semantic": 0.47852623462677,
-          "score_final": 0.9324269562959671,
+          "score_bm25": 138.25415696560736,
+          "score_semantic": 0.42932575941085815,
+          "score_metadata": 0.09066666666666667,
+          "score_final": 0.7480532569544657,
           "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
         },
         {
-          "chunk_id": "2021_04872_pdf5_22",
-          "registro_uid": "2021_04872_pdf5",
-          "score_bm25": 68.87609571644644,
-          "score_semantic": 0.5254083871841431,
-          "score_final": 0.5381368356764253,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 931/2021 (REN)\nAUTOR: ANEEL\nANO: 2021\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nbservação | Energia faturada | - Energia faturada anual das unidades consumidoras por faixa de tensão - Valores classific"
+          "chunk_id": "2016_00230_pdf2_0",
+          "registro_uid": "2016_00230_pdf2",
+          "score_bm25": 127.3828631054897,
+          "score_semantic": 0.5455904603004456,
+          "score_metadata": 0.112,
+          "score_final": 0.6743088194968605,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 6154/2016 (REA)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Fixação\nEMENTA: Estabelece os limites de continuidade dos serviços de distribuição de energia elétrica, a partir de janeiro de 2017, nos seus aspectos de Duração Equivalente de Interrupção por Unidade Consumidora - DEC"
         },
         {
-          "chunk_id": "2021_04872_pdf5_23",
-          "registro_uid": "2021_04872_pdf5",
-          "score_bm25": 65.72922563741163,
-          "score_semantic": 0.44735029339790344,
-          "score_final": 0.3639131615361691,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 931/2021 (REN)\nAUTOR: ANEEL\nANO: 2021\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nlinhas\ncom o comprimento\ntotal das linhas de de distribuição km\ncronograma da linha e não\ndistribuição em cada faixa de\nd"
+          "chunk_id": "2016_02735_pdf2_9",
+          "registro_uid": "2016_02735_pdf2",
+          "score_bm25": 130.4662343521071,
+          "score_semantic": 0.4573652148246765,
+          "score_metadata": 0.09066666666666667,
+          "score_final": 0.6381154706990481,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Qual componente financeiro foi apontado como o mais expressivo no processo tarifário da EDEVP e qual foi seu impacto?",
-      "type": "tecnica",
-      "expected_doc": "2016_02735_pdf2",
-      "retrieved_docs": [
-        "2016_02735_pdf2",
-        "2022_00273_pdf2",
-        "2016_03919_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2016_02735_pdf2_6",
-          "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 55.94700879447576,
-          "score_semantic": 0.4181521236896515,
-          "score_final": 0.8241689249873161,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
-        },
-        {
-          "chunk_id": "2022_00273_pdf2_12",
-          "registro_uid": "2022_00273_pdf2",
-          "score_bm25": 44.09805716985046,
-          "score_semantic": 0.5282124280929565,
-          "score_final": 0.4733173576577031,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
-        },
-        {
-          "chunk_id": "2016_03919_pdf2_4",
-          "registro_uid": "2016_03919_pdf2",
-          "score_bm25": 38.78608800026827,
-          "score_semantic": 0.622686505317688,
-          "score_final": 0.3548276113867464,
-          "text_preview": "DOCUMENTO: DESPACHO 213/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Estabelecimento\nEMENTA: Estabelece o componente financeiro no valor citado, referido a 31/10/2015, a ser atualizado pela Taxa Selic e considerado no próximo reajuste tarifário da Light Serviços de Eletricidade S.A.\n---\n\nR$ (37.816.13"
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual foi o prazo de mandato atribuído aos membros da Comissão Permanente de Procedimentos Administrativos Disciplinares pela Portaria nº 4.040/2016?",
-      "type": "deterministica",
+      "question": "Na Portaria nº 4040 de 21 de junho de 2016, qual comissão permanente a servidora Andréa Campos Reis passou a integrar na condição de membro reconduzido?",
+      "type": "administrativa_rh",
       "expected_doc": "2016_02259_pdf1",
       "retrieved_docs": [
         "2016_02259_pdf1",
-        "2016_00001_pdf1",
-        "2022_02116_pdf2"
+        "2016_01287_pdf2",
+        "2016_00104_pdf2"
       ],
       "detailed_results": [
         {
           "chunk_id": "2016_02259_pdf1_0",
           "registro_uid": "2016_02259_pdf1",
-          "score_bm25": 79.11269795125243,
-          "score_semantic": 0.5044195652008057,
-          "score_final": 0.7952694341540336,
+          "score_bm25": 106.38637576896865,
+          "score_semantic": 0.6187545657157898,
+          "score_metadata": 0.192,
+          "score_final": 1.0,
+          "text_preview": "DOCUMENTO: PORTARIA 4040/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Recondução\nEMENTA: Reconduz os servidores relacionados para integrarem a Comissão Permanente de Procedimentos Administrativos - CPPA, da ANEEL; designa membros titular e"
+        },
+        {
+          "chunk_id": "2016_01287_pdf2_4",
+          "registro_uid": "2016_01287_pdf2",
+          "score_bm25": 70.90145803806261,
+          "score_semantic": 0.6124844551086426,
+          "score_metadata": 0.18133333333333335,
+          "score_final": 0.5300745220325307,
+          "text_preview": "DOCUMENTO: PORTARIA 4177/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Criação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões, para contratação de energ"
+        },
+        {
+          "chunk_id": "2016_01287_pdf2_3",
+          "registro_uid": "2016_01287_pdf2",
+          "score_bm25": 63.6591967562823,
+          "score_semantic": 0.5913397073745728,
+          "score_metadata": 0.18133333333333335,
+          "score_final": 0.41366138727828455,
+          "text_preview": "DOCUMENTO: PORTARIA 4177/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Criação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões, para contratação de energ"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual ato administrativo de 2016 reconduziu diversos servidores, entre eles Cláudio Santos Ortis e Daniela Pimentel Saviotti, para atuarem na CPPA (Comissão Permanente de Procedimentos Administrativos Disciplinares)?",
+      "type": "parafraseada_pessoal",
+      "expected_doc": "2016_02259_pdf1",
+      "retrieved_docs": [
+        "2016_02259_pdf1",
+        "2016_00001_pdf1",
+        "2016_01287_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_02259_pdf1_0",
+          "registro_uid": "2016_02259_pdf1",
+          "score_bm25": 133.63768276984916,
+          "score_semantic": 0.5167202949523926,
+          "score_metadata": 0.128,
+          "score_final": 0.8328360766172409,
           "text_preview": "DOCUMENTO: PORTARIA 4040/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Recondução\nEMENTA: Reconduz os servidores relacionados para integrarem a Comissão Permanente de Procedimentos Administrativos - CPPA, da ANEEL; designa membros titular e"
         },
         {
           "chunk_id": "2016_00001_pdf1_0",
           "registro_uid": "2016_00001_pdf1",
-          "score_bm25": 56.393233667482065,
-          "score_semantic": 0.7165253758430481,
-          "score_final": 0.5372612579935983,
+          "score_bm25": 52.21597413910303,
+          "score_semantic": 0.7106291055679321,
+          "score_metadata": 0.08,
+          "score_final": 0.3826644483231883,
           "text_preview": "DOCUMENTO: DESPACHO 3284/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Acatamento\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO N° 3.284, DE 15 DE DEZEMBRO DE 2016 \nO DIRETOR-GERAL DA AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL, no \nuso das suas atribuições regimen"
         },
         {
-          "chunk_id": "2022_02116_pdf2_1",
-          "registro_uid": "2022_02116_pdf2",
-          "score_bm25": 55.76313381857441,
-          "score_semantic": 0.49513301253318787,
-          "score_final": 0.3107334677927037,
-          "text_preview": "DOCUMENTO: PORTARIA 286/2022 (PRT)\nAUTOR: ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Não disponível\n---\n\nxados pelo Ministério de Minas e Energia – MME, e \nb) promover as licitações destinadas à contratação de conces"
+          "chunk_id": "2016_01287_pdf2_4",
+          "registro_uid": "2016_01287_pdf2",
+          "score_bm25": 54.300190757980054,
+          "score_semantic": 0.5958953499794006,
+          "score_metadata": 0.096,
+          "score_final": 0.3110978679187188,
+          "text_preview": "DOCUMENTO: PORTARIA 4177/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Criação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões, para contratação de energ"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Quem foi designado como Presidente substituto da CPPA na Portaria nº 4.040/2016?",
-      "type": "deterministica",
-      "expected_doc": "2016_02259_pdf1",
+      "question": "Qual é o número da Resolução Normativa publicada em maio de 2016 cujo objetivo é aprimorar a regulamentação referente aos contratos firmados entre as distribuidoras e os consumidores?",
+      "type": "regulamento",
+      "expected_doc": "2016_02553_pdf1",
       "retrieved_docs": [
-        "2016_02259_pdf1",
-        "2016_00020_pdf1",
-        "2016_00017_pdf1"
+        "2016_02113_pdf3",
+        "2016_00208_pdf2",
+        "2016_00163_pdf3"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2016_02259_pdf1_0",
-          "registro_uid": "2016_02259_pdf1",
-          "score_bm25": 46.756939360856094,
-          "score_semantic": 0.5201324820518494,
-          "score_final": 0.8794485002756118,
-          "text_preview": "DOCUMENTO: PORTARIA 4040/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Recondução\nEMENTA: Reconduz os servidores relacionados para integrarem a Comissão Permanente de Procedimentos Administrativos - CPPA, da ANEEL; designa membros titular e"
+          "chunk_id": "2016_02113_pdf3_8",
+          "registro_uid": "2016_02113_pdf3",
+          "score_bm25": 60.99089052116396,
+          "score_semantic": 0.5164293646812439,
+          "score_metadata": 0.09,
+          "score_final": 0.7936996254979111,
+          "text_preview": "DOCUMENTO: PORTARIA 4047/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Aprovação\nEMENTA: Aprova as metas institucionais para o ciclo de avaliação de desempenho institucional da ANEEL, período de 01.07.2016 a 30.06.2017, atendendo os preceitos da Norma Organizacional ANEEL 024 de 19.09.2006, que estabel"
         },
         {
-          "chunk_id": "2016_00020_pdf1_0",
-          "registro_uid": "2016_00020_pdf1",
-          "score_bm25": 39.48835319629903,
-          "score_semantic": 0.5443154573440552,
-          "score_final": 0.6317590255985019,
-          "text_preview": "DOCUMENTO: PORTARIA 4381/2016 (PRT)\nAUTOR: SFF/ANEEL\nANO: 2016\nASSUNTO: Exoneração\nEMENTA: Exonera Antônio Araújo da Silva da atribuição de gestor substituto dos Contratos ANEEL 029 e 032 de 2016; e designa Ed Wilson A. Gonçalves, como gestor substituto dos contratos citados, geridos pela Superinten"
+          "chunk_id": "2016_02113_pdf3_9",
+          "registro_uid": "2016_02113_pdf3",
+          "score_bm25": 60.51477965417761,
+          "score_semantic": 0.5417009592056274,
+          "score_metadata": 0.09,
+          "score_final": 0.7609700333219851,
+          "text_preview": "DOCUMENTO: PORTARIA 4047/2016 (PRT)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Aprovação\nEMENTA: Aprova as metas institucionais para o ciclo de avaliação de desempenho institucional da ANEEL, período de 01.07.2016 a 30.06.2017, atendendo os preceitos da Norma Organizacional ANEEL 024 de 19.09.2006, que estabel"
         },
         {
-          "chunk_id": "2016_00017_pdf1_0",
-          "registro_uid": "2016_00017_pdf1",
-          "score_bm25": 39.316818261643,
-          "score_semantic": 0.5503015518188477,
-          "score_final": 0.6312612203039523,
-          "text_preview": "DOCUMENTO: PORTARIA 4363/2016 (PRT)\nAUTOR: SAF/ANEEL\nANO: 2016\nASSUNTO: Designação\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA - ANEEL\nPORTARIA N° 4.363, DE 29 DE DEZEMBRO DE 2016 \nO SUPERINTENDENTE DE ADMINISTRAÇÃO E FINANÇAS SUBSTITUTO DA \nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA "
+          "chunk_id": "2016_00208_pdf2_6",
+          "registro_uid": "2016_00208_pdf2",
+          "score_bm25": 60.02132732463643,
+          "score_semantic": 0.5668060779571533,
+          "score_metadata": 0.12,
+          "score_final": 0.7554324988218536,
+          "text_preview": "DOCUMENTO: DESPACHO 3259/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Afastamento\nEMENTA: Afasta a aplicação do parágrafo 1º, do artigo 2º, da Resolução Normativa ANEEL 711, de 2016 para as contabilizações referentes aos meses de maio até dezembro de 2016, para possibilitar o registro, em prazo determ"
         }
       ],
-      "top_1_hit": true,
-      "top_3_hit": true
+      "top_1_hit": false,
+      "top_3_hit": false
     },
     {
-      "question": "Que contratos a distribuidora deve celebrar com consumidores responsáveis por unidades consumidoras do Grupo A, segundo a redação dada ao art. 61?",
-      "type": "tecnica",
+      "question": "De acordo com a Resolução Normativa nº 714/2016, qual foi a audiência pública que gerou o recebimento de sugestões de agentes do setor para aprimorar os contratos de distribuição na agência?",
+      "type": "parafraseada_norma",
       "expected_doc": "2016_02553_pdf1",
       "retrieved_docs": [
         "2016_02553_pdf1",
-        "2016_02805_pdf1",
-        "2022_00297_pdf2"
+        "2016_00262_pdf3",
+        "2016_00236_pdf1"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2016_02553_pdf1_2",
+          "chunk_id": "2016_02553_pdf1_0",
           "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 75.00660484572859,
-          "score_semantic": 0.6584066152572632,
-          "score_final": 0.9843458652496337,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nidor.”\n\nArt. 3\no\n  \nIncluir seção no Capítulo V e alterar o art. 61 da Resolução Normativa n\no\n \n414\n, de 2010, que passa"
+          "score_bm25": 102.46022617746566,
+          "score_semantic": 0.5962325930595398,
+          "score_metadata": 0.16,
+          "score_final": 0.9597060226342258,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL\n\nRESOLUÇÃO NORMATIVA Nº 714, DE 10 DE MAIO DE 2016\n\nAprimora a regulamentaçã"
         },
         {
-          "chunk_id": "2016_02553_pdf1_1",
-          "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 74.79066815969183,
-          "score_semantic": 0.5773906707763672,
-          "score_final": 0.863914090189157,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nsulas contidas no respectivo contrato acordado entre as partes.\n\n........................................................"
+          "chunk_id": "2016_00262_pdf3_0",
+          "registro_uid": "2016_00262_pdf3",
+          "score_bm25": 81.37026446158993,
+          "score_semantic": 0.6094801425933838,
+          "score_metadata": 0.18,
+          "score_final": 0.4151002783492965,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 752/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Altera a Resolução Normativa ANEEL 693, de 15.12.2015, que estabelece os critérios para aplicação do mecanismo de compensação de sobras e déf"
         },
         {
-          "chunk_id": "2016_02553_pdf1_4",
+          "chunk_id": "2016_02553_pdf1_8",
           "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 65.43272047279349,
-          "score_semantic": 0.6503562927246094,
-          "score_final": 0.6597560046045867,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nr; e\n\nVI – foro da sede da administração pública como o competente para dirimir qualquer questão contratual.”\n\nArt. 6\no\n "
+          "score_bm25": 80.29077118663308,
+          "score_semantic": 0.6185519695281982,
+          "score_metadata": 0.16,
+          "score_final": 0.3855867926612996,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nentos de controle automático de carga; \n\nIII – condições de faturamento, incluindo critérios para contemplar falhas no fu"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Em qual dispositivo a resolução trata do prazo para devolução ao consumidor de uma via assinada do CUSD e do CCER?",
-      "type": "localizacao",
-      "expected_doc": "2016_02553_pdf1",
-      "retrieved_docs": [
-        "2016_02553_pdf1",
-        "2022_00297_pdf2",
-        "2022_00300_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2016_02553_pdf1_6",
-          "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 67.16715818683923,
-          "score_semantic": 0.44398459792137146,
-          "score_final": 0.7,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nzo do disposto no art. 70; e\n\nII – 12 (doze) meses para a vigência dos contratos do grupo A, com prorrogação automática p"
-        },
-        {
-          "chunk_id": "2016_02553_pdf1_12",
-          "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 61.8073716378752,
-          "score_semantic": 0.5095751285552979,
-          "score_final": 0.5378908278749881,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\nuidora não pode efetuar cobrança adicional decorrente de realização de leitura, ainda que efetuada no prazo estabelecido "
-        },
-        {
-          "chunk_id": "2016_02553_pdf1_9",
-          "registro_uid": "2016_02553_pdf1",
-          "score_bm25": 56.14092841978699,
-          "score_semantic": 0.5942521095275879,
-          "score_final": 0.39711956027263384,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 714/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Não disponível\n---\n\na, observando-se o disposto nos §§ 1º e 2º do art. 173. \n\n§ 3º A condição de unidade consumidora desativada deve constar "
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual providência foi determinada pelo Despacho nº 3.194/2016 em relação aos aproveitamentos Invernadinha e Barra?",
-      "type": "deterministica",
+      "question": "Pelo Despacho nº 3.194 de dezembro de 2016, expedido pela Superintendência de Concessões, quais dois aproveitamentos hídricos foram formalmente excluídos da partição de quedas ótima?",
+      "type": "tecnica_inventario",
       "expected_doc": "2016_00326_pdf1",
       "retrieved_docs": [
         "2016_00326_pdf1",
-        "2021_03281_pdf2",
-        "2016_03898_pdf2"
+        "2016_00721_pdf2",
+        "2016_00290_pdf3"
       ],
       "detailed_results": [
         {
           "chunk_id": "2016_00326_pdf1_0",
           "registro_uid": "2016_00326_pdf1",
-          "score_bm25": 47.26882061762548,
-          "score_semantic": 0.5619338154792786,
-          "score_final": 0.9533493638038635,
+          "score_bm25": 83.93962357308371,
+          "score_semantic": 0.47801268100738525,
+          "score_metadata": 0.16,
+          "score_final": 0.8026099202425584,
           "text_preview": "DOCUMENTO: DESPACHO 3194/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\nASSUNTO: Exclusão\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO Nº 3.194 DE 06 DE DEZEMBRO DE 2016. \nTexto Original \nO SUPERINTENDENTE DE CONCESSÕES E AUTORIZAÇÕES DE GERAÇÃO DA \nAGÊNCIA NACIONAL DE E"
         },
         {
-          "chunk_id": "2021_03281_pdf2_0",
-          "registro_uid": "2021_03281_pdf2",
-          "score_bm25": 32.162997403065084,
-          "score_semantic": 0.5592971444129944,
-          "score_final": 0.4083319288699655,
-          "text_preview": "DOCUMENTO: DESPACHO 2168/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Compatibilidade\nEMENTA: Registra a compatibilidade do sumário executivo com os estudos de inventário hidrelétrico e com o uso do potencial hidráulico por meio da emissão de despacho de registro da adequabilidade do projeto básic"
+          "chunk_id": "2016_00721_pdf2_0",
+          "registro_uid": "2016_00721_pdf2",
+          "score_bm25": 60.15636595267852,
+          "score_semantic": 0.5339210033416748,
+          "score_metadata": 0.16,
+          "score_final": 0.46273106901591515,
+          "text_preview": "DOCUMENTO: DESPACHO 2911/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Registro\nEMENTA: Registra a adequabilidade aos estudos de inventário e ao uso do potencial hidráulico da Pequena Central Hidrelétrica Pedra Mulata, no rio Jucu, no m"
         },
         {
-          "chunk_id": "2016_03898_pdf2_0",
+          "chunk_id": "2016_00290_pdf3_4",
+          "registro_uid": "2016_00290_pdf3",
+          "score_bm25": 56.2659935250209,
+          "score_semantic": 0.5737698674201965,
+          "score_metadata": 0.09882352941176471,
+          "score_final": 0.40150504382821267,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 750/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Altera o Submódulo 6.6 dos Procedimentos de Regulação Tarifária - PRORET, que trata do procedimento de cálculo da Tarifa Atualizada de Referê"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "O Despacho ANEEL nº 2.033, que aprovava originalmente a partição de quedas ótima dos aproveitamentos Invernadinha e Barra, foi alterado para excluir esses itens em 2016 por decisão de qual área técnica da agência?",
+      "type": "parafraseada_decisao",
+      "expected_doc": "2016_00326_pdf1",
+      "retrieved_docs": [
+        "2016_00326_pdf1",
+        "2016_03898_pdf2",
+        "2016_00721_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_00326_pdf1_0",
+          "registro_uid": "2016_00326_pdf1",
+          "score_bm25": 117.26940631535892,
+          "score_semantic": 0.6404139995574951,
+          "score_metadata": 0.16157894736842104,
+          "score_final": 0.9674774182086088,
+          "text_preview": "DOCUMENTO: DESPACHO 3194/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\nASSUNTO: Exclusão\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO Nº 3.194 DE 06 DE DEZEMBRO DE 2016. \nTexto Original \nO SUPERINTENDENTE DE CONCESSÕES E AUTORIZAÇÕES DE GERAÇÃO DA \nAGÊNCIA NACIONAL DE E"
+        },
+        {
+          "chunk_id": "2016_03898_pdf2_1",
           "registro_uid": "2016_03898_pdf2",
-          "score_bm25": 33.25580604778393,
-          "score_semantic": 0.5288248658180237,
-          "score_final": 0.3982948162182153,
+          "score_bm25": 76.87435509464821,
+          "score_semantic": 0.6492854356765747,
+          "score_metadata": 0.1763157894736842,
+          "score_final": 0.4543726019910789,
           "text_preview": "DOCUMENTO: DESPACHO 327/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\nASSUNTO: Registro\nEMENTA: Registra a adequabilidade com os estudos de inventário e com o uso do potencial hidráulico da Pequena Central Hidrelétrica Barra do Telha, no rio Ituim, nos municípios de Muitos Capões e Ipê, (RS), de titularidad"
+        },
+        {
+          "chunk_id": "2016_00721_pdf2_0",
+          "registro_uid": "2016_00721_pdf2",
+          "score_bm25": 77.09288715906827,
+          "score_semantic": 0.6247440576553345,
+          "score_metadata": 0.16157894736842104,
+          "score_final": 0.41512752549975734,
+          "text_preview": "DOCUMENTO: DESPACHO 2911/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Registro\nEMENTA: Registra a adequabilidade aos estudos de inventário e ao uso do potencial hidráulico da Pequena Central Hidrelétrica Pedra Mulata, no rio Jucu, no m"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "De qual ato anterior o Despacho nº 3.194/2016 determinou a exclusão dos aproveitamentos Invernadinha e Barra?",
-      "type": "localizacao",
-      "expected_doc": "2016_00326_pdf1",
-      "retrieved_docs": [
-        "2016_00326_pdf1",
-        "2016_00524_pdf4",
-        "2016_03020_pdf3"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2016_00326_pdf1_0",
-          "registro_uid": "2016_00326_pdf1",
-          "score_bm25": 65.63336637786885,
-          "score_semantic": 0.46620309352874756,
-          "score_final": 0.8624782681465148,
-          "text_preview": "DOCUMENTO: DESPACHO 3194/2016 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2016\nASSUNTO: Exclusão\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO Nº 3.194 DE 06 DE DEZEMBRO DE 2016. \nTexto Original \nO SUPERINTENDENTE DE CONCESSÕES E AUTORIZAÇÕES DE GERAÇÃO DA \nAGÊNCIA NACIONAL DE E"
-        },
-        {
-          "chunk_id": "2016_00524_pdf4_50",
-          "registro_uid": "2016_00524_pdf4",
-          "score_bm25": 40.74145527639811,
-          "score_semantic": 0.5532394647598267,
-          "score_final": 0.3449340478520915,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 745/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Alteração\nEMENTA: Altera a Resolução Normativa ANEEL 077, de 18.08.2004, que estabelece procedimentos vinculados à redução das tarifas de uso dos sistemas elét"
-        },
-        {
-          "chunk_id": "2016_03020_pdf3_0",
-          "registro_uid": "2016_03020_pdf3",
-          "score_bm25": 39.3607875135385,
-          "score_semantic": 0.5579458475112915,
-          "score_final": 0.31604595916198225,
-          "text_preview": "DOCUMENTO: DESPACHO 783/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Conhecimento\nEMENTA: Conhece e concede provimento ao recurso administrativo da Energética Barra Grande S.A - BAESA, em face do Despacho SRM/SRG/ANEEL 341, de 10.02.2016, para anuir a repactuação do risco hidrológico, referente à Usin"
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual era o objeto da Audiência Pública nº 047/2016 instaurada pela ANEEL?",
-      "type": "juridica",
+      "question": "Para qual cooperativa de eletrificação a ANEEL abriu a Audiência Pública nº 047/2016 visando aprimorar a proposta de revisão extraordinária dos limites de DEC e FEC?",
+      "type": "operacional_audiencia",
       "expected_doc": "2016_01751_pdf1",
       "retrieved_docs": [
         "2016_01751_pdf1",
-        "2016_00165_pdf1",
-        "2016_00195_pdf2"
+        "2016_00236_pdf3",
+        "2016_00230_pdf2"
       ],
       "detailed_results": [
         {
           "chunk_id": "2016_01751_pdf1_0",
           "registro_uid": "2016_01751_pdf1",
-          "score_bm25": 43.47619877025663,
-          "score_semantic": 0.6045429706573486,
-          "score_final": 0.9421788424253463,
+          "score_bm25": 126.43588747813195,
+          "score_semantic": 0.5380328297615051,
+          "score_metadata": 0.18500000000000003,
+          "score_final": 0.9461765587329865,
           "text_preview": "DOCUMENTO: AVISO DE AUDIÊNCIA PÚBLICA 047 (AAP)\nAUTOR: SMA/ANEEL\nANO: 2016\nASSUNTO: Aviso\nEMENTA: Comunica aos interessados, que foi aberta Audiência Pública, com período de contribuição de 04.08.2016 a 05.09.2016, mediante intercâmbio de documentos, com o objetivo de obter subsídios para o aprimora"
         },
         {
-          "chunk_id": "2016_00165_pdf1_0",
-          "registro_uid": "2016_00165_pdf1",
-          "score_bm25": 37.362658036847975,
-          "score_semantic": 0.6032792329788208,
-          "score_final": 0.5457987913947044,
-          "text_preview": "DOCUMENTO: AVISO DE AUDIÊNCIA PÚBLICA 092 (AAP)\nAUTOR: SMA/ANEEL\nANO: 2016\nASSUNTO: Audiência pública\nEMENTA: Comunica aos interessados que foi aberta a Audiência Pública, com período de envio de contribuição de 20.12.2016 a 23.01.2017, mediante apenas intercâmbio de documentos, com o objetivo de ob"
+          "chunk_id": "2016_00236_pdf3_0",
+          "registro_uid": "2016_00236_pdf3",
+          "score_bm25": 95.58198199977214,
+          "score_semantic": 0.5418621301651001,
+          "score_metadata": 0.105,
+          "score_final": 0.5147902553061876,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 753/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Fixação\nEMENTA: Estabelece a metodologia e os limites para os indicadores de continuidade DEC e FEC dos conjuntos de unidades consumidoras das permissionárias "
         },
         {
-          "chunk_id": "2016_00195_pdf2_0",
-          "registro_uid": "2016_00195_pdf2",
-          "score_bm25": 38.31725842683278,
-          "score_semantic": 0.520285964012146,
-          "score_final": 0.5232970679678001,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 6157/2016 (REA)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n48500.004611/2016-98 \nOperador Nacional do Sistema Elétrico – ONS e agentes do Setor Elétrico. \nDiretor Reive Barros dos Santos. \nSuperintendência de Fiscalização Econômica e Finan"
+          "chunk_id": "2016_00230_pdf2_0",
+          "registro_uid": "2016_00230_pdf2",
+          "score_bm25": 95.6297145013131,
+          "score_semantic": 0.47406208515167236,
+          "score_metadata": 0.09357142857142857,
+          "score_final": 0.4370557661984959,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 6154/2016 (REA)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Fixação\nEMENTA: Estabelece os limites de continuidade dos serviços de distribuição de energia elétrica, a partir de janeiro de 2017, nos seus aspectos de Duração Equivalente de Interrupção por Unidade Consumidora - DEC"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Segundo o voto da revisão tarifária da EDEVP, por que o efeito tarifário foi mais elevado para consumidores conectados em Alta Tensão do que para consumidores em Baixa Tensão?",
-      "type": "juridica",
-      "expected_doc": "2016_02735_pdf2",
+      "question": "No Aviso divulgado pela Superintendência de Mediação Administrativa para a Ceris, qual foi o período de datas exato estabelecido para o envio de contribuições por intercâmbio documental?",
+      "type": "numerica_prazo",
+      "expected_doc": "2016_01751_pdf1",
       "retrieved_docs": [
-        "2016_02735_pdf2",
-        "2022_00273_pdf2",
+        "2016_01751_pdf1",
+        "2021_00579_pdf1",
+        "2016_00039_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2016_01751_pdf1_0",
+          "registro_uid": "2016_01751_pdf1",
+          "score_bm25": 97.95310028870286,
+          "score_semantic": 0.6093229651451111,
+          "score_metadata": 0.03866666666666667,
+          "score_final": 0.9725,
+          "text_preview": "DOCUMENTO: AVISO DE AUDIÊNCIA PÚBLICA 047 (AAP)\nAUTOR: SMA/ANEEL\nANO: 2016\nASSUNTO: Aviso\nEMENTA: Comunica aos interessados, que foi aberta Audiência Pública, com período de contribuição de 04.08.2016 a 05.09.2016, mediante intercâmbio de documentos, com o objetivo de obter subsídios para o aprimora"
+        },
+        {
+          "chunk_id": "2021_00579_pdf1_0",
+          "registro_uid": "2021_00579_pdf1",
+          "score_bm25": 93.63931675066314,
+          "score_semantic": 0.5610013008117676,
+          "score_metadata": 0.05333333333333333,
+          "score_final": 0.8583730129454522,
+          "text_preview": "DOCUMENTO: AVISO DE TOMADA DE SUBSÍDIOS 019 (ATS)\nAUTOR: SMA/ANEEL\nANO: 2021\nASSUNTO: Comunicado\nEMENTA: Comunica que foi aberta a Tomada de Subsídios, com período para envio de contribuição de 7 de dezembro de 2021 a 20 de janeiro de 2022, mediante intercâmbio documental, com o objetivo de obter su"
+        },
+        {
+          "chunk_id": "2016_00039_pdf1_0",
+          "registro_uid": "2016_00039_pdf1",
+          "score_bm25": 91.45462072188106,
+          "score_semantic": 0.5835431814193726,
+          "score_metadata": 0.03866666666666667,
+          "score_final": 0.8137607614838414,
+          "text_preview": "DOCUMENTO: AVISO DE CONSULTA PÚBLICA 014 (ACP)\nAUTOR: SMA/ANEEL\nANO: 2016\nASSUNTO: Aviso\nEMENTA: Comunica aos agentes do setor de energia elétrica e demais interessados, que foi aberta Consulta Pública, com período de contribuição de 28.12.2016 a 10.02.2017, mediante intercâmbio de documentos, com o"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "A Nota Técnica nº 133 elaborada no ano de 2021 pela agência tem o objetivo de analisar o recurso administrativo de qual empresa visando a manutenção do Despacho de Registro de Adequabilidade?",
+      "type": "juridica_recurso",
+      "expected_doc": "2021_05837_pdf2",
+      "retrieved_docs": [
+        "2021_03878_pdf2",
+        "2021_05837_pdf2",
+        "2021_02768_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_03878_pdf2_0",
+          "registro_uid": "2021_03878_pdf2",
+          "score_bm25": 87.7345848376505,
+          "score_semantic": 0.5779507160186768,
+          "score_metadata": 0.23750000000000002,
+          "score_final": 0.8968561148166417,
+          "text_preview": "DOCUMENTO: DESPACHO 1748/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Juízo de mérito\nEMENTA: Conhece e, no mérito, concede provimento do recurso administrativo interposto pela Santa Rosa Energia e Participações S.A; registra a compatibilidade do sumário executivo com os estudos de inventário hidr"
+        },
+        {
+          "chunk_id": "2021_05837_pdf2_0",
+          "registro_uid": "2021_05837_pdf2",
+          "score_bm25": 88.41186791580859,
+          "score_semantic": 0.5041924118995667,
+          "score_metadata": 0.20750000000000002,
+          "score_final": 0.8084110038925191,
+          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
+        },
+        {
+          "chunk_id": "2021_02768_pdf2_0",
+          "registro_uid": "2021_02768_pdf2",
+          "score_bm25": 87.19859249289762,
+          "score_semantic": 0.5685137510299683,
+          "score_metadata": 0.1875,
+          "score_final": 0.7977015819610709,
+          "text_preview": "DOCUMENTO: DESPACHO 2524/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Alteração\nEMENTA: Altera a vigência do registro a adequabilidade aos estudos de inventário e ao uso do potencial hidráulico do projeto da Pequena Central Hidrelétrica Abelardo Luz, no rio Chapecó, (SC), conferido à Energética Ab"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual despacho da ANEEL, emitido em setembro de 2020 para decidir sobre uma prorrogação de vigência, foi o alvo do recurso administrativo interposto pela Omega Desenvolvimento de Energia 1 S.A.?",
+      "type": "parafraseada_recurso",
+      "expected_doc": "2021_05837_pdf2",
+      "retrieved_docs": [
+        "2021_05837_pdf2",
+        "2021_00131_pdf2",
+        "2021_00542_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_05837_pdf2_0",
+          "registro_uid": "2021_05837_pdf2",
+          "score_bm25": 92.53942940776656,
+          "score_semantic": 0.5676508545875549,
+          "score_metadata": 0.164375,
+          "score_final": 0.9349506944417953,
+          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
+        },
+        {
+          "chunk_id": "2021_05837_pdf2_3",
+          "registro_uid": "2021_05837_pdf2",
+          "score_bm25": 92.41013338631518,
+          "score_semantic": 0.5676508545875549,
+          "score_metadata": 0.164375,
+          "score_final": 0.9307893900520605,
+          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
+        },
+        {
+          "chunk_id": "2021_05837_pdf2_2",
+          "registro_uid": "2021_05837_pdf2",
+          "score_bm25": 91.80050235759751,
+          "score_semantic": 0.5676508545875549,
+          "score_metadata": 0.164375,
+          "score_final": 0.9111688305990746,
+          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual o nome da Sociedade de Propósito Específico (SPE) que foi expressamente autorizada, pela publicação em setembro de 2021, a implantar e explorar a Central Geradora Fotovoltaica Dunamis III?",
+      "type": "deterministica_outorga",
+      "expected_doc": "2021_01712_pdf1",
+      "retrieved_docs": [
+        "2021_01712_pdf1",
+        "2022_02091_pdf2",
+        "2021_02636_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_01712_pdf1_0",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 89.24500806000253,
+          "score_semantic": 0.703959584236145,
+          "score_metadata": 0.22,
+          "score_final": 0.9856701791286469,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        },
+        {
+          "chunk_id": "2021_01712_pdf1_2",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 87.77597080027293,
+          "score_semantic": 0.7191044092178345,
+          "score_metadata": 0.22,
+          "score_final": 0.9548712769301729,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        },
+        {
+          "chunk_id": "2021_01712_pdf1_1",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 88.27476636782349,
+          "score_semantic": 0.6652129292488098,
+          "score_metadata": 0.22,
+          "score_final": 0.9192028859126158,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "A Resolução Autorizativa nº 10.652 da Diretoria da Agência em 2021 permitiu a exploração da central fotovoltaica Dunamis III sob qual regime específico de comercialização de energia elétrica?",
+      "type": "parafraseada_outorga",
+      "expected_doc": "2021_01712_pdf1",
+      "retrieved_docs": [
+        "2021_01712_pdf1",
+        "2021_06582_pdf1",
+        "2021_02636_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_01712_pdf1_0",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 99.49212219724073,
+          "score_semantic": 0.7031499743461609,
+          "score_metadata": 0.224,
+          "score_final": 1.0,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        },
+        {
+          "chunk_id": "2021_01712_pdf1_2",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 87.54739294299424,
+          "score_semantic": 0.6971368789672852,
+          "score_metadata": 0.224,
+          "score_final": 0.6707717711945843,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        },
+        {
+          "chunk_id": "2021_01712_pdf1_1",
+          "registro_uid": "2021_01712_pdf1",
+          "score_bm25": 84.40695705264702,
+          "score_semantic": 0.6217948794364929,
+          "score_metadata": 0.224,
+          "score_final": 0.48913071805251596,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual cooperativa de eletrificação rural (nome completo ou sigla) teve as suas Tarifas de Energia (TE) homologadas pela Resolução 2.865 como parte do Reajuste Anual de 2021?",
+      "type": "numerica_tarifaria",
+      "expected_doc": "2021_05064_pdf1",
+      "retrieved_docs": [
+        "2021_05064_pdf1",
+        "2021_04505_pdf1",
+        "2021_04505_pdf3"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_05064_pdf1_0",
+          "registro_uid": "2021_05064_pdf1",
+          "score_bm25": 77.96968178936228,
+          "score_semantic": 0.7836923599243164,
+          "score_metadata": 0.22222222222222224,
+          "score_final": 0.9896551724137932,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2865/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural de Resende Ltda"
+        },
+        {
+          "chunk_id": "2021_04505_pdf1_0",
+          "registro_uid": "2021_04505_pdf1",
+          "score_bm25": 73.1452804020551,
+          "score_semantic": 0.7674494981765747,
+          "score_metadata": 0.23333333333333334,
+          "score_final": 0.7825952683571784,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2873/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Reajuste tarifário anual\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural da"
+        },
+        {
+          "chunk_id": "2021_04505_pdf3_1",
+          "registro_uid": "2021_04505_pdf3",
+          "score_bm25": 72.59690994782369,
+          "score_semantic": 0.7341561317443848,
+          "score_metadata": 0.23555555555555555,
+          "score_final": 0.734679752376981,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2873/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Reajuste tarifário anual\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural da"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "A Resolução Homologatória que define as Tarifas de Uso do Sistema de Distribuição (TUSD) referentes à Ceres foi oficializada e publicada com qual data de assinatura em abril de 2021?",
+      "type": "parafraseada_data",
+      "expected_doc": "2021_05064_pdf1",
+      "retrieved_docs": [
+        "2021_05064_pdf1",
+        "2022_00878_pdf2",
         "2016_00197_pdf2"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2016_02735_pdf2_1",
-          "registro_uid": "2016_02735_pdf2",
-          "score_bm25": 111.08068927148436,
-          "score_semantic": 0.5483714938163757,
-          "score_final": 0.955791813135147,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2072/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da quarta revisão tarifária periódica, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Empresa de Distribuição de Energia Vale Pa"
+          "chunk_id": "2021_05064_pdf1_0",
+          "registro_uid": "2021_05064_pdf1",
+          "score_bm25": 84.19337335798433,
+          "score_semantic": 0.6133492588996887,
+          "score_metadata": 0.21333333333333332,
+          "score_final": 0.9210149645805359,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2865/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural de Resende Ltda"
         },
         {
-          "chunk_id": "2022_00273_pdf2_1",
-          "registro_uid": "2022_00273_pdf2",
-          "score_bm25": 92.46424871047147,
-          "score_semantic": 0.49966496229171753,
-          "score_final": 0.5085640673306091,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
+          "chunk_id": "2021_05064_pdf1_1",
+          "registro_uid": "2021_05064_pdf1",
+          "score_bm25": 78.65960982837913,
+          "score_semantic": 0.6062400341033936,
+          "score_metadata": 0.21333333333333332,
+          "score_final": 0.6660824280085168,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2865/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural de Resende Ltda"
         },
         {
-          "chunk_id": "2016_00197_pdf2_1",
-          "registro_uid": "2016_00197_pdf2",
-          "score_bm25": 89.47791554227024,
-          "score_semantic": 0.5204587578773499,
-          "score_final": 0.4726111953608474,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2194/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletricidade Praia Grande - Ceprag."
+          "chunk_id": "2022_00878_pdf2_0",
+          "registro_uid": "2022_00878_pdf2",
+          "score_bm25": 77.18180569679379,
+          "score_semantic": 0.6819330453872681,
+          "score_metadata": 0.13333333333333333,
+          "score_final": 0.6105805986005141,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3138/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual de 2022, as Tarifas de Energia – TE e as Tarifas de Uso do Sistema de Distribuição – TUSD referentes à Companhia Estadual de Distribuição de Energia"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Quais referenciais de perdas não técnicas e técnicas foram adotados para a EDEVP na revisão tarifária, e sobre que bases esses percentuais foram calculados?",
-      "type": "tecnica",
-      "expected_doc": "2016_02735_pdf2",
-      "retrieved_docs": [
-        "2016_02693_pdf1",
-        "2016_02693_pdf3",
-        "2016_02735_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2016_02693_pdf1_4",
-          "registro_uid": "2016_02693_pdf1",
-          "score_bm25": 66.06614139419109,
-          "score_semantic": 0.5258308053016663,
-          "score_final": 0.7435520781679192,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 716/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Agrupamento\nEMENTA: Agrupa as áreas de concessão atendidas por concessionárias de distribuição de energia elétrica sujeitas a controle societário comum e trata"
-        },
-        {
-          "chunk_id": "2016_02693_pdf1_3",
-          "registro_uid": "2016_02693_pdf1",
-          "score_bm25": 67.5928403899338,
-          "score_semantic": 0.4846982955932617,
-          "score_final": 0.733565204590559,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 716/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Agrupamento\nEMENTA: Agrupa as áreas de concessão atendidas por concessionárias de distribuição de energia elétrica sujeitas a controle societário comum e trata"
-        },
-        {
-          "chunk_id": "2016_02693_pdf3_4",
-          "registro_uid": "2016_02693_pdf3",
-          "score_bm25": 66.37829481248616,
-          "score_semantic": 0.5043848752975464,
-          "score_final": 0.7087887682449087,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO NORMATIVA 716/2016 (REN)\nAUTOR: ANEEL\nANO: 2016\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Agrupamento\nEMENTA: Agrupa as áreas de concessão atendidas por concessionárias de distribuição de energia elétrica sujeitas a controle societário comum e trata"
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": true
-    },
-    {
-      "question": "Quais elementos foram expressamente considerados na elaboração do PAINT/2021 pela Auditoria Interna da ANEEL?",
-      "type": "tecnica",
-      "expected_doc": "2021_06547_pdf2",
-      "retrieved_docs": [
-        "2021_00128_pdf2",
-        "2021_06547_pdf2",
-        "2022_00177_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2021_00128_pdf2_2",
-          "registro_uid": "2021_00128_pdf2",
-          "score_bm25": 61.487342180315345,
-          "score_semantic": 0.7532634735107422,
-          "score_final": 0.953008097410202,
-          "text_preview": "DOCUMENTO: PORTARIA 6712/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nvo adjunto\n• Auditoria e consultoria: Coordenador e três auditores.\n• Interface com órgãos de controle: Coordenador e adjunto.\n• Consultoria na implementação da gestão de riscos na Agência: coor"
-        },
-        {
-          "chunk_id": "2021_00128_pdf2_3",
-          "registro_uid": "2021_00128_pdf2",
-          "score_bm25": 56.62609607858546,
-          "score_semantic": 0.7446208000183105,
-          "score_final": 0.8111412418979428,
-          "text_preview": "DOCUMENTO: PORTARIA 6712/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nanejamento estratégico\nda ANEEL, os riscos significativos a que a ANEEL está exposta e os seus processos de governança, de\ngerenciamento de riscos e de controles internos, a complexidade do negó"
-        },
-        {
-          "chunk_id": "2021_06547_pdf2_0",
-          "registro_uid": "2021_06547_pdf2",
-          "score_bm25": 57.84757724694694,
-          "score_semantic": 0.6818045377731323,
-          "score_final": 0.7975777607718424,
-          "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n48500.005043/2020-29 \nAuditoria Interna - AIN \n Hélvio Neves Guerra \nAuditoria Interna - AIN\nPlano Anual de Auditoria Interna – PAINT/2021. \n1. \nO Decreto n° 3.591, de 6 de novembro de 2020, est"
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual foi a carga total de trabalho prevista na Tabela 1 do PAINT/2021?",
-      "type": "numerica",
+      "question": "Qual decreto federal do mês de novembro de 2020 é expressamente referenciado no PAINT/2021 como a base para os procedimentos a serem adotados pelas unidades de auditoria da Agência?",
+      "type": "administrativa_paint",
       "expected_doc": "2021_06547_pdf2",
       "retrieved_docs": [
         "2021_06547_pdf2",
@@ -586,486 +754,484 @@
       ],
       "detailed_results": [
         {
+          "chunk_id": "2021_06547_pdf2_0",
+          "registro_uid": "2021_06547_pdf2",
+          "score_bm25": 105.76306903924305,
+          "score_semantic": 0.6578493118286133,
+          "score_metadata": 0.08,
+          "score_final": 0.9205669522285462,
+          "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n48500.005043/2020-29 \nAuditoria Interna - AIN \n Hélvio Neves Guerra \nAuditoria Interna - AIN\nPlano Anual de Auditoria Interna – PAINT/2021. \n1. \nO Decreto n° 3.591, de 6 de novembro de 2020, est"
+        },
+        {
+          "chunk_id": "2022_00177_pdf2_0",
+          "registro_uid": "2022_00177_pdf2",
+          "score_bm25": 94.9480135986422,
+          "score_semantic": 0.634621262550354,
+          "score_metadata": 0.0,
+          "score_final": 0.6660426664004173,
+          "text_preview": "DOCUMENTO: DESPACHO 3576/2022 (DSP)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n48500.008079/2022-26 \nAuditoria Interna - AIN\n Diretor Fernando Luiz Mosna Ferreira da Silva \nAuditoria Interna - AIN\n: Aprovação doPlano Anual de Auditoria Interna – PAINT/2023. \n1. \nO Decreto "
+        },
+        {
           "chunk_id": "2021_06547_pdf2_2",
           "registro_uid": "2021_06547_pdf2",
-          "score_bm25": 48.284910070573524,
-          "score_semantic": 0.6868429183959961,
-          "score_final": 1.000000011920929,
+          "score_bm25": 84.63155616712227,
+          "score_semantic": 0.6621988415718079,
+          "score_metadata": 0.08,
+          "score_final": 0.6143294343441685,
           "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nrnança,\ngerenciamento de riscos e controles da ANEEL, e que desde 2020 as informações dos Planos de Auditoria\nsão enviadas via sistema EAUD-CGU, por meio de uma planilha elaborada pela CGU conte"
-        },
-        {
-          "chunk_id": "2022_00177_pdf2_2",
-          "registro_uid": "2022_00177_pdf2",
-          "score_bm25": 43.18467919743971,
-          "score_semantic": 0.534805417060852,
-          "score_final": 0.6445861254897167,
-          "text_preview": "DOCUMENTO: DESPACHO 3576/2022 (DSP)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n, na indicação dos projetos para o \nexercício de 2023: (i) a força de trabalho da AIN, expressa em homem‐hora; (ii) resultados dos trabalhos \nrealizados pelos órgãos de controle: Ministério da T"
-        },
-        {
-          "chunk_id": "2021_00128_pdf2_3",
-          "registro_uid": "2021_00128_pdf2",
-          "score_bm25": 40.370437298908634,
-          "score_semantic": 0.5738276243209839,
-          "score_final": 0.5649624258099878,
-          "text_preview": "DOCUMENTO: PORTARIA 6712/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nanejamento estratégico\nda ANEEL, os riscos significativos a que a ANEEL está exposta e os seus processos de governança, de\ngerenciamento de riscos e de controles internos, a complexidade do negó"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Qual era a pretensão principal da recorrente em relação ao DRS-PCH da PCH Bonito A?",
-      "type": "juridica",
-      "expected_doc": "2021_05837_pdf2",
-      "retrieved_docs": [
-        "2021_00131_pdf2",
-        "2021_05837_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2021_00131_pdf2_6",
-          "registro_uid": "2021_00131_pdf2",
-          "score_bm25": 57.377623604184095,
-          "score_semantic": 0.4341750144958496,
-          "score_final": 0.8687027812004089,
-          "text_preview": "DOCUMENTO: DESPACHO 3654/2021 (DSP)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Juízo de reconsideração\nEMENTA: Conhece e, no mérito, nega provimento ao recurso interposto pela Interalli Administração e Participações S.A em face do Despacho SCG/ANEEL 2.194, de 16 de julho de 2021, quanto à prorrogação da vigênc"
-        },
-        {
-          "chunk_id": "2021_05837_pdf2_9",
-          "registro_uid": "2021_05837_pdf2",
-          "score_bm25": 56.13140194172891,
-          "score_semantic": 0.36129528284072876,
-          "score_final": 0.7267681592395095,
-          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
-        },
-        {
-          "chunk_id": "2021_05837_pdf2_0",
-          "registro_uid": "2021_05837_pdf2",
-          "score_bm25": 55.41173967053026,
-          "score_semantic": 0.36129528284072876,
-          "score_final": 0.6937981502728741,
-          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual percentual de redução foi estabelecido para aplicação às TUST e TUSD da UFV Dunamis III?",
-      "type": "tecnica",
-      "expected_doc": "2021_01712_pdf1",
-      "retrieved_docs": [
-        "2021_01712_pdf1",
-        "2021_02636_pdf1",
-        "2016_00524_pdf4"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2021_01712_pdf1_2",
-          "registro_uid": "2021_01712_pdf1",
-          "score_bm25": 52.70507630156449,
-          "score_semantic": 0.5739121437072754,
-          "score_final": 0.9972321907485623,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
-        },
-        {
-          "chunk_id": "2021_01712_pdf1_1",
-          "registro_uid": "2021_01712_pdf1",
-          "score_bm25": 52.76848087814594,
-          "score_semantic": 0.3887462615966797,
-          "score_final": 0.7954990163445472,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10652/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Dunamis Projetos de Energia Fotovoltaica SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Dunamis III, sob o regime de Produção Independente de Energia Elétrica, no "
-        },
-        {
-          "chunk_id": "2021_02636_pdf1_2",
-          "registro_uid": "2021_02636_pdf1",
-          "score_bm25": 37.12959861309854,
-          "score_semantic": 0.5524858236312866,
-          "score_final": 0.29364698780746007,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 10452/2021 (REA)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Autorização\nEMENTA: Autoriza a Vista Alegre XII Energia SPE Ltda a implantar e explorar a Central Geradora Solar Fotovoltaica Vista Alegre XIII, sob o regime de Produção Independente de Energia Elétrica, no município "
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual foi o efeito tarifário médio homologado para os consumidores da Ceres no Reajuste Tarifário Anual de 2021?",
-      "type": "numerica",
-      "expected_doc": "2021_05064_pdf1",
-      "retrieved_docs": [
-        "2016_00197_pdf2",
-        "2022_00273_pdf3",
-        "2022_00275_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2016_00197_pdf2_1",
-          "registro_uid": "2016_00197_pdf2",
-          "score_bm25": 56.44395651668312,
-          "score_semantic": 0.6047347784042358,
-          "score_final": 0.8402388960123062,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2194/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletricidade Praia Grande - Ceprag."
-        },
-        {
-          "chunk_id": "2022_00273_pdf3_3",
-          "registro_uid": "2022_00273_pdf3",
-          "score_bm25": 54.3777733042063,
-          "score_semantic": 0.6603807210922241,
-          "score_final": 0.7479194291912775,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
-        },
-        {
-          "chunk_id": "2022_00275_pdf2_1",
-          "registro_uid": "2022_00275_pdf2",
-          "score_bm25": 56.13776016590536,
-          "score_semantic": 0.5392584204673767,
-          "score_final": 0.698657917833804,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3163/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual de 2022, as Tarifas de Energia – TE e as Tarifas de Uso do Sistema de Distribuição – TUSD referentes à Companhia de Eletricidade do Amapá - CEA Equa"
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": false
-    },
-    {
-      "question": "Onde a resolução define os percentuais de descontos relativos aos benefícios tarifários incidentes sobre as tarifas de aplicação da Ceres?",
-      "type": "localizacao",
-      "expected_doc": "2021_05064_pdf1",
-      "retrieved_docs": [
-        "2021_05064_pdf1",
-        "2021_04505_pdf1",
-        "2022_00273_pdf1"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2021_05064_pdf1_1",
-          "registro_uid": "2021_05064_pdf1",
-          "score_bm25": 78.06675703309949,
-          "score_semantic": 0.5652939081192017,
-          "score_final": 0.9548763155937194,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2865/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural de Resende Ltda"
-        },
-        {
-          "chunk_id": "2021_04505_pdf1_1",
-          "registro_uid": "2021_04505_pdf1",
-          "score_bm25": 67.38201067685291,
-          "score_semantic": 0.5903463363647461,
-          "score_final": 0.706812746589313,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2873/2021 (REH)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Reajuste tarifário anual\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletrificação Rural da"
-        },
-        {
-          "chunk_id": "2022_00273_pdf1_1",
-          "registro_uid": "2022_00273_pdf1",
-          "score_bm25": 66.09994579678943,
-          "score_semantic": 0.5920662879943848,
-          "score_final": 0.6748798887245233,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "Segundo a Nota Técnica nº 133/2021-SCG/ANEEL, qual distinção regulatória foi feita entre a revogação do DRS sem execução da garantia e a devolução da garantia de fiel cumprimento em casos de inviabilidade ambiental?",
-      "type": "juridica",
-      "expected_doc": "2021_05837_pdf2",
-      "retrieved_docs": [
-        "2021_05837_pdf2",
-        "2022_02309_pdf2",
-        "2021_00131_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2021_05837_pdf2_7",
-          "registro_uid": "2021_05837_pdf2",
-          "score_bm25": 115.2724168502126,
-          "score_semantic": 0.49759262800216675,
-          "score_final": 0.8808022111654281,
-          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
-        },
-        {
-          "chunk_id": "2021_05837_pdf2_1",
-          "registro_uid": "2021_05837_pdf2",
-          "score_bm25": 105.6265328444147,
-          "score_semantic": 0.49759262800216675,
-          "score_final": 0.6811356151460559,
-          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
-        },
-        {
-          "chunk_id": "2021_05837_pdf2_9",
-          "registro_uid": "2021_05837_pdf2",
-          "score_bm25": 105.35695834124729,
-          "score_semantic": 0.49759262800216675,
-          "score_final": 0.6755555124422813,
-          "text_preview": "DOCUMENTO: DESPACHO 673/2021 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2021\nASSUNTO: Revogação\nEMENTA: Revoga motivado pela inviabilidade ambiental do aproveitamento, os Despachos SCG/ANEEL 2.750, de 31 de agosto de 2017, e 2.706, de 18 de setembro de 2020, os quais, respectivamente, conferiu e prorrogou o prazo "
-        }
-      ],
-      "top_1_hit": true,
-      "top_3_hit": true
-    },
-    {
-      "question": "No PAINT/2021, qual tema foi selecionado no macroprocesso de Outorgas e Gestão do potencial hidráulico e qual foi o critério de seleção correspondente?",
-      "type": "localizacao",
+      "question": "Qual foi o plano oficial estruturado pela área de Auditoria Interna (AIN) da ANEEL para o exercício financeiro de 2021, aprovado via deliberação que cita o diretor Hélvio Neves Guerra?",
+      "type": "parafraseada_auditoria",
       "expected_doc": "2021_06547_pdf2",
       "retrieved_docs": [
-        "2021_00128_pdf2",
-        "2016_00345_pdf2",
-        "2021_06547_pdf2"
+        "2021_06547_pdf2",
+        "2022_00177_pdf1",
+        "2022_00177_pdf2"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2021_00128_pdf2_3",
-          "registro_uid": "2021_00128_pdf2",
-          "score_bm25": 64.37871248546467,
-          "score_semantic": 0.6182190179824829,
-          "score_final": 0.904811230301857,
-          "text_preview": "DOCUMENTO: PORTARIA 6712/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nanejamento estratégico\nda ANEEL, os riscos significativos a que a ANEEL está exposta e os seus processos de governança, de\ngerenciamento de riscos e de controles internos, a complexidade do negó"
-        },
-        {
-          "chunk_id": "2016_00345_pdf2_1",
-          "registro_uid": "2016_00345_pdf2",
-          "score_bm25": 62.78895715128245,
-          "score_semantic": 0.6272395849227905,
-          "score_final": 0.8250115236457441,
-          "text_preview": "DOCUMENTO: DESPACHO 3203/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nado de \nmacroproceso “1.5.1. Gestão e Processos (indicadores)”, selecionado pelo critério de rotação de ênfase, pelo \nprojeto “5.3.3. Fiscalização das concessionárias e permissionárias do serviç"
-        },
-        {
-          "chunk_id": "2021_06547_pdf2_2",
+          "chunk_id": "2021_06547_pdf2_0",
           "registro_uid": "2021_06547_pdf2",
-          "score_bm25": 61.934107002325014,
-          "score_semantic": 0.6421986818313599,
-          "score_final": 0.7910655944676604,
-          "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nrnança,\ngerenciamento de riscos e controles da ANEEL, e que desde 2020 as informações dos Planos de Auditoria\nsão enviadas via sistema EAUD-CGU, por meio de uma planilha elaborada pela CGU conte"
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": true
-    },
-    {
-      "question": "Quem recebeu o Registro para a elaboração da revisão dos Estudos de Inventário Hidrelétrico do rio Piranga no Despacho nº 105/2022?",
-      "type": "deterministica",
-      "expected_doc": "2022_07279_pdf1",
-      "retrieved_docs": [
-        "2022_07279_pdf1",
-        "2022_00930_pdf1",
-        "2022_03387_pdf1"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2022_07279_pdf1_0",
-          "registro_uid": "2022_07279_pdf1",
-          "score_bm25": 86.54200189457924,
-          "score_semantic": 0.686569094657898,
-          "score_final": 0.9960617840290069,
-          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
+          "score_bm25": 90.53197685174393,
+          "score_semantic": 0.7242120504379272,
+          "score_metadata": 0.08166666666666667,
+          "score_final": 0.8969884441419705,
+          "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\n48500.005043/2020-29 \nAuditoria Interna - AIN \n Hélvio Neves Guerra \nAuditoria Interna - AIN\nPlano Anual de Auditoria Interna – PAINT/2021. \n1. \nO Decreto n° 3.591, de 6 de novembro de 2020, est"
         },
         {
-          "chunk_id": "2022_07279_pdf1_1",
-          "registro_uid": "2022_07279_pdf1",
-          "score_bm25": 77.28420402455916,
-          "score_semantic": 0.686569094657898,
-          "score_final": 0.6727778965695683,
-          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
+          "chunk_id": "2022_00177_pdf1_0",
+          "registro_uid": "2022_00177_pdf1",
+          "score_bm25": 95.58728654876367,
+          "score_semantic": 0.6541178822517395,
+          "score_metadata": 0.0016666666666666666,
+          "score_final": 0.8381662011146546,
+          "text_preview": "DOCUMENTO: DESPACHO 3576/2022 (DSP)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nAGÊNCIA NACIONAL DE ENERGIA ELÉTRICA – ANEEL \nDESPACHO Nº 3.576, DE 13 DE DEZEMBRO DE 2022 \nVoto \nNOTA TÉCNICA Nº 24/2022-AIN/ANEEL. \nO DIRETOR-GERAL SUBSTITUTO DA AGÊNCIA NACIONAL DE ENERGIA EL"
         },
         {
-          "chunk_id": "2022_00930_pdf1_0",
-          "registro_uid": "2022_00930_pdf1",
-          "score_bm25": 73.81453300092575,
-          "score_semantic": 0.6355003714561462,
-          "score_final": 0.4589833364176598,
-          "text_preview": "DOCUMENTO: DESPACHO 3257/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\nASSUNTO: Alg Empreendimentos Imobiliários Ltda\nEMENTA: Confere à Alg Empreendimentos Imobiliários Ltda, o registro para a elaboração da Revisão dos Estudos de Inventário Hidrelétrico do rio Caveiras, no trecho entre o reservatório da Peq"
+          "chunk_id": "2021_06547_pdf2_1",
+          "registro_uid": "2021_06547_pdf2",
+          "score_bm25": 79.43618212469022,
+          "score_semantic": 0.6729691624641418,
+          "score_metadata": 0.08166666666666667,
+          "score_final": 0.6256864220325559,
+          "text_preview": "DOCUMENTO: PORTARIA 6648/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Aprovação\nEMENTA: Não disponível\n---\n\nultados dos exames\nrealizados pela própria Auditoria Interna; (iv) grau de risco dos processos; (v) Referencial de Combate à\nFraude e Corrupção do TCU; (vi) Processos considerados como de princi"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Que comunicação específica foi feita quanto à UHE Brecha no Despacho nº 105/2022?",
-      "type": "juridica",
+      "question": "No Despacho nº 105/2022, qual foi o prazo conferido para a elaboração da Revisão dos Estudos de Inventário Hidrelétrico do rio Piranga?",
+      "type": "numerica_prazo",
       "expected_doc": "2022_07279_pdf1",
       "retrieved_docs": [
         "2022_07279_pdf1",
-        "2022_01339_pdf2",
-        "2022_01276_pdf2"
+        "2022_05565_pdf1",
+        "2022_00930_pdf1"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2022_07279_pdf1_1",
-          "registro_uid": "2022_07279_pdf1",
-          "score_bm25": 40.07055176117051,
-          "score_semantic": 0.5031979084014893,
-          "score_final": 0.8645533889532089,
-          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
-        },
-        {
           "chunk_id": "2022_07279_pdf1_0",
           "registro_uid": "2022_07279_pdf1",
-          "score_bm25": 37.340045886507,
-          "score_semantic": 0.5031979084014893,
-          "score_final": 0.741744398293511,
+          "score_bm25": 94.3192968235043,
+          "score_semantic": 0.6702369451522827,
+          "score_metadata": 0.35,
+          "score_final": 1.0,
           "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
         },
         {
-          "chunk_id": "2022_01339_pdf2_10",
-          "registro_uid": "2022_01339_pdf2",
-          "score_bm25": 28.67688712666825,
-          "score_semantic": 0.5435588359832764,
-          "score_final": 0.4475389138056965,
-          "text_preview": "DOCUMENTO: DESPACHO 2975/2022 (DSP)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Solicitação\nEMENTA: Conhece do pedido de medida cautelar interposto pela Translead Empreendimentos e Incorporações Ltda, com vistas à suspensão do cronograma de implantação das Pequenas Centrais Hidrelétricas Açungui 2E e Açungui 2F"
+          "chunk_id": "2022_07279_pdf1_1",
+          "registro_uid": "2022_07279_pdf1",
+          "score_bm25": 87.42666184303391,
+          "score_semantic": 0.6702369451522827,
+          "score_metadata": 0.35,
+          "score_final": 0.8468808714119834,
+          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
+        },
+        {
+          "chunk_id": "2022_05565_pdf1_0",
+          "registro_uid": "2022_05565_pdf1",
+          "score_bm25": 71.91287160331997,
+          "score_semantic": 0.6111940145492554,
+          "score_metadata": 0.26181818181818184,
+          "score_final": 0.38438330396351,
+          "text_preview": "DOCUMENTO: DESPACHO 945/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\nASSUNTO: Energias Renováveis Mazp Ltda\nEMENTA: Confere à Energias Renováveis MAZP Ltda o registro para a elaboração da revisão dos estudos de inventário hidrelétrico do rio Chopim, no trecho entre o remanso do reservatório da Pequena Cent"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Qual foi o objeto do Primeiro Termo Aditivo ao Contrato de Concessão nº 13/2022-ANEEL?",
-      "type": "juridica",
+      "question": "A qual empresa, junto com o Senhor Vilson Marcos Testa, foi conferido o registro para a elaboração da revisão dos estudos de inventário hidrelétrico do rio Piranga?",
+      "type": "deterministica_empresa",
+      "expected_doc": "2022_07279_pdf1",
+      "retrieved_docs": [
+        "2022_07279_pdf1",
+        "2022_04878_pdf1",
+        "2021_00704_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_07279_pdf1_0",
+          "registro_uid": "2022_07279_pdf1",
+          "score_bm25": 120.93876276295367,
+          "score_semantic": 0.6986714601516724,
+          "score_metadata": 0.13571428571428573,
+          "score_final": 1.0,
+          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
+        },
+        {
+          "chunk_id": "2022_07279_pdf1_1",
+          "registro_uid": "2022_07279_pdf1",
+          "score_bm25": 105.85313940055099,
+          "score_semantic": 0.6986714601516724,
+          "score_metadata": 0.13571428571428573,
+          "score_final": 0.8056519112392683,
+          "text_preview": "DOCUMENTO: DESPACHO 105/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Vilson Marcos Testa\nEMENTA: Confere ao Vilson Marcos Testa e à Getop Empreendimentos e Gestão Ltda, o registro para a realização da revisão dos estudos de inventário "
+        },
+        {
+          "chunk_id": "2022_04878_pdf1_0",
+          "registro_uid": "2022_04878_pdf1",
+          "score_bm25": 96.78663257039456,
+          "score_semantic": 0.5824386477470398,
+          "score_metadata": 0.09142857142857143,
+          "score_final": 0.5515792544357809,
+          "text_preview": "DOCUMENTO: DESPACHO 1261/2022 (DSP)\nAUTOR: SCG/ANEEL\nANO: 2022\nASSUNTO: Getop Empreendimentos e Gestão Ltda\nEMENTA: Confere à Getop Empreendimentos e Gestão Ltda conjuntamente com os senhores Paulo Victor Azevedo Viana e Vilson Marcos Testa, o registro para revisão dos estudos de inventário hidrelét"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Quem é a empresa controladora da ELETRONORTE, vencedora do Lote 08 do Leilão nº 1/2022-ANEEL, de acordo com o Extrato do Contrato de Concessão de Transmissão nº 13/2022-ANEEL?",
+      "type": "juridica_societaria",
       "expected_doc": "2022_01720_pdf1",
       "retrieved_docs": [
-        "2016_02151_pdf1",
-        "2016_04244_pdf1",
-        "2022_01720_pdf1"
+        "2022_01720_pdf1",
+        "2022_01719_pdf1",
+        "2016_00207_pdf2"
       ],
       "detailed_results": [
-        {
-          "chunk_id": "2016_02151_pdf1_3",
-          "registro_uid": "2016_02151_pdf1",
-          "score_bm25": 46.14466180246896,
-          "score_semantic": 0.517230749130249,
-          "score_final": 0.7557599553352035,
-          "text_preview": "DOCUMENTO: OFÍCIO 092/2016 (OFC)\nAUTOR: SEL/ANEEL\nANO: 2016\nASSUNTO: Ofício\nEMENTA: Autoriza a liberação total da Conta Caução 0239/010/00.000.029-6, referente à garantia de proposta da F3C Empreendimentos e Participações S.A, no Lote L do Leilão ANEEL 013 de 2015.\n---\n\nCEL na elaboração dos respect"
-        },
-        {
-          "chunk_id": "2016_04244_pdf1_1",
-          "registro_uid": "2016_04244_pdf1",
-          "score_bm25": 46.445838867940914,
-          "score_semantic": 0.44776904582977295,
-          "score_final": 0.7,
-          "text_preview": "DOCUMENTO: EXTRATO DE CONTRATO 010/2016 (ECT)\nAUTOR: MME\nANO: 2016\nASSUNTO: Extrato\nEMENTA: Extrato de Contrato de Concessão de Geração entre o Ministério de Minas e Energia - MME e a Cemig Geração e Transmissão S.A, para prestação do serviço de geração de energia elétrica em regime de locação de co"
-        },
         {
           "chunk_id": "2022_01720_pdf1_0",
           "registro_uid": "2022_01720_pdf1",
-          "score_bm25": 45.245747723341175,
-          "score_semantic": 0.49169793725013733,
-          "score_final": 0.5685336625428736,
+          "score_bm25": 123.59556019079335,
+          "score_semantic": 0.6567527651786804,
+          "score_metadata": 0.14812499999999998,
+          "score_final": 0.9451884031295776,
           "text_preview": "DOCUMENTO: EXTRATO DE CONTRATO 013/2022 (ECT)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Extrato\nEMENTA: Extrato de Contrato de Concessão de Transmissão entre a ANEEL e a Centrais Elétricas do Norte do Brasil - Eletronorte, visando a concessão para a prestação de serviço público de transmissão de energia elétr"
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": true
-    },
-    {
-      "question": "Qual foi o efeito tarifário médio homologado para a Certaja no Reajuste Tarifário Anual de 2022?",
-      "type": "numerica",
-      "expected_doc": "2022_03374_pdf1",
-      "retrieved_docs": [
-        "2022_00275_pdf2",
-        "2022_00878_pdf2",
-        "2022_00273_pdf3"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2022_00275_pdf2_1",
-          "registro_uid": "2022_00275_pdf2",
-          "score_bm25": 49.60713911211645,
-          "score_semantic": 0.6060065627098083,
-          "score_final": 0.8757033318281173,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3163/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual de 2022, as Tarifas de Energia – TE e as Tarifas de Uso do Sistema de Distribuição – TUSD referentes à Companhia de Eletricidade do Amapá - CEA Equa"
         },
         {
-          "chunk_id": "2022_00878_pdf2_1",
-          "registro_uid": "2022_00878_pdf2",
-          "score_bm25": 48.68957653723988,
-          "score_semantic": 0.6599140167236328,
-          "score_final": 0.8525605354200285,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3138/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual de 2022, as Tarifas de Energia – TE e as Tarifas de Uso do Sistema de Distribuição – TUSD referentes à Companhia Estadual de Distribuição de Energia"
+          "chunk_id": "2022_01719_pdf1_0",
+          "registro_uid": "2022_01719_pdf1",
+          "score_bm25": 95.55636851077544,
+          "score_semantic": 0.6905173063278198,
+          "score_metadata": 0.138125,
+          "score_final": 0.5717322768327425,
+          "text_preview": "DOCUMENTO: EXTRATO DE CONTRATO 012/2022 (ECT)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Extrato\nEMENTA: Extrato de Contrato de Concessão de Transmissão entre a ANEEL e a Gavião Real Transmissora de Energia S.A, visando a concessão para a prestação de serviço público de transmissão de energia elétrica.\n---\n\nAG"
         },
         {
-          "chunk_id": "2022_00273_pdf3_3",
-          "registro_uid": "2022_00273_pdf3",
-          "score_bm25": 47.722867301419456,
-          "score_semantic": 0.6838711500167847,
-          "score_final": 0.7855873218397234,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
-        }
-      ],
-      "top_1_hit": false,
-      "top_3_hit": false
-    },
-    {
-      "question": "Em qual tabela do Anexo a resolução estabelece a receita anual referente à instalação de conexão da CEEE-GT de uso exclusivo pela Certaja?",
-      "type": "localizacao",
-      "expected_doc": "2022_03374_pdf1",
-      "retrieved_docs": [
-        "2022_03374_pdf1",
-        "2022_00273_pdf1",
-        "2021_05274_pdf2"
-      ],
-      "detailed_results": [
-        {
-          "chunk_id": "2022_03374_pdf1_1",
-          "registro_uid": "2022_03374_pdf1",
-          "score_bm25": 75.75606812640623,
-          "score_semantic": 0.5819151401519775,
-          "score_final": 0.8577177792787551,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3080/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Cooperativa Regional de Energia Taquari Jacui - Cert"
-        },
-        {
-          "chunk_id": "2022_00273_pdf1_1",
-          "registro_uid": "2022_00273_pdf1",
-          "score_bm25": 59.89127719199654,
-          "score_semantic": 0.5991522073745728,
-          "score_final": 0.3561485755563075,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3151/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do Reajuste Tarifário Anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição, referentes à Energisa Acre Distribuidora de Energia S.A - Energisa Acre."
-        },
-        {
-          "chunk_id": "2022_03374_pdf1_2",
-          "registro_uid": "2022_03374_pdf1",
-          "score_bm25": 62.0230045673598,
-          "score_semantic": 0.5265005826950073,
-          "score_final": 0.3167991031647469,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3080/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Cooperativa Regional de Energia Taquari Jacui - Cert"
+          "chunk_id": "2016_00207_pdf2_3",
+          "registro_uid": "2016_00207_pdf2",
+          "score_bm25": 81.92898992628957,
+          "score_semantic": 0.7028364539146423,
+          "score_metadata": 0.041875,
+          "score_final": 0.32008410056474956,
+          "text_preview": "DOCUMENTO: DESPACHO 3256/2016 (DSP)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Revogação\nEMENTA: Revoga parcialmente a adjudicação do objeto do Leilão de Transmissão ANEEL 001, de 2015, relativa à Isolux Ingeniería S.A - ISOLUX, vencedora dos Lotes D e H do referido Leilão.\n---\n\nois. \n11. \nEm 04/04/2016, novam"
         }
       ],
       "top_1_hit": true,
       "top_3_hit": true
     },
     {
-      "question": "Quais percentuais de desconto tarifário foram definidos para as classes Rural - Grupo A e Água, Esgoto e Saneamento - Grupo A na Tabela 3 da Certaja?",
-      "type": "numerica",
-      "expected_doc": "2022_03374_pdf1",
+      "question": "O Primeiro Termo Aditivo ao Contrato de Concessão de Transmissão nº 13/2022-ANEEL teve como objeto formalizar a transferência da concessão de serviço público para qual empresa específica (SPE)?",
+      "type": "operacional_contratos",
+      "expected_doc": "2022_01720_pdf1",
       "retrieved_docs": [
-        "2022_00169_pdf1",
-        "2022_03374_pdf1",
-        "2016_01170_pdf3"
+        "2022_01720_pdf1",
+        "2021_02804_pdf2"
       ],
       "detailed_results": [
         {
-          "chunk_id": "2022_00169_pdf1_7",
-          "registro_uid": "2022_00169_pdf1",
-          "score_bm25": 86.54381762772587,
-          "score_semantic": 0.5683091878890991,
-          "score_final": 0.9424307018518447,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3153/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da Revisão Tarifária Periódica - RTP, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes a Cooperativa Regional de Eletrificação Rural"
+          "chunk_id": "2022_01720_pdf1_0",
+          "registro_uid": "2022_01720_pdf1",
+          "score_bm25": 102.35997682307566,
+          "score_semantic": 0.4238787591457367,
+          "score_metadata": 0.135,
+          "score_final": 0.75,
+          "text_preview": "DOCUMENTO: EXTRATO DE CONTRATO 013/2022 (ECT)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Extrato\nEMENTA: Extrato de Contrato de Concessão de Transmissão entre a ANEEL e a Centrais Elétricas do Norte do Brasil - Eletronorte, visando a concessão para a prestação de serviço público de transmissão de energia elétr"
         },
         {
-          "chunk_id": "2022_03374_pdf1_7",
+          "chunk_id": "2021_02804_pdf2_5",
+          "registro_uid": "2021_02804_pdf2",
+          "score_bm25": 75.70007424749699,
+          "score_semantic": 0.6036975383758545,
+          "score_metadata": 0.09055555555555556,
+          "score_final": 0.3531383292358167,
+          "text_preview": "DOCUMENTO: DESPACHO 2517/2021 (DSP)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Anuência\nEMENTA: Anui previamente a transferência de controle da Empresa de Transmissão Timóteo-Mesquita S.A – ETTM, para a TS Infraestrutura e Engenharia S.A - TSI, nos termos da Resolução Normativa ANEEL 484, de 2012; aprova a min"
+        },
+        {
+          "chunk_id": "2021_02804_pdf2_188",
+          "registro_uid": "2021_02804_pdf2",
+          "score_bm25": 75.25316598423916,
+          "score_semantic": 0.6036975383758545,
+          "score_metadata": 0.09055555555555556,
+          "score_final": 0.3428934749767691,
+          "text_preview": "DOCUMENTO: DESPACHO 2517/2021 (DSP)\nAUTOR: ANEEL\nANO: 2021\nASSUNTO: Anuência\nEMENTA: Anui previamente a transferência de controle da Empresa de Transmissão Timóteo-Mesquita S.A – ETTM, para a TS Infraestrutura e Engenharia S.A - TSI, nos termos da Resolução Normativa ANEEL 484, de 2012; aprova a min"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Na homologação do Reajuste Tarifário Anual de 2022 da Certaja, qual foi o percentual médio de reajuste aplicado às tarifas de aplicação, conforme a Resolução Homologatória nº 3.080?",
+      "type": "numerica_tarifaria",
+      "expected_doc": "2022_03374_pdf1",
+      "retrieved_docs": [
+        "2022_03374_pdf1",
+        "2022_00274_pdf1",
+        "2022_00170_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_03374_pdf1_0",
           "registro_uid": "2022_03374_pdf1",
-          "score_bm25": 82.46192724009794,
-          "score_semantic": 0.5001729726791382,
-          "score_final": 0.7269036683638109,
+          "score_bm25": 93.61125419693846,
+          "score_semantic": 0.7091379165649414,
+          "score_metadata": 0.2242857142857143,
+          "score_final": 0.9586396664381027,
           "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3080/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Cooperativa Regional de Energia Taquari Jacui - Cert"
         },
         {
-          "chunk_id": "2016_01170_pdf3_3",
-          "registro_uid": "2016_01170_pdf3",
-          "score_bm25": 78.92121909602444,
-          "score_semantic": 0.5355418920516968,
-          "score_final": 0.6384411911418393,
-          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 2155/2016 (REH)\nAUTOR: ANEEL\nANO: 2016\nASSUNTO: Prorrogação de prazo\nEMENTA: Prorroga a vigência das Tarifas de Uso dos Sistemas de Distribuição - TUSD e das Tarifas de Energia - TE das permissionárias de distribuição que aderiram ao Termo Aditivo ao Contrato de Pe"
+          "chunk_id": "2022_00274_pdf1_0",
+          "registro_uid": "2022_00274_pdf1",
+          "score_bm25": 80.02004499708246,
+          "score_semantic": 0.7304806709289551,
+          "score_metadata": 0.21285714285714286,
+          "score_final": 0.5766782297348413,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3157/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD referentes à Energisa Rondônia Distribuidora de Energia S.A - Ener"
+        },
+        {
+          "chunk_id": "2022_00170_pdf1_0",
+          "registro_uid": "2022_00170_pdf1",
+          "score_bm25": 78.99284219882735,
+          "score_semantic": 0.7501118183135986,
+          "score_metadata": 0.21285714285714286,
+          "score_final": 0.5664270115090536,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3154/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso dos Sistemas de Distribuição - TUSD, referentes à Cooperativa de Eletricidade Praia Grande - Ceprag."
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual cooperativa regional de energia teve suas Tarifas de Energia e Tarifas de Uso do Sistema de Distribuição homologadas por meio da Resolução nº 3.080 de julho de 2022?",
+      "type": "deterministica_concessionaria",
+      "expected_doc": "2022_03374_pdf1",
+      "retrieved_docs": [
+        "2022_03374_pdf1",
+        "2022_00168_pdf1",
+        "2022_00169_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_03374_pdf1_0",
+          "registro_uid": "2022_03374_pdf1",
+          "score_bm25": 99.86668238373416,
+          "score_semantic": 0.7361584901809692,
+          "score_metadata": 0.23384615384615387,
+          "score_final": 0.9651854634284973,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3080/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado do reajuste tarifário anual, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes à Cooperativa Regional de Energia Taquari Jacui - Cert"
+        },
+        {
+          "chunk_id": "2022_00168_pdf1_0",
+          "registro_uid": "2022_00168_pdf1",
+          "score_bm25": 92.13599955451132,
+          "score_semantic": 0.7733760476112366,
+          "score_metadata": 0.23384615384615387,
+          "score_final": 0.7381738441471071,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3152/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da Revisão Tarifária Periódica - RTP, as Tarifas de Energia – TE e as Tarifas de Uso do Sistema de Distribuição – TUSD, referentes à Cooperativa Regional de Distribuição de Ene"
+        },
+        {
+          "chunk_id": "2022_00169_pdf1_0",
+          "registro_uid": "2022_00169_pdf1",
+          "score_bm25": 90.84120660719014,
+          "score_semantic": 0.7741107940673828,
+          "score_metadata": 0.23384615384615387,
+          "score_final": 0.6951081089399763,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO HOMOLOGATÓRIA 3153/2022 (REH)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Homologação\nEMENTA: Homologa o resultado da Revisão Tarifária Periódica - RTP, as Tarifas de Energia - TE e as Tarifas de Uso do Sistema de Distribuição - TUSD, referentes a Cooperativa Regional de Eletrificação Rural"
+        }
+      ],
+      "top_1_hit": true,
+      "top_3_hit": true
+    },
+    {
+      "question": "Com qual objetivo principal foi proposta a constituição de uma Comissão Especial de Licitação (CEL) pelo período de um ano, sob a relatoria do Diretor Hélvio Neves Guerra em 2022?",
+      "type": "administrativa_leilao",
+      "expected_doc": "2022_02116_pdf2",
+      "retrieved_docs": [
+        "2021_01902_pdf2",
+        "2022_02116_pdf2",
+        "2022_00633_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_01902_pdf2_2",
+          "registro_uid": "2021_01902_pdf2",
+          "score_bm25": 82.87639806300119,
+          "score_semantic": 0.5992738604545593,
+          "score_metadata": 0.052000000000000005,
+          "score_final": 0.8918143324992236,
+          "text_preview": "DOCUMENTO: PORTARIA 260/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões para"
+        },
+        {
+          "chunk_id": "2022_02116_pdf2_0",
+          "registro_uid": "2022_02116_pdf2",
+          "score_bm25": 75.38958280766259,
+          "score_semantic": 0.6329238414764404,
+          "score_metadata": 0.1,
+          "score_final": 0.7293769035455637,
+          "text_preview": "DOCUMENTO: PORTARIA 286/2022 (PRT)\nAUTOR: ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Não disponível\n---\n\n48500.005649/2014-16 \n Secretaria Executiva de Leilões – SEL \n Diretor Hélvio Neves Guerra \n Secretaria Executi"
+        },
+        {
+          "chunk_id": "2022_02116_pdf2_1",
+          "registro_uid": "2022_02116_pdf2",
+          "score_bm25": 78.76881279999958,
+          "score_semantic": 0.5019601583480835,
+          "score_metadata": 0.1,
+          "score_final": 0.658909390236809,
+          "text_preview": "DOCUMENTO: PORTARIA 286/2022 (PRT)\nAUTOR: ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Não disponível\n---\n\nxados pelo Ministério de Minas e Energia – MME, e \nb) promover as licitações destinadas à contratação de conces"
         }
       ],
       "top_1_hit": false,
+      "top_3_hit": true
+    },
+    {
+      "question": "Qual secretaria vinculada à agência figurou como interessada no processo que estabeleceu a Comissão Especial de Licitação para conduzir certames de energia elétrica e eficiência energética?",
+      "type": "administrativa_estrutura",
+      "expected_doc": "2022_02116_pdf2",
+      "retrieved_docs": [
+        "2021_01902_pdf2",
+        "2022_02116_pdf2",
+        "2021_01902_pdf1"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2021_01902_pdf2_2",
+          "registro_uid": "2021_01902_pdf2",
+          "score_bm25": 86.59444874147684,
+          "score_semantic": 0.5943323373794556,
+          "score_metadata": 0.09294117647058825,
+          "score_final": 0.95906001329422,
+          "text_preview": "DOCUMENTO: PORTARIA 260/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões para"
+        },
+        {
+          "chunk_id": "2021_01902_pdf2_0",
+          "registro_uid": "2021_01902_pdf2",
+          "score_bm25": 82.03489738318363,
+          "score_semantic": 0.5943323373794556,
+          "score_metadata": 0.09294117647058825,
+          "score_final": 0.8484764547265642,
+          "text_preview": "DOCUMENTO: PORTARIA 260/2021 (PRT)\nAUTOR: ANEEL\nANO: 2021\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Constitui Comissão Especial de Licitação - CEL, com a incumbência de coordenar os processos relativos à realização dos leilões para"
+        },
+        {
+          "chunk_id": "2022_02116_pdf2_0",
+          "registro_uid": "2022_02116_pdf2",
+          "score_bm25": 76.49950308427509,
+          "score_semantic": 0.6241625547409058,
+          "score_metadata": 0.017647058823529415,
+          "score_final": 0.6551656014818191,
+          "text_preview": "DOCUMENTO: PORTARIA 286/2022 (PRT)\nAUTOR: ANEEL\nANO: 2022\n[ALERTA: DOCUMENTO REVOGADO. NÃO UTILIZAR COMO REGRA VIGENTE.]\nASSUNTO: Comissão Especial de Licitação\nEMENTA: Não disponível\n---\n\n48500.005649/2014-16 \n Secretaria Executiva de Leilões – SEL \n Diretor Hélvio Neves Guerra \n Secretaria Executi"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": true
+    },
+    {
+      "question": "No âmbito das Centrais Geradoras Fotovoltaicas Solaris 44 a 70, qual empresa figura como interessada na autorização para implantar e explorar os empreendimentos sob o regime de Produção Independente de Energia Elétrica?",
+      "type": "deterministica_outorga",
+      "expected_doc": "2022_00748_pdf2",
+      "retrieved_docs": [
+        "2022_00291_pdf2",
+        "2022_00285_pdf2",
+        "2022_00288_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00291_pdf2_0",
+          "registro_uid": "2022_00291_pdf2",
+          "score_bm25": 94.22728654169893,
+          "score_semantic": 0.6911213397979736,
+          "score_metadata": 0.15666666666666668,
+          "score_final": 1.0,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13273/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 151, sob o regime de Produção Independente de Energia Elétrica, no município de Ver"
+        },
+        {
+          "chunk_id": "2022_00285_pdf2_0",
+          "registro_uid": "2022_00285_pdf2",
+          "score_bm25": 94.22728654169893,
+          "score_semantic": 0.6877978444099426,
+          "score_metadata": 0.15666666666666668,
+          "score_final": 0.9921902716159821,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13267/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 145, sob o regime de Produção Independente de Energia Elétrica, no município de Ver"
+        },
+        {
+          "chunk_id": "2022_00288_pdf2_0",
+          "registro_uid": "2022_00288_pdf2",
+          "score_bm25": 94.22728654169893,
+          "score_semantic": 0.6866922378540039,
+          "score_metadata": 0.15666666666666668,
+          "score_final": 0.9895922541618347,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13270/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 148, sob o regime de Produção Independente de Energia Elétrica, no município de Ver"
+        }
+      ],
+      "top_1_hit": false,
+      "top_3_hit": false
+    },
+    {
+      "question": "Em qual município e estado estão localizadas as Centrais Geradoras Fotovoltaicas Solaris 44 a 70, conforme registro no Despacho de Requerimento de Outorga de 2022?",
+      "type": "localizacao_geografica",
+      "expected_doc": "2022_00748_pdf2",
+      "retrieved_docs": [
+        "2022_00748_pdf2",
+        "2022_00288_pdf2",
+        "2022_00291_pdf2"
+      ],
+      "detailed_results": [
+        {
+          "chunk_id": "2022_00748_pdf2_0",
+          "registro_uid": "2022_00748_pdf2",
+          "score_bm25": 84.74914151274432,
+          "score_semantic": 0.6176270246505737,
+          "score_metadata": 0.10285714285714286,
+          "score_final": 0.8314898395424436,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13076/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 68, sob o regime de Produção Independente de Energia, no município de Campo Maior, "
+        },
+        {
+          "chunk_id": "2022_00288_pdf2_0",
+          "registro_uid": "2022_00288_pdf2",
+          "score_bm25": 80.23517030247977,
+          "score_semantic": 0.632104218006134,
+          "score_metadata": 0.10285714285714286,
+          "score_final": 0.7225354379513375,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13270/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 148, sob o regime de Produção Independente de Energia Elétrica, no município de Ver"
+        },
+        {
+          "chunk_id": "2022_00291_pdf2_0",
+          "registro_uid": "2022_00291_pdf2",
+          "score_bm25": 80.23517030247977,
+          "score_semantic": 0.6305842399597168,
+          "score_metadata": 0.10285714285714286,
+          "score_final": 0.7209673142531029,
+          "text_preview": "DOCUMENTO: RESOLUÇÃO AUTORIZATIVA 13273/2022 (REA)\nAUTOR: ANEEL\nANO: 2022\nASSUNTO: Autorização\nEMENTA: Autoriza a Pacto Geração e Transmissão Ltda, a implantar e explorar a Central Geradora Solar Fotovoltaica Solaris 151, sob o regime de Produção Independente de Energia Elétrica, no município de Ver"
+        }
+      ],
+      "top_1_hit": true,
       "top_3_hit": true
     }
   ]
