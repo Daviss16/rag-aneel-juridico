@@ -12,7 +12,7 @@ import pandas as pd
 import pyautogui
 import pyperclip
 
-TAMANHO_LOTE = 1000
+TAMANHO_LOTE = 1250
 
 PASTA_DOWNLOADS_NAVEGADOR = Path.home() / "Downloads"
 
