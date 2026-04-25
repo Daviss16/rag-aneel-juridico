@@ -38,6 +38,7 @@ class ExtractConfig:
     
     min_text_length: int = 80
     batch_size: int = 100 
+    max_file_size_mb: int = 20
 
 CONFIG = ExtractConfig()
 
@@ -158,6 +159,21 @@ def process_extraction():
 
                 for arquivo_local in buffer_atual:
                     uid = arquivo_local.stem
+                    
+                   
+                    tamanho_mb = arquivo_local.stat().st_size / (1024 * 1024)
+                    if tamanho_mb > CONFIG.max_file_size_mb:
+                        logging.warning(f"[{uid}] IGNORADO: Arquivo gigante ({tamanho_mb:.2f} MB).")
+                        
+                        caminho_gigantes = CONFIG.base_dir / "data/logs/arquivos_gigantes.txt"
+                        with open(caminho_gigantes, "a", encoding="utf-8") as f_gigantes:
+                            f_gigantes.write(f"{uid} - {tamanho_mb:.2f} MB\n")
+                        
+                        
+                        ftrack.write(f"{uid}\n")
+                        continue 
+                    
+
                     extractor = ExtractorFactory.get_extractor(arquivo_local)
                     
                     if extractor:

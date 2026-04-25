@@ -1,3 +1,5 @@
+#rode no terminal: ./conectar_drive.sh
+
 #!/bin/bash
 
 
