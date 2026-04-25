@@ -40,7 +40,11 @@ def tokenize(text: str) -> list[str]:
 
 
 class BM25Retriever:
-    def __init__(self, chunks: list[PreparedChunk]) -> None:
+    def __init__(
+        self, 
+        chunks: list[PreparedChunk], 
+        default_rerank_config: MetadataRerankConfig | None = None  
+    ) -> None:
         if not chunks:
             raise ValueError("O corpus de chunks está vazio.")
 
@@ -48,6 +52,7 @@ class BM25Retriever:
         self.chunk_by_id = {chunk.chunk_id: chunk for chunk in chunks}
         self.tokenized_corpus = [tokenize(chunk.text_retrieval) for chunk in chunks]
         self.index = BM25Okapi(self.tokenized_corpus)
+        self.default_rerank_config = default_rerank_config
 
     def search(
         self,
@@ -55,7 +60,7 @@ class BM25Retriever:
         top_k: int = 5,
         candidate_k: int = 20,
         use_metadata_rerank: bool = True,
-        use_query_processing: bool = True,
+        use_query_processing: bool = False,
         metadata_rerank_config: MetadataRerankConfig | None = None,
     ) -> list[dict]:
 
@@ -93,18 +98,21 @@ class BM25Retriever:
             )
 
         if use_metadata_rerank and results:
+            config_to_use = metadata_rerank_config or self.default_rerank_config
+
             results = rerank_top_n_results_with_metadata(
                 results=results,
                 query=query,
                 chunk_by_id=self.chunk_by_id,
-                config=metadata_rerank_config,
+                config=config_to_use,
             )
 
         return results[:top_k]
 
 def build_bm25_retriever(
     config: BM25Config | None = None,
-    chunks: list[PreparedChunk] | None = None 
+    chunks: list[PreparedChunk] | None = None,
+    rerank_config: MetadataRerankConfig | None = None  
 ) -> BM25Retriever:
     
     config = config or BM25Config() 
@@ -112,7 +120,7 @@ def build_bm25_retriever(
     if chunks is None:
         chunks = load_prepared_chunks(config.prepared_chunks_path)
         
-    return BM25Retriever(chunks)
+    return BM25Retriever(chunks, default_rerank_config=rerank_config) 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()

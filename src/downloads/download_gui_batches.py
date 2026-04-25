@@ -12,7 +12,7 @@ import pandas as pd
 import pyautogui
 import pyperclip
 
-TAMANHO_LOTE = 500
+TAMANHO_LOTE = 150
 
 PASTA_DOWNLOADS_NAVEGADOR = Path.home() / "Downloads"
 
@@ -43,17 +43,17 @@ def main():
 
     mascara_pendentes = df['status_processamento'] == 'pendente'
     
-    mascara_ementa_vazia = (df['ementa_status'] == 'NULL') | (df['ementa_status'].isna())
+    #mascara_ementa_vazia = (df['ementa_status'] == 'NULL') | (df['ementa_status'].isna())
 
-    mascara_alvo = mascara_pendentes & mascara_ementa_vazia
+    #mascara_alvo = mascara_pendentes & mascara_ementa_vazia
 
-    lote_atual = df[mascara_alvo].head(TAMANHO_LOTE)
+    lote_atual = df[mascara_pendentes].head(TAMANHO_LOTE)
 
     if lote_atual.empty:
         print("Nenhum documento crítico (pendente e sem ementa) restando na fila! Processo concluído.")
         sys.exit(0)
 
-    print(f"\nFoco Cirúrgico: Iniciando lote de {len(lote_atual)} documentos (Pendente + Ementa Vazia)...")
+    print(f"\nIniciando lote de {len(lote_atual)} documentos (Pendente)...")
     print("Mude para a janela do seu navegador AGORA. Começando em 10 segundos...\n")
     time.sleep(10)
 

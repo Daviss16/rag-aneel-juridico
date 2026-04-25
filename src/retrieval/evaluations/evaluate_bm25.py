@@ -11,7 +11,7 @@ from src.retrieval.bm25_retriever import build_bm25_retriever
 @dataclass(frozen=True)
 class EvaluateBM25Config:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent.parent
-    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions_v2.json"
+    benchmark_path: Path = base_dir / "data" / "benchmark" / "benchmark_questions.json"
     output_path: Path = base_dir / "data" / "retrieval" / "evaluation" / "bm25_metrics.json"
 
 def parse_args():

@@ -16,13 +16,13 @@ from src.retrieval.schemas import PreparedChunk
 class MetadataRerankConfig:
     # boosts estruturais
     year_match_boost: float = 0.08
-    act_number_match_boost: float = 0.14
+    act_number_match_boost: float = 0.12
     act_type_match_boost: float = 0.08
     sigla_match_boost: float = 0.06
 
     # boosts textuais
     assunto_overlap_weight: float = 0.10
-    ementa_overlap_weight: float = 0.16
+    ementa_overlap_weight: float = 0.12
     pdf_tipo_overlap_weight: float = 0.04
     autor_overlap_weight: float = 0.03
 

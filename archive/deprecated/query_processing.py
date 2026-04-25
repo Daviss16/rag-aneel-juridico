@@ -1,5 +1,3 @@
-# rode no terminal: python3 -m src.retrieval.query_processing
-
 
 from __future__ import annotations
 
@@ -7,12 +5,13 @@ import re
 import unicodedata
 from dataclasses import dataclass, field
 
+
 ENABLE_YEARS = True
 ENABLE_ACT_NUMBERS = True
 ENABLE_ACT_TYPES = True
 ENABLE_SIGLAS = True
 ENABLE_NAMED_TERMS = True
-ENABLE_INTERVALS = True
+ENABLE_INTERVALS = False 
 
 ACT_TYPE_ALIASES = {
     "despacho": {"despacho", "dsp"},
@@ -23,9 +22,9 @@ ACT_TYPE_ALIASES = {
 }
 
 SIGLA_EXPANSIONS = {
-    "aneel": ["agencia", "nacional", "energia", "eletrica"],
     "dsp": ["despacho"],
     "reh": ["resolucao", "homologatoria"],
+    "rea": ["resolucao", "autorizativa"],
     "prt": ["portaria"],
     "acp": ["consulta", "publica"],
     "scg": ["superintendencia", "geracao"],
@@ -61,7 +60,6 @@ class QuerySignals:
     siglas: list[str] = field(default_factory=list)
     named_terms: list[str] = field(default_factory=list)
     interval_expansions: list[str] = field(default_factory=list)
-    boosted_terms: list[str] = field(default_factory=list)
 
 
 @dataclass(slots=True)
@@ -72,7 +70,6 @@ class ProcessedQuery:
     base_tokens: list[str]
     enriched_tokens: list[str]
     signals: QuerySignals
-
 
 
 def strip_accents(text: str) -> str:
@@ -104,19 +101,13 @@ def tokenize_query(text: str) -> list[str]:
     return dedupe_keep_order(tokens)
 
 
-
 def normalize_query(text: str) -> str:
     q = (text or "").strip().lower()
-
     q = q.replace("–", "-").replace("—", "-")
     q = q.replace("“", '"').replace("”", '"')
-
     q = re.sub(r"[?!;,()\[\]{}\"]", " ", q)
-
     q = re.sub(r"\s+", " ", q).strip()
-
     return q
-
 
 
 def extract_years(query: str) -> list[str]:
@@ -142,7 +133,7 @@ def extract_act_types(query: str) -> list[str]:
 
 def extract_siglas(query: str) -> list[str]:
     q_tokens = set(tokenize_query(strip_accents(query)))
-    known_siglas = {"aneel", "dsp", "reh", "prt", "acp", "scg"}
+    known_siglas = {"dsp", "reh", "rea", "prt", "acp", "scg"}
     found = [sigla for sigla in known_siglas if sigla in q_tokens]
     return dedupe_keep_order(found)
 
@@ -164,19 +155,17 @@ def extract_named_terms(query: str) -> list[str]:
     return dedupe_keep_order(result)
 
 
-
 def _looks_continuous_context(anchor: str, full_query: str) -> bool:
     if anchor in CONTINUOUS_HINTS:
         return True
-
     for hint in CONTINUOUS_HINTS:
         if f"{anchor} {hint}" in full_query:
             return True
-
     return False
 
 
 def extract_interval_expansions(query: str, max_range_size: int = 30) -> list[str]:
+    """Mantido aqui para futura transição para o Chunking/Ingest pipeline"""
     expansions: list[str] = []
     q_no_acc = strip_accents(query)
 
@@ -208,35 +197,27 @@ def extract_interval_expansions(query: str, max_range_size: int = 30) -> list[st
     return dedupe_keep_order(expansions)
 
 
-
-def build_boosted_terms(signals: QuerySignals) -> list[str]:
-    boosted: list[str] = []
-
-    boosted.extend(signals.act_numbers)
-
-    boosted.extend(signals.years)
-
-    boosted.extend(signals.act_types)
+def build_enriched_query(normalized_query: str, signals: QuerySignals) -> str:
+    base_tokens = set(tokenize_query(strip_accents(normalized_query)))
+    terms_to_append = []
 
     for sigla in signals.siglas:
-        boosted.append(sigla)
-        boosted.extend(SIGLA_EXPANSIONS.get(sigla, []))
+        expansions = SIGLA_EXPANSIONS.get(sigla, [])
+        for exp in expansions:
+            if exp not in base_tokens:
+                terms_to_append.append(exp)
 
-    boosted.extend(signals.named_terms[:8])
+    for act_type in signals.act_types:
+        if act_type not in base_tokens:
+            terms_to_append.append(act_type)
 
-    boosted.extend(signals.interval_expansions)
+    terms_to_append = dedupe_keep_order(terms_to_append)
 
-    return dedupe_keep_order(boosted)
-
-
-def build_enriched_query(normalized_query: str, signals: QuerySignals) -> str:
     parts = [normalized_query]
-
-    if signals.boosted_terms:
-        parts.append(" ".join(signals.boosted_terms))
+    if terms_to_append:
+        parts.append(" ".join(terms_to_append))
 
     return " ".join(parts).strip()
-
 
 
 def extract_query_signals(normalized_query: str) -> QuerySignals:
@@ -266,6 +247,7 @@ def extract_query_signals(normalized_query: str) -> QuerySignals:
 def process_query(query: str) -> ProcessedQuery:
     normalized = normalize_query(query)
     signals = extract_query_signals(normalized)
+    
     enriched = build_enriched_query(normalized, signals)
 
     return ProcessedQuery(
@@ -276,4 +258,3 @@ def process_query(query: str) -> ProcessedQuery:
         enriched_tokens=tokenize_query(enriched),
         signals=signals,
     )
-
