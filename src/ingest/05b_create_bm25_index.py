@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from rank_bm25 import BM25Okapi
 from src.common.utils_retriever import tokenize
-from common.data_loader import load_prepared_chunks, RetrievalPrepConfig
+from src.common.data_loader import load_prepared_chunks, RetrievalPrepConfig
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 

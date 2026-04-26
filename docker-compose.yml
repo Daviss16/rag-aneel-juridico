@@ -1,8 +1,0 @@
-version: '3.8'
-
-services:
-  rag_aneel:
-    build: .
-    
-    volumes:
-      - ./data:/app/data
