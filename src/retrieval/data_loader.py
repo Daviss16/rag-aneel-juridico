@@ -51,12 +51,20 @@ def setup_logging(log_file: Path) -> None:
 
 
 def _validate_chunk_record(obj: Dict[str, Any], line_num: int) -> None:
-    required_fields = ("chunk_id", "registro_uid", "text")
-    missing = [field for field in required_fields if not obj.get(field)]
-
+    required_base = ("chunk_id", "registro_uid")
+    missing = [field for field in required_base if not obj.get(field)]
+    
     if missing:
         raise ValueError(
             f"Linha {line_num}: campos obrigatórios ausentes ou vazios: {missing}"
+        )
+
+    has_text = bool(obj.get("text"))
+    has_new_texts = bool(obj.get("text_original") and obj.get("text_retrieval"))
+    
+    if not has_text and not has_new_texts:
+         raise ValueError(
+            f"Linha {line_num}: Nenhum campo de texto encontrado (text, ou text_original/text_retrieval)"
         )
 
     metadata = obj.get("metadata", {})
@@ -87,9 +95,11 @@ def iter_prepared_chunks(
 
             _validate_chunk_record(obj, line_num)
 
-            text_original = obj["text"]
-            text_retrieval = build_retrieval_text(
-                text_original,
+            text_orig_raw = obj.get("text_original") or obj.get("text") or ""
+            text_ret_raw = obj.get("text_retrieval") or obj.get("text_original") or obj.get("text") or ""
+
+            final_text_retrieval = build_retrieval_text(
+                text_ret_raw,
                 lowercase=lowercase,
                 remove_accents=remove_accents,
             )
@@ -97,8 +107,8 @@ def iter_prepared_chunks(
             yield PreparedChunk(
                 chunk_id=obj["chunk_id"],
                 registro_uid=obj["registro_uid"],
-                text_original=text_original,
-                text_retrieval=text_retrieval,
+                text_original=text_orig_raw,
+                text_retrieval=final_text_retrieval,
                 metadata=obj.get("metadata", {}) or {},
             )
 

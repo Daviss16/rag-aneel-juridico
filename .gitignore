@@ -55,7 +55,6 @@ data/interim/
 data/processed/
 
 data/retrieval/
-#data/retrieval/prepared/
 data/raw/documents/temp/
 data/raw/documents/golden_dataset/
 data/raw/documents/downloads/

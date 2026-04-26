@@ -178,12 +178,16 @@ def process_extraction():
                     
                     if extractor:
                         text = extractor.extract(arquivo_local)
+                        
                         if text and len(text) >= CONFIG.min_text_length:
                             record = {"registro_uid": uid, "raw_text": text}
                             fout.write(json.dumps(record, ensure_ascii=False) + "\n")
-                            ftrack.write(f"{uid}\n")
-                            logging.info(f"[{uid}] Extraído.")
+                            logging.info(f"[{uid}] Extraído com sucesso.")
                             sucesso_count += 1
+                        else:
+                            logging.warning(f"[{uid}] IGNORADO: Texto muito curto ou erro na extração.")
+                            
+                        ftrack.write(f"{uid}\n")
                         
                 for arquivo_local in buffer_atual:
                     if arquivo_local.exists():
