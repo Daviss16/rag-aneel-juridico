@@ -12,7 +12,7 @@ from pathlib import Path
 from rank_bm25 import BM25Okapi
 from src.common.utils_retriever import tokenize
 from src.common.schemas import PreparedChunk
-from retrieval.query_processing import process_query
+from src.retrieval.query_processing import process_query
 from src.retrieval.metadata_reranker import (
     MetadataRerankConfig,
     rerank_top_n_results_with_metadata,
