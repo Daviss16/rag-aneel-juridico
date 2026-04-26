@@ -52,7 +52,6 @@ data/logs/
 # =========================
 archive/
 
-data/benchmark/
 data/interim/
 data/processed/
 data/raw/documents/
@@ -63,7 +62,7 @@ data/retrieval/indexes/
 data/retrieval/prepared/
 
 metrics.txt
-
+old_README.md
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
 # =========================
@@ -76,3 +75,6 @@ metrics.txt
 *.joblib
 *.sqlite
 *.db
+
+
+.env
