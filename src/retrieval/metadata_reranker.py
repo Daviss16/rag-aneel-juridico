@@ -5,7 +5,7 @@ import unicodedata
 from dataclasses import dataclass, field
 from typing import Any
 
-from src.retrieval.schemas import PreparedChunk
+from src.common.schemas import PreparedChunk
 
 
 # ============================================================

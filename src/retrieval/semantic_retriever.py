@@ -1,87 +1,62 @@
 #rode no terminal: python3 -m src.retrieval.semantic_retriever <"query"> --top-k N 
 
 from __future__ import annotations
-
 import argparse
-import json
 from dataclasses import dataclass
 from pathlib import Path
-
-import numpy as np
-from sentence_transformers import SentenceTransformer
-from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
-
+import chromadb
+from chromadb.utils import embedding_functions
 
 @dataclass(frozen=True)
 class SemanticConfig:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
-    prepared_chunks_path: Path = base_dir / "data" / "retrieval" / "prepared" / "prepared_chunks.jsonl"
+    db_path: Path = base_dir / "data" / "retrieval" / "chroma_db"
     model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
-
-@dataclass(frozen=True)
-class RetrievalChunk:
-    chunk_id: str
-    registro_uid: str
-    text: str
-    metadata: dict
-
+    collection_name: str = "aneel_retrieval"
 
 class SemanticRetriever:
-    def __init__(self, chunks: list[PreparedChunk], model_name: str):
-        self.chunks = chunks
-        self.model = SentenceTransformer(model_name)
-
-        texts = [c.text_retrieval for c in chunks]
-        self.embeddings = self.model.encode(texts, show_progress_bar=True, convert_to_numpy=True)
-
-        self.embeddings = self._normalize(self.embeddings)
-
-
-    def _normalize(self, vectors: np.ndarray) -> np.ndarray:
-        norms = np.linalg.norm(vectors, axis=1, keepdims=True)
-        return vectors / np.clip(norms, 1e-10, None)
-    
+    def __init__(self, config: SemanticConfig):
+        self.client = chromadb.PersistentClient(path=str(config.db_path))
+        self.emb_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name=config.model_name
+        )
+        self.collection = self.client.get_collection(
+            name=config.collection_name, 
+            embedding_function=self.emb_fn
+        )
 
     def search(self, query: str, top_k: int = 5) -> list[dict]:
-        query_vec = self.model.encode([query], convert_to_numpy=True)
-        query_vec = self._normalize(query_vec)
-
-        scores = np.dot(self.embeddings, query_vec.T).squeeze()
-
-        top_indices = np.argsort(scores)[::-1][:top_k]
-
-        results = []
-        for idx in top_indices:
-            chunk = self.chunks[idx]
-
-            results.append({
-                "chunk_id": chunk.chunk_id,
-                "registro_uid": chunk.registro_uid,
-                "score": float(scores[idx]),
-                "text_preview": chunk.text_original[:300],
-            })
-
-        return results
-    
-
-def build_semantic_retriever(
-    config: SemanticConfig | None = None, 
-    chunks: list[PreparedChunk] | None = None 
-) -> SemanticRetriever:
-    
-    config = config or SemanticConfig()
-    
-    if chunks is None:
-        chunks = load_prepared_chunks(config.prepared_chunks_path)
+        results = self.collection.query(
+            query_texts=[query],
+            n_results=top_k
+        )
         
-    return SemanticRetriever(chunks, config.model_name)
+        formatted_results = []
+        if results['ids']:
+            for i in range(len(results['ids'][0])):
+                chunk_id = results['ids'][0][i]
+                metadata = results['metadatas'][0][i]
+                
+                distance = results['distances'][0][i] if results['distances'] else 0.0
+                
+                formatted_results.append({
+                    "chunk_id": chunk_id,
+                    "registro_uid": metadata.get("registro_uid"),
+                    "score": 1.0 - distance,
+                    "text_preview": metadata.get("text_original", "")[:300]
+                })
+                
+        return formatted_results
+
+def build_semantic_retriever(config: SemanticConfig | None = None) -> SemanticRetriever:
+    config = config or SemanticConfig()
+    return SemanticRetriever(config)
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("query", type=str)
     parser.add_argument("--top-k", type=int, default=5)
     return parser.parse_args()
-
 
 def main():
     args = parse_args()
@@ -90,7 +65,6 @@ def main():
 
     for r in results:
         print(r)
-
 
 if __name__ == "__main__":
     main()

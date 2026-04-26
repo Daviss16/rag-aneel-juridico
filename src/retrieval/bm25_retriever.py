@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
+import pickle 
+import chromadb 
 from dataclasses import dataclass
 from pathlib import Path
 
 from rank_bm25 import BM25Okapi
-from src.retrieval.schemas import PreparedChunk, load_prepared_chunks
+from src.common.utils_retriever import tokenize
+from src.common.schemas import PreparedChunk
 from archive.deprecated.query_processing import process_query
 from src.retrieval.metadata_reranker import (
     MetadataRerankConfig,
@@ -19,40 +21,45 @@ from src.retrieval.metadata_reranker import (
 @dataclass(frozen=True)
 class BM25Config:
     base_dir: Path = Path(__file__).resolve().parent.parent.parent
-    prepared_chunks_path: Path = base_dir / "data" / "retrieval" / "prepared" / "prepared_chunks.jsonl"
-
-
-TOKEN_PATTERN = re.compile(r"[a-zà-ÿ0-9]+(?:[/-][a-zà-ÿ0-9]+)*")
-
-def tokenize(text: str) -> list[str]:
-    text = (text or "").lower()
-    raw_tokens = TOKEN_PATTERN.findall(text)
-
-    tokens: list[str] = []
-    for token in raw_tokens:
-        tokens.append(token)
-
-        if "/" in token or "-" in token:
-            parts = re.split(r"[/-]", token)
-            tokens.extend([p for p in parts if p])
-
-    return tokens
+    pkl_path: Path = base_dir / "data" / "retrieval" / "indexes" / "bm25_index.pkl"
+    row_to_chunk_path: Path = base_dir / "data" / "retrieval" / "indexes" / "row_to_chunk_id.json"
+    db_path: Path = base_dir / "data" / "retrieval" / "chroma_db"
+    collection_name: str = "aneel_retrieval"
 
 
 class BM25Retriever:
     def __init__(
         self, 
-        chunks: list[PreparedChunk], 
+        config: BM25Config, 
         default_rerank_config: MetadataRerankConfig | None = None  
     ) -> None:
-        if not chunks:
-            raise ValueError("O corpus de chunks está vazio.")
-
-        self.chunks = chunks
-        self.chunk_by_id = {chunk.chunk_id: chunk for chunk in chunks}
-        self.tokenized_corpus = [tokenize(chunk.text_retrieval) for chunk in chunks]
-        self.index = BM25Okapi(self.tokenized_corpus)
+        self.config = config
         self.default_rerank_config = default_rerank_config
+
+        with open(self.config.pkl_path, "rb") as f:
+            self.index = pickle.load(f)
+            
+        with open(self.config.row_to_chunk_path, "r", encoding="utf-8") as f:
+            self.row_to_chunk_id = json.load(f)
+
+        self.client = chromadb.PersistentClient(path=str(self.config.db_path))
+        self.collection = self.client.get_collection(name=self.config.collection_name)
+
+    def _fetch_chunks_from_chroma(self, chunk_ids: list[str]) -> dict[str, PreparedChunk]:
+        if not chunk_ids: return {}
+        
+        db_results = self.collection.get(ids=chunk_ids)
+        chunk_by_id = {}
+        for i, cid in enumerate(db_results['ids']):
+            meta = db_results['metadatas'][i]
+            chunk_by_id[cid] = PreparedChunk(
+                chunk_id=cid,
+                registro_uid=meta.get("registro_uid", ""),
+                text_original=meta.get("text_original", ""),
+                text_retrieval=db_results['documents'][i],
+                metadata=meta
+            )
+        return chunk_by_id
 
     def search(
         self,
@@ -85,17 +92,21 @@ class BM25Retriever:
             reverse=True,
         )[:candidate_k]
 
+        candidate_ids = [self.row_to_chunk_id[idx] for idx in ranked_indices]
+        chunk_by_id = self._fetch_chunks_from_chroma(candidate_ids)
+
         results = []
-        for idx in ranked_indices:
-            chunk = self.chunks[idx]
-            results.append(
-                {
-                "chunk_id": chunk.chunk_id,
-                "registro_uid": chunk.registro_uid,
-                "score": float(scores[idx]),
-                "text_preview": chunk.text_original[:300],
-                }
-            )
+        for idx, chunk_id in zip(ranked_indices, candidate_ids):
+            chunk = chunk_by_id.get(chunk_id)
+            if chunk:
+                results.append(
+                    {
+                    "chunk_id": chunk.chunk_id,
+                    "registro_uid": chunk.registro_uid,
+                    "score": float(scores[idx]),
+                    "text_preview": chunk.text_original[:300],
+                    }
+                )
 
         if use_metadata_rerank and results:
             config_to_use = metadata_rerank_config or self.default_rerank_config
@@ -103,7 +114,7 @@ class BM25Retriever:
             results = rerank_top_n_results_with_metadata(
                 results=results,
                 query=query,
-                chunk_by_id=self.chunk_by_id,
+                chunk_by_id=chunk_by_id, 
                 config=config_to_use,
             )
 
@@ -111,16 +122,12 @@ class BM25Retriever:
 
 def build_bm25_retriever(
     config: BM25Config | None = None,
-    chunks: list[PreparedChunk] | None = None,
     rerank_config: MetadataRerankConfig | None = None  
 ) -> BM25Retriever:
     
     config = config or BM25Config() 
     
-    if chunks is None:
-        chunks = load_prepared_chunks(config.prepared_chunks_path)
-        
-    return BM25Retriever(chunks, default_rerank_config=rerank_config) 
+    return BM25Retriever(config=config, default_rerank_config=rerank_config) 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
