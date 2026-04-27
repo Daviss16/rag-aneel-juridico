@@ -28,7 +28,7 @@ O sistema suporta múltiplos provedores de LLM (OpenAI, Anthropic e Gemini).
    - `GEMINI_API_KEY="sua_chave"`
 
 2. Ao rodar o comando, indique qual modelo você quer usar:
-   `python3 -m src.rag.answer "sua pergunta" --model gemini-1.5-flash`
+   `python3 -m src.rag.answer_batches data/questions/perguntas.txt --model gemini-1.5-flash-latest`
 
 Sem a chave, o sistema roda normalmente exibindo apenas os documentos recuperados (modo fallback).
 

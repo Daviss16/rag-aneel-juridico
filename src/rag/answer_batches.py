@@ -9,6 +9,8 @@ from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 from src.retrieval.bm25_retriever import build_bm25_retriever
 from src.rag.answer import format_sources, call_llm
