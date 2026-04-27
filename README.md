@@ -28,7 +28,8 @@ O sistema suporta múltiplos provedores de LLM (OpenAI, Anthropic e Gemini).
    - `GEMINI_API_KEY="sua_chave"`
 
 2. Ao rodar o comando, indique qual modelo você quer usar:
-   `python3 -m src.rag.answer_batches data/questions/perguntas.txt --model gemini-1.5-flash-latest`
+   `python3 -m src.rag.answer_batches data/questions/perguntas.txt --model <modelo>`
+Se não definir o modelo, o padrão é o gpt4-o
 
 Sem a chave, o sistema roda normalmente exibindo apenas os documentos recuperados (modo fallback).
 
@@ -48,15 +49,15 @@ python3 -m src.rag.answer "sua pergunta" --no-llm
 
 ## 4. Rodar perguntas em lote
 
-python3 -m src.rag.answer_batches data/questions/perguntas.txt --model
+python3 -m src.rag.answer_batches data/questions/perguntas.txt --model <modelo>
 
-Pra adicionar as perguntas do Benchmark, o codigo le uma pergunta por linha
+Pra adicionar as perguntas do Benchmark,substitua no arquivo data/questions/perguntas.txt O CODIGO LE UMA PERGUNTA POR LINHA
 
 ---
 
 ## 5. Avaliação automática
 
-python3 -m src.rag.evaluate_batch data/rag/results/<arquivo>.json --model
+python3 -m src.rag.evaluate_batch data/rag/results/<arquivo>.json --model <modelo>
 
 Adiciona apenas como uma alternativa de avaliação das respostas
 
