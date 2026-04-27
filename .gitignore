@@ -55,8 +55,9 @@ archive/
 data/interim/
 data/processed/
 data/raw/documents/
-data/raw/json
-data/raw/metadata
+data/raw/json/
+data/raw/metadata/
+data/raw/pattern/
 data/retrieval/evaluation/
 data/retrieval/indexes/
 data/retrieval/prepared/
