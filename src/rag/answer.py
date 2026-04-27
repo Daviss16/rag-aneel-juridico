@@ -24,11 +24,9 @@ from pathlib import Path
 from typing import Any
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 from src.retrieval.bm25_retriever import build_bm25_retriever
-
 
 @dataclass(frozen=True)
 class AnswerConfig:
@@ -36,16 +34,10 @@ class AnswerConfig:
     top_k: int = 3
     model: str = "gpt-4o" 
 
-
 def _get_field(result: Any, field: str, default: Any = None) -> Any:
     if isinstance(result, dict):
         return result.get(field, default)
     return getattr(result, field, default)
-
-
-def _truncate(text: str, limit: int = 1800) -> str:
-    text = text.strip()
-    return text if len(text) <= limit else text[:limit].rstrip() + "..."
 
 
 def format_sources(results: list[Any]) -> str:
@@ -63,7 +55,6 @@ def format_sources(results: list[Any]) -> str:
         blocks.append(block)
 
     return "\n---\n".join(blocks)
-
 
 def build_prompt(question: str, context: str) -> str:
     return f"""
@@ -91,19 +82,21 @@ Pergunta:
 Resposta:
 """.strip()
 
-
 def resolve_llm_provider(requested_model: str) -> tuple[str, str, str]:
-    """Avalia as chaves do .env e define o provedor, o modelo e a chave API adequados."""
     model_lower = requested_model.lower()
     
-    if ("gpt" in model_lower or "o1" in model_lower) and os.getenv("OPENAI_API_KEY"):
-        return "openai", requested_model, os.environ["OPENAI_API_KEY"]
-    if "claude" in model_lower and os.getenv("ANTHROPIC_API_KEY"):
-        return "anthropic", requested_model, os.environ["ANTHROPIC_API_KEY"]
-    if "gemini" in model_lower and (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")):
+    if "gemini" in model_lower:
         key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
-        return "gemini", requested_model, key
+        if key: return "gemini", requested_model, key
         
+    if "claude" in model_lower:
+        key = os.getenv("ANTHROPIC_API_KEY")
+        if key: return "anthropic", requested_model, key
+        
+    if ("gpt" in model_lower or "o1" in model_lower):
+        key = os.getenv("OPENAI_API_KEY")
+        if key: return "openai", requested_model, key
+
     if os.getenv("OPENAI_API_KEY"):
         return "openai", "gpt-4o", os.environ["OPENAI_API_KEY"]
     if os.getenv("ANTHROPIC_API_KEY"):
@@ -113,7 +106,6 @@ def resolve_llm_provider(requested_model: str) -> tuple[str, str, str]:
         return "gemini", "gemini-1.5-flash", key
         
     return None, None, None
-
 
 def call_llm(question: str, context: str, model: str) -> str:
     provider, resolved_model, api_key = resolve_llm_provider(model)
@@ -158,7 +150,6 @@ def call_llm(question: str, context: str, model: str) -> str:
     except Exception as e:
         return f"[ERRO API {provider.upper()}]: Falha ao gerar resposta com o modelo '{resolved_model}'. Detalhe: {e}"
 
-
 def answer(question: str, top_k: int, model: str, use_llm: bool) -> None:
     retriever = build_bm25_retriever()
     results = retriever.search(question, top_k=top_k)
@@ -181,7 +172,6 @@ def answer(question: str, top_k: int, model: str, use_llm: bool) -> None:
     print("\n=== RESPOSTA DA LLM ===\n")
     print(call_llm(question=question, context=context, model=model))
 
-
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Executa RAG simples com BM25 Top-K e LLM opcional."
@@ -193,7 +183,6 @@ def parse_args() -> argparse.Namespace:
 
     return parser.parse_args()
 
-
 def main() -> None:
     args = parse_args()
     answer(
@@ -202,7 +191,6 @@ def main() -> None:
         model=args.model,
         use_llm=not args.no_llm,
     )
-
 
 if __name__ == "__main__":
     main()

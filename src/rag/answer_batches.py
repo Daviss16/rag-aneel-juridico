@@ -45,7 +45,7 @@ def main() -> None:
     parser.add_argument("questions_file", type=str, help="Arquivo .txt com uma pergunta por linha.")
     parser.add_argument("--top-k", type=int, default=3, help="Quantidade de chunks recuperados.")
     parser.add_argument("--no-llm", action="store_true", help="Executa apenas retrieval, sem chamar LLM.")
-    parser.add_argument("--model", type=str, default="gpt-5.5", help="Modelo da LLM.")
+    parser.add_argument("--model", type=str, default="gpt-4o", help="Modelo da LLM.")
 
     args = parser.parse_args()
 

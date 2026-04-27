@@ -4,7 +4,7 @@
 
 Clone o repositório e rode na raiz do projeto:
 
-chmod +x setup.sh && ./setup.sh^C
+chmod +x setup.sh && ./setup.sh
 
 Isso irá:
 - criar o ambiente virtual
@@ -20,17 +20,17 @@ Copie o arquivo de exemplo:
 
 cp .env.example .env
 
-O sistema suporta múltiplos provedores de LLM.
+O sistema suporta múltiplos provedores de LLM (OpenAI, Anthropic e Gemini).
 
-Basta configurar uma das seguintes variáveis no arquivo .env:
+1. Basta configurar a chave de sua preferência no arquivo `.env`:
+   - `OPENAI_API_KEY="sua_chave"`
+   - `ANTHROPIC_API_KEY="sua_chave"`
+   - `GEMINI_API_KEY="sua_chave"`
 
-- OPENAI_API_KEY
-- ANTHROPIC_API_KEY
-- GEMINI_API_KEY
+2. Ao rodar o comando, indique qual modelo você quer usar:
+   `python3 -m src.rag.answer "sua pergunta" --model gemini-1.5-flash`
 
-O sistema detecta automaticamente qual chave está disponível.
-
-Sem a chave, o sistema roda normalmente (modo fallback).
+Sem a chave, o sistema roda normalmente exibindo apenas os documentos recuperados (modo fallback).
 
 ---
 
@@ -38,7 +38,7 @@ Sem a chave, o sistema roda normalmente (modo fallback).
 
 ### Pergunta única:
 
-python3 -m src.rag.answer "sua pergunta"
+python3 -m src.rag.answer "sua pergunta" --model
 
 ### Sem LLM:
 
@@ -48,7 +48,7 @@ python3 -m src.rag.answer "sua pergunta" --no-llm
 
 ## 4. Rodar perguntas em lote
 
-python3 -m src.rag.batch_answer data/perguntas.txt
+python3 -m src.rag.answer_batches data/questions/perguntas.txt --model
 
 Pra adicionar as perguntas do Benchmark, o codigo le uma pergunta por linha
 
@@ -56,7 +56,7 @@ Pra adicionar as perguntas do Benchmark, o codigo le uma pergunta por linha
 
 ## 5. Avaliação automática
 
-python3 -m src.rag.evaluate_batch data/rag/results/<arquivo>.json
+python3 -m src.rag.evaluate_batch data/rag/results/<arquivo>.json --model
 
 Adiciona apenas como uma alternativa de avaliação das respostas
 
