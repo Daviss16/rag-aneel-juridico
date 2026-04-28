@@ -68,3 +68,8 @@ Adiciona apenas como uma alternativa de avaliação das respostas
 - O sistema utiliza BM25 como mecanismo principal de recuperação
 - A LLM é opcional e utilizada apenas para geração de respostas
 - O sistema foi testado com dataset completo (8,3k documentos + Ementa e metadados dos documentos restantes)
+
+
+
+
+# Qualquer duvida entre em contato pelo discord, usuario: davis_1995

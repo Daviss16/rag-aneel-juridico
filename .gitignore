@@ -50,7 +50,7 @@ data/logs/
 # =========================
 # Saídas intermediárias e processadas
 # =========================
-archive/
+archive/backup/
 
 data/interim/
 data/processed/
@@ -62,8 +62,7 @@ data/retrieval/evaluation/
 data/retrieval/indexes/
 data/retrieval/prepared/
 
-metrics.txt
-old_README.md
+
 # =========================
 # Modelos / embeddings / bases vetoriais futuras
 # =========================
